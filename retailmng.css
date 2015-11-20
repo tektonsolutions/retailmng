@@ -1,0 +1,42 @@
+/* CSS declarations go here */
+.top-indent{
+	margin-top: 15px;
+}
+.side-indent{
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.left-indent{
+	margin-left: 5px;
+}
+.right-indent{
+	margin-right: 5px;
+}
+.no-padding{
+	padding: 0;
+}
+.no-margin{
+	margin: 0 !important;
+}
+.dropdown-option {
+	font-size:  1.6em !important;
+}
+.search-table{
+	width: 80% !important;
+}
+.vertical-seperator{
+	border-right:  2px dashed #aaa;
+}
+.horizontal-seperator{
+	border-bottom:  2px dashed #aaa;
+}
+input{
+	margin: 0 !important;
+	padding: 0 !important;
+}
+.input-field{
+	margin-bottom: 2px;
+}
+hr.dashed{
+	border-top: dashed 2px #aaa;
+}
