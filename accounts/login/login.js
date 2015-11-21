@@ -10,21 +10,21 @@ if(Meteor.isClient){
       wrapper: "li",
       errorLabelContainer: "#errorBox",
       rules:{
-        username: {
+        username:{
           required: true,
           minlength: 6
         },
-        password: {
+        password:{
           required: true,
           minlength: 6
         }
       },
       messages:{
-        username: {
+        username:{
           required: "You must enter a username.",
           minlength: "Your username must be at least {0} characters."
         },
-        password: {
+        password:{
           required: "You must enter a password.",
           minlength: "Your password must be at least {0} characters."
         }

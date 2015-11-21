@@ -1,7 +1,7 @@
 if(Meteor.isClient){
   Template.register.events({
     "submit form": function(event){
-       event.preventDefault();
+      event.preventDefault();
     }
   });
 
@@ -9,22 +9,22 @@ if(Meteor.isClient){
     var validator = $(".register").validate({
       wrapper: "li",
       errorLabelContainer: "#errorBox",
-      rules: {
+      rules:{
         username:{
           required: true,
           minlength: 6
         },
-        password: {
+        password:{
           required: true,
           minlength: 6
         }
       },
       messages:{
-        username: {
+        username:{
           required: "You must enter a username.",
           minlength: "Your username must be at least {0} characters."
         },
-        password: {
+        password:{
           required: "You must enter a password.",
           minlength: "Your password must be at least {0} characters."
         }
