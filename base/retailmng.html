@@ -1,0 +1,1180 @@
+<template name="someName">
+  <body>
+    <div class="row">
+      <div class="col offset-m1 m10 offset-l1 l10 s12">
+        <h5 class="lighten"><b>DELIVERY REGISTER</b></h5>
+         <div class="input-field col s10 m10 l5">
+                <input id="icon_prefix" type="text" class="search-table validate">
+                <label for="icon_prefix">Search</label>
+                <i id="search_icon" class="material-icons top-indent prefix">search</i>
+        </div>
+        <div class="col hide-on-med-and-down s12 top-indent no-padding offset-m1 offset-l1 m11 l6">
+          <button class="btn right left-indent waves-effect blue waves-light">Create</button>
+          <button class="btn waves-effect side-indent right waves-light">View Report</button>
+        </div>
+
+        <div class="col hide-on-large-only s2 m2 no-padding" >
+            <ul id='dropdown1' class='dropdown-content'>
+              <li><a href="#!">Report</a></li>
+              <li class="divider"></li>
+              <li><a href="#!">Create</a></li>
+            </ul>
+           <a class="btn-flat right waves-effect dropdown-option top-indent no-padding waves-light dropdown-button" href='#' data-activates='dropdown1'><i class="dropdown-option material-icons">more_vert</i></a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col offset-m1 m10 offset-l1 l10 s12">
+        <!-- {{> leaderboard}} -->
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+      <h5 class="lighten left-indent"><b>DELIVERY REGISTER ENTRY</b></h5><br>
+      <div class="col s12 m8 l8 vertical-seperator">
+        <div class="row">
+            <div class="input-field col s5 m5 l4">
+                    <input id="delivery_prefix" type="text" class="validate">
+                    <label for="delivery_prefix">Delivery No.</label>
+            </div>
+            <div class="input-field col s4">
+                    <label for="calendar_prefix">Date Delivered</label>
+                    <input id="calendar_prefix" type="date" class="datepicker">
+            </div>
+            <div class="input-field col s3 l4">
+                    <label for="calendar_prefix">Due Date</label>
+                    <input id="calendar_prefix" type="date" class="datepicker">
+            </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6 m5 l4">
+              <select >
+                <option value="" disabled selected>Supplier</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+              </select>
+              <label>Supplier</label>
+          </div>
+          <div class="input-field col s2 m2 l3">
+            <input id="payment_term" value="" type="text" class="validate">
+            <label for="payment_term">Term</label>
+          </div>
+          <div class="input-field col s5">
+            <input id="receipt_prefix" value="" type="text" class="validate">
+            <label for="receipt_prefix">D.R. No.</label>
+          </div>
+        </div>
+        <br><br>
+        <h6 class="center-align"><b>INVENTORY ENTRY</b></h6>
+        <div class="row">
+          <div class="input-field col s1">
+            <input id="qty" placeholder="Qty." type="text" class="validate">
+          </div>
+          <div class="input-field col s2">
+              <select>
+                <option value="" disabled selected>Unit</option>
+                <option value="1">Thanks Obama</option>
+                <option value="2">Pabebe Duterte</option>
+                <option value="3">Marmar Roroxas</option>
+              </select>
+          </div>
+          <div class="input-field col s5">
+            <input id="item" placeholder="Item" type="text" class="validate">
+          </div>
+          <div class="input-field col s2">
+              <select>
+                <option value="" disabled selected>Category</option>
+                <option value="1">Thanks Obama</option>
+                <option value="2">Pabebe Duterte</option>
+                <option value="3">Marmar Roroxas</option>
+              </select>
+          </div>
+          <div class="input-field col s2">
+            <input id="unitprice" placeholder="U/P" type="text" class="validate">
+          </div>
+        </div>
+
+        <div class="row no-margin">
+            <!-- {{> leaderboard}} -->
+        </div>
+      </div>
+
+      <div class="col s12 m4 l4">
+          <div class="row">
+              <div class="col s12 m10 l10 no-padding">
+                  <div class="row">
+                    <div class="input-field col s12">
+                        <select >
+                          <option value="" disabled selected>Personnel</option>
+                          <option value="1">Thanks Obama</option>
+                          <option value="2">Pabebe Duterte</option>
+                          <option value="3">Marmar Roroxas</option>
+                        </select>
+                        <label>Received By</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                  <div class="input-field col s12">
+                  <select >
+                    <option value="" class="teal" disabled selected>Personnel</option>
+                    <option value="1">Jessica Johnson</option>
+                    <option value="2">Chuck Norris</option>
+                    <option value="3">Adolf Poe Hitler</option>
+                  </select>
+                  <label>Encoded By</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s10 no-padding">
+                <div class="row no-margin">
+                  <div class="col s3 m5">
+                      <b>VAT SALES</b>
+                  </div>
+                  <div class="col left-align teal-text s6">
+                      ₱0.00
+                  </div>
+                </div>
+                <div class="row no-margin">
+                  <div class="col s3 m5">
+                      <b>12% VAT</b>
+                  </div>
+                  <div class="col left-align teal-text s6">
+                      ₱0.00
+                  </div>
+                  <br>
+                </div>
+            </div>
+            <div class="row">
+              <div class="col s10">
+                <div class="input-field no-padding col s7 m8">
+                  <input placeholder="Total" id="total" type="text" class="validate">
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="dashed top-indent">
+          <div class="row col s12 right-align no-padding hide-on-med-and-down" >
+            <button class="col s2 btn waves-effect side-indent waves-light"><i class="material-icons">keyboard_return</i></button>
+            <button class="col s2 btn waves-effect side-indent waves-light"><i class="material-icons">delete</i></button>
+            <button class="col s2 btn waves-effect side-indent waves-light"><i class="material-icons">print</i></button>
+            <button class="col s5 btn side-indent waves-effect blue waves-light right">Save</button>
+          </div>
+
+          <div class="col hide-on-large-only s7 m7" >
+              <ul id='dropdown2' class='dropdown-content'>
+                <li><a href="#!">Cancel</a></li>
+                <li><a href="#!">Delete</a></li>
+                <li><a href="#!">Print</a></li>
+                <li class="divider"></li>
+                <li><a href="#!">Save</a></li>
+              </ul>
+             <a class="btn-flat right waves-effect dropdown-option no-padding waves-light dropdown-button" href='#' data-activates='dropdown2'><i class="dropdown-option material-icons">arrow_drop_down_circle</i></a>
+          </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col offset-m1 m10 offset-l1 l10 s12">
+        <h5 class="lighten"><b>INVENTORY</b></h5>
+         <div class="input-field col s10 m10 l5">
+                <input id="search_prefix" type="text" class="search-table validate">
+                <label for="search_prefix">Search</label>
+                <i id="search_icon" class="material-icons top-indent prefix">search</i>
+        </div>
+        <div class="col hide-on-med-and-down s12 top-indent no-padding offset-m1 offset-l1 m11 l6" >
+          <button class="btn right left-indent waves-effect blue waves-light">Create</button>
+          <button class="btn waves-effect side-indent right waves-light">View Report</button>
+        </div>
+        <div class="col hide-on-large-only s2 m2 no-padding">
+            <ul id='dropdown3' class='dropdown-content'>
+              <li><a href="#!">Report</a></li>
+              <li class="divider"></li>
+              <li><a href="#!">Create</a></li>
+            </ul>
+           <a class="btn-flat right waves-effect dropdown-option top-indent no-padding waves-light dropdown-button" href='#' data-activates='dropdown3'><i class="dropdown-option material-icons">more_vert</i></a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col offset-m1 m10 offset-l1 l10 s12">
+        <!-- {{> leaderboard}} -->
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+      <h5 class="lighten"><b>INVENTORY ENTRY</b></h5>
+      <div class="col s12 m6 l6 vertical-seperator">
+        <div class="row">
+          <div class="input-field col s4">
+                <input id="item_prefix" type="text" class="validate">
+                <label for="item_prefix">Item Code</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="desc_prefix" type="text" class="validate">
+            <label for="desc_prefix">Item Description</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+                <select>
+                  <option value="" disabled selected>Unit</option>
+                  <option value="1">grams</option>
+                  <option value="2">kilo</option>
+                  <option value="3">ounce</option>
+                </select>
+                <label for="unit_prefix">Unit of Measure</label>
+          </div>
+          <div class="input-field col s6">
+                  <select >
+                    <option value="" disabled selected>Category</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                  </select>
+                  <label>Item Category</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s3">
+                <input id="avecost_prefix" type="text" class="validate">
+                <label for="avecost_prefix">Average Cost</label>
+          </div>
+          <div class="input-field col s3">
+                <input id="lastcost_prefix" type="text" class="validate">
+                <label for="lastcost_prefix">Last Cost</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s5">
+                <input id="sellingprice_prefix" type="text" class="validate">
+                <label for="sellingprice_prefix">Selling Price</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s5">
+                <input id="qty_prefix" type="text" class="validate">
+                <label for="qty_prefix">Qty. on Hand</label>
+          </div>
+        </div>
+
+      </div>
+      <div class="col s12 m6 l6">
+        <div class="row">
+          <div class="input-field col s12 m6 l4">
+                <input id="item_prefix" type="text" class="validate">
+                <label for="item_prefix">Reorder Qty</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 m6 l4">
+                <input id="item_prefix" type="text" class="validate">
+                <label for="item_prefix">Reorder Pt.</label>
+          </div>
+        </div>
+        <hr class="dashed top-indent">
+        <b>CONVERT TO RETAIL</b>
+        <div class="row top-indent">
+          <div class="input-field col s3">
+            <select>
+                  <option value="" disabled selected>Unit</option>
+                  <option value="1">grams</option>
+                  <option value="2">kilo</option>
+                  <option value="3">ounce</option>
+            </select>
+            <label>Presets</label>
+          </div>
+        </div>
+        <hr class="dashed top-indent">
+        <div class="row right top-indent">
+          <button class="btn right left-indent waves-effect blue waves-light side-indent">Save</button>
+          <button class="btn waves-effect side-indent right waves-light">Print</button>
+          <button class="btn waves-effect side-indent right waves-light">Delete</button>
+          <button class="btn waves-effect side-indent right waves-light">Cancel</button>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+      <h5 class="lighten left-indent"><b>SALES</b></h5>
+      <div class="col s12 m7 l7">
+        <div class="row">
+            <div class="input-field col s12 m12 l12">
+                <input id="icon_prefix" type="text" class="search-table validate">
+                <label for="icon_prefix">Search</label>
+                <i id="search_icon" class="material-icons top-indent prefix">search</i>
+           </div>
+        </div>
+
+        <div class="row no-margin">
+            <!-- {{> leaderboard}} -->
+        </div>
+      </div>
+
+      <div class="col s12 m5 l5">
+
+        <div class="row no-margin">
+          <div class="col s12">
+            <ul class="tabs">
+              <!--tabs init-->
+              <li class="tab col s6"><a class="active" href="#sell_tab">SELL</a></li>
+              <li class="tab col s6"><a href="#others_tab">OTHERS</a></li>
+            </ul>
+          </div>
+          <!--sell_tab starts-->
+          <div id="sell_tab" class="col s12">
+          <br>
+          <p>
+            <input type="checkbox" class="filled-in" id="delivery"/>
+            <label for="delivery">Delivery</label>
+            <!-- delivery -->
+
+            <!-- delivery modal -->
+            <div id="delivery_modal" class="modal">
+              <div class="modal-content">
+                <h5>Delivery Info</h5>
+                  <div class="row">
+                    <div class="input-field col s3">
+                      <select>
+                            <option value="" disabled selected>Select Area</option>
+                            <option value="1">grams</option>
+                            <option value="2">kilo</option>
+                            <option value="3">ounce</option>
+                      </select>
+                      <label>Delivery Area</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <input placeholder="₱0.00" id="delivery_fee" type="text">
+                      <label for="delivery_fee">Delivery Fee</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <textarea id="delivery_address" class="materialize-textarea"></textarea>
+                      <label for="delivery_address">Delivery Address</label>
+                    </div>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <a href="#!" class="modal-close modal-action waves-effect waves-green btn-flat ">OK</a>
+              </div>
+            </div>
+          </p>
+
+          <p>
+            <input type="checkbox" class="filled-in" id="cod" />
+            <label for="cod">Cash On Delivery</label>
+          </p>
+          <hr class="dashed top-indent">
+          <br>
+          <div class="col s12 m5 l5 no-padding">
+              <div class="row no-margin">
+                <div class="col no-padding s4">
+                    <b>Subtotal</b>
+                </div>
+                <div class="col s8 teal-text">
+                    ₱0.00
+                </div>
+              </div>
+              <div class="row no-margin">
+                <div class="col no-padding s4">
+                    <b>Discount</b>
+                </div>
+                <div class="col s8 teal-text">
+                    ₱0.00
+                </div>
+              </div>
+              <div class="row no-margin">
+                <div class="col no-padding s4">
+                   <b>Del. Fee</b>
+                </div>
+                <div class="col s8 teal-text">
+                    ₱0.00
+                </div>
+              </div>
+          </div>
+
+          <div class="col s12 m7 l7">
+              <div class="row no-margin">
+                <div class="col left-align no-padding s12">
+                    <h5 class="no-margin"><b>GRAND TOTAL</b></h5>
+                </div>
+              </div>
+              <div class="row no-margin">
+                <div class="col teal-text no-padding s12">
+                    <h4 class="no-margin bottom-indent"><b>₱0.00</b></h4>
+                </div>
+              </div>
+              <div class="row offset-s8 no-margin">
+                <p class="no-margin">
+                  <input class="with-gap" name="group1" type="radio" id="cash" checked="checked" />
+                  <label for="cash" class="top-indent">CASH</label>
+                  <br>
+                  <input class="with-gap" name="group1" type="radio" id="check"  />
+                  <label for="check">CHECK</label>
+                  <br>
+                  <input class="with-gap" name="group1" type="radio" id="card"  />
+                  <label for="card">CARD</label>
+                </p>
+              </div>
+          </div>
+
+          <div class="row right no-padding" >
+
+            <!-- discount modal -->
+            <div id="discount_modal" class="modal">
+              <div class="modal-content">
+                <h5>Apply Discount</h5>
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input id="discount" type="number">
+                      <label for="discount"><b>Discount</b></label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <p>
+                      <input class="with-gap" name="group2" type="radio" id="price" checked="checked" />
+                      <label for="price" class="right-indent">PRICE</label>
+                      <input class="with-gap" name="group2" type="radio" id="percentage"  />
+                      <label for="percentage" class="left-indent">PERCENTAGE</label>
+                    </p>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <a href="#!" class="modal-close modal-action waves-effect waves-green btn-flat ">OK</a>
+              </div>
+            </div>
+
+            <!-- Cash Info -->
+            <div id="cash_modal" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <h5>Fill Information</h5>
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input id="customer_name" type="text">
+                      <label for="customer_name">Customer Name</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input placeholder="Sales Person" id="sales_pw" type="password" class="validate">
+                      <label for="sales_pw">Password</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input placeholder="P0.00" id="amount_paid" type="text">
+                      <label for="amount_paid"><b>AMOUNT PAID</b></label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col s6">
+                      <h6><b>CHANGE</b></h6>
+                      <div class="row red-text">
+                        <h5 class="no-margin"><b>P0.00</b></h5>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <a href="#!" class="modal-close modal-action waves-effect waves-green btn-flat ">OK</a>
+              </div>
+            </div>
+
+            <!-- Check Info -->
+            <div id="check_modal" class="modal">
+              <div class="modal-content">
+                <h5>Fill Information</h5>
+                  <div class="row">
+                    <div class="input-field col s5">
+                      <input id="bank_name" type="text">
+                      <label for="bank_name">Bank</label>
+                    </div>
+                    <div class="input-field col s7">
+                      <input id="payee" type="text">
+                      <label for="payee">Payee</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s5">
+                            <label for="checkdate">Check Date</label>
+                            <input id="checkdate" type="date" class="datepicker">
+                    </div>
+                    <div class="input-field col s7">
+                      <input id="checknum" type="text">
+                      <label for="checknum">Check No.</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s5">
+                      <input placeholder="P0.00" id="checkamount" type="text">
+                      <label for="checkamount"><b>CHECK AMOUNT</b></label>
+                    </div>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <a href="#!" class="modal-close modal-action waves-effect waves-green btn-flat ">OK</a>
+              </div>
+            </div>
+
+            <!-- Card Info -->
+            <div id="card_modal" class="modal">
+              <div class="modal-content">
+                <h5>Fill Information</h5>
+                  <div class="row">
+                    <div class="input-field col s5">
+                      <input id="bank_name" type="text">
+                      <label for="bank_name">Bank</label>
+                    </div>
+                    <div class="input-field col s3">
+                      <input placeholder="Last 4-digits" id="card_num" type="text">
+                      <label for="card_num">Card No.</label>
+                    </div>
+                    <div class="input-field col s2">
+                      <label for="exp_date_mm">Expiry Date</label>
+                      <input placeholder="MM" id="exp_date_mm" type="text">
+                    </div>
+                    <div class="input-field col s2">
+                      <input placeholder="YY" id="exp_date_yy" type="text">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s5">
+                      <input id="card_name" type="text">
+                      <label for="card_name">Name on Card</label>
+                    </div>
+                    <div class="input-field col s3">
+                      <select>
+                        <option value="" disabled selected>Card Type</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s5">
+                      <input id="ref_num" type="text">
+                      <label for="ref_num">Approval/Reference No.</label>
+                    </div>
+                  </div>
+              </div>
+                <div class="modal-footer">
+                  <a href="#!" class="modal-close modal-action waves-effect waves-green btn-flat ">SETTLE</a>
+                </div>
+              </div>
+            </div>
+          </div> <!--sell tab ends-->
+          <!--otheropt_tab starts-->
+          <div id="others_tab" class="col s12">
+            <br>
+            <div class="row no-margin">
+              <div class="col s12">
+                <p class="no-margin">
+                  <input class="with-gap" name="group3" type="radio" id="return" checked="checked" />
+                  <label for="return"><b>RETURN</b></label>
+                  <input class="with-gap" name="group3" type="radio" id="void"  />
+                  <label for="void"><b>VOID</b></label>
+                </p>
+                <div class="col s12">
+                  <div class="row no-margin">
+                    <div class="input-field no-margin">
+                      <input placeholder="O.R. No." id="or_num" type="text">
+                    </div>
+                  </div>
+                  <div class="row no-margin">
+                    <div class="input-field no-margin">
+                      <textarea placeholder="Reason" id="reason" class="materialize-textarea"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col s12">
+                <div class="col s10 no-padding">
+                    <h5 class="no-margin col s6"><b>RETURN</b></h5>
+                    <h4 class="no-margin col s7 red-text"><b>₱0.00</b></h4>
+                </div>
+              </div>
+            </div>
+          </div><!--otheropt_tab ends-->
+        </div>
+        <br>
+        <div class="row col s12 right-align hide-on-med-and-down no-padding">
+          <button class="col s3 btn waves-effect side-indent waves-light">clear</button>
+          <!-- Discount -->
+          <a class="col s4 modal-trigger waves-effect side-indent waves-light btn" href="#discount_modal">discount</a>
+          <!-- Settle -->
+          <a id="settle" class="col s4 right modal-trigger blue waves-effect side-indent waves-light btn" href="#cash_modal">settle</a>
+        </div>
+
+        <div class="hide-on-large-only col s7 m7" >
+            <ul id='dropdown4' class='dropdown-content'>
+              <li><a href="#!">Clear</a></li>
+              <li><a href="#discount_modal">Discount</a></li>
+              <li class="divider"></li>
+              <li><a href="#cash_modal">Settle</a></li>
+            </ul>
+           <a class="btn-flat right waves-effect dropdown-option no-padding waves-light dropdown-button" href='#' data-activates='dropdown4'><i class="dropdown-option material-icons">arrow_drop_down_circle</i></a>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="row">
+      <div class="col offset-m1 m10 offset-l1 l10 s12">
+        <h5 class="lighten"><b>RETAIL PRESETS</b></h5>
+         <div class="input-field col s8 m6 l6">
+                <input id="icon_prefix" type="text" class="search-table validate">
+                <label for="icon_prefix">Search</label>
+                <i id="search_icon" class="material-icons top-indent prefix">search</i>
+        </div>
+        <div class="col s4 m6 l6 top-indent no-padding" >
+          <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#retailpreset_modal">Create</a>
+        </div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col offset-m1 m10 offset-l1 l10 s12">
+        <!-- {{> leaderboard}} -->
+      </div>
+    </div>
+
+    <div id="retailpreset_modal" class="modal modal-fixed-footer">
+      <div class="modal-content">
+        <h5>Fill Information</h5>
+          <div class="row">
+            <div class="input-field col s5">
+              <input id="preset_title" type="text">
+              <label for="preset_title">Retail Preset Title</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s8">
+              <textarea placeholder="e.g. Retail Preset for (product)." id="preset_description" class="materialize-textarea" type="text"></textarea>
+              <label for="preset_description">Short Description</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s3">
+              <input id="retail_value" type="text">
+              <label for="retail_value">Retail Value</label>
+            </div>
+            <div class="input-field col s5">
+              <select>
+                <option value="" disabled selected>Unit</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+              </select>
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close modal-action waves-effect waves-green btn-flat ">OK</a>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="row">
+      <div class="col offset-m1 m10 offset-l1 l10 s12">
+        <h5 class="lighten"><b>PHYSICAL INVENTORY COUNT</b></h5>
+         <div class="input-field col s8 m6 l6">
+                <input id="icon_prefix" type="text" class="search-table validate">
+                <label for="icon_prefix">Search</label>
+                <i id="search_icon" class="material-icons top-indent prefix">search</i>
+        </div>
+        <div class="col s4 m6 l6 top-indent no-padding" >
+          <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#!">Create</a>
+        </div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col offset-m1 m10 offset-l1 l10 s12">
+        <!-- {{> leaderboard}} -->
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="row">
+      <h5 class="lighten left-indent"><b>PERFORM INVENTORY COUNT</b></h5><br>
+      <div class="col s12 m8 l8 vertical-seperator">
+        <div class="row">
+            <div class="input-field col s8">
+                <input id="delivery_prefix" type="text" class="validate">
+                <label for="delivery_prefix">Inventory Count Title</label>
+            </div>
+            <div class="input-field col s4">
+                <label for="calendar_prefix">Inventory Count Date</label>
+                <input id="calendar_prefix" type="date" class="datepicker">
+            </div>
+        </div>
+        <div class="row col s12 m12 l12">
+          <div class="input-field no-padding col s5 m5 l5">
+            <input id="item" placeholder="Item" type="text" class="validate">
+          </div>
+          <div class="input-field col s2 m2 l2">
+            <input id="qty" placeholder="Qty." type="text" class="validate">
+          </div>
+          <br>
+          <button class="col s1 m1 l1 side-indent btn waves-effect waves-light"><i class="material-icons">remove</i></button>
+          <button class="col s1 m1 l1 side-indent btn waves-effect waves-light"><i class="material-icons">add</i></button>
+          <button class="col s2 m2 l2 right blue btn waves-effect waves-light">COUNT</button>
+        </div>
+
+        <div class="row no-margin">
+            <!-- {{> leaderboard}} -->
+        </div>
+      </div>
+
+      <div class="col s12 m4 l4">
+        <div class="row">
+          <div class="input-field col s7 no-padding no-margin">
+            <p class="no-margin">
+              <input class="with-gap" name="group3" type="radio" id="full" checked="checked" />
+              <label for="full" class="top-indent">FULL COUNT</label>
+              <input class="with-gap" name="group3" type="radio" id="partial"  />
+              <label for="partial">PARTIAL COUNT</label>
+            </p>
+          </div>
+        </div>
+        <div class="row col s11 offset-s1">
+          <div class="input-field">
+            <input placeholder="Supplier or Category" id="search" value="" type="text" class="validate">
+          </div>
+        </div>
+        <div class="row col s12 right-align no-padding hide-on-med-and-down" >
+          <button class="col s2 btn waves-effect side-indent waves-light"><i class="material-icons">keyboard_return</i></button>
+          <button class="col s2 btn waves-effect side-indent waves-light"><i class="material-icons">delete</i></button>
+          <button class="col s2 btn waves-effect side-indent waves-light"><i class="material-icons">print</i></button>
+          <button class="col s5 btn side-indent waves-effect blue waves-light right">UPDATE INVENTORY</button>
+        </div>
+
+        <div class="col hide-on-large-only s7 m7" >
+            <ul id='dropdown6' class='dropdown-content'>
+              <li><a href="#!">Cancel</a></li>
+              <li><a href="#!">Delete</a></li>
+              <li><a href="#!">Print</a></li>
+              <li class="divider"></li>
+              <li><a href="#!">Update</a></li>
+            </ul>
+           <a class="btn-flat right waves-effect dropdown-option no-padding waves-light dropdown-button" href='#' data-activates='dropdown6'><i class="dropdown-option material-icons">arrow_drop_down_circle</i></a>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="row">
+      <div class="col offset-m1 m10 offset-l1 l10 s12">
+        <h5 class="lighten"><b>EMPLOYEES</b></h5>
+         <div class="input-field col s8 m6 l6">
+                <input id="icon_prefix" type="text" class="search-table validate">
+                <label for="icon_prefix">Search</label>
+                <i id="search_icon" class="material-icons top-indent prefix">search</i>
+        </div>
+        <div class="col s4 m6 l6 top-indent no-padding" >
+          <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#emp_modal">Create</a>
+        </div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col offset-m1 m10 offset-l1 l10 s12">
+        <!-- {{> leaderboard}} -->
+      </div>
+    </div>
+
+    <div id="emp_modal" class="modal modal-fixed-footer">
+      <div class="modal-content">
+        <h5>Fill Information</h5>
+          <div class="row">
+            <div class="input-field col s4">
+              <input placeholder="Employee Name" id="emp_name" type="text">
+            </div>
+            <div class="input-field col s4">
+              <input placeholder="Birthdate" id="emp_birthdate" type="date" class="datepicker">
+            </div>
+            <div class="input-field col s4">
+              <input placeholder="Contact No." id="emp_contact" type="text">
+            </div>
+          </div>
+          <div class="row no-margin">
+            <div class="input-field col s8 no-margin">
+              <textarea placeholder="Address" id="emp_address" class="materialize-textarea" type="text"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s4">
+              <select>
+                <option value="" disabled selected>Position</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s4">
+              <input placeholder="Username" id="emp_username" type="text">
+            </div>
+            <div class="input-field col s4">
+              <input placeholder="Password" id="emp_pw" type="password" class="validate">
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close modal-action waves-effect waves-green btn-flat ">OK</a>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="row">
+      <div class="col offset-m1 m10 offset-l1 l10 s12">
+        <h5 class="lighten"><b>SUPPLIERS</b></h5>
+         <div class="input-field col s8 m6 l6">
+                <input id="icon_prefix" type="text" class="search-table validate">
+                <label for="icon_prefix">Search</label>
+                <i id="search_icon" class="material-icons top-indent prefix">search</i>
+        </div>
+        <div class="col s4 m6 l6 top-indent no-padding" >
+          <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#supplier_modal">Create</a>
+        </div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col offset-m1 m10 offset-l1 l10 s12">
+        <!-- {{> leaderboard}} -->
+      </div>
+    </div>
+
+    <div id="supplier_modal" class="modal modal-fixed-footer">
+      <div class="modal-content">
+        <h5>Fill Information</h5>
+          <div class="row">
+            <div class="input-field col s4">
+              <input placeholder="Supplier Name" id="sup_name" type="text">
+            </div>
+            <div class="input-field col s4">
+              <input placeholder="TIN" id="sup_tin" type="text">
+            </div>
+
+            <div class="input-field col s4">
+              <input placeholder="Email Address" id="sup_email" type="text">
+            </div>
+          </div>
+          <div class="row no-margin no-margin">
+            <div class="input-field col s8">
+              <textarea placeholder="Address" id="sup_address" class="materialize-textarea" type="text"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s4">
+              <input placeholder="Contact Person" id="sup_person" type="text">
+            </div>
+            <div class="input-field col s4">
+              <input placeholder="Contact No." id="sup_contact" type="text">
+            </div>
+            <div class="input-field col s4">
+              <input placeholder="Fax No." id="sup_fax" type="text">
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close modal-action waves-effect waves-green btn-flat ">OK</a>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="row">
+      <div class="col offset-m1 m10 offset-l1 l10 s12">
+        <h5 class="lighten"><b>CATEGORIES</b></h5>
+         <div class="input-field col s8 m6 l6">
+                <input id="icon_prefix" type="text" class="search-table validate">
+                <label for="icon_prefix">Search</label>
+                <i id="search_icon" class="material-icons top-indent prefix">search</i>
+        </div>
+        <div class="col s4 m6 l6 top-indent no-padding" >
+          <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#category_modal">Create</a>
+        </div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col offset-m1 m10 offset-l1 l10 s12">
+        <!-- {{> leaderboard}} -->
+      </div>
+    </div>
+
+    <div id="category_modal" class="modal">
+      <div class="modal-content">
+        <h5>Fill Information</h5>
+          <div class="row">
+            <div class="input-field col s4">
+              <input placeholder="Category Name" id="cat_name" type="text">
+            </div>
+            <div class="input-field col s3">
+              <input placeholder="Shortname" id="cat_short" type="text">
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close modal-action waves-effect waves-green btn-flat ">OK</a>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col offset-m1 m10 offset-l1 l10 s12">
+        <h5 class="lighten"><b>UNITS</b></h5>
+         <div class="input-field col s8 m6 l6">
+                <input id="icon_prefix" type="text" class="search-table validate">
+                <label for="icon_prefix">Search</label>
+                <i id="search_icon" class="material-icons top-indent prefix">search</i>
+        </div>
+        <div class="col s4 m6 l6 top-indent no-padding" >
+          <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#units_modal">Create</a>
+        </div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col offset-m1 m10 offset-l1 l10 s12">
+        <!-- {{> leaderboard}} -->
+      </div>
+    </div>
+
+    <div id="units_modal" class="modal">
+      <div class="modal-content">
+        <h5>Fill Information</h5>
+          <div class="row">
+            <div class="input-field col s4">
+              <input placeholder="Unit Name" id="unit_name" type="text">
+            </div>
+            <div class="input-field col s3">
+              <input placeholder="Shortname" id="unit_short" type="text">
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close modal-action waves-effect waves-green btn-flat ">OK</a>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col offset-m1 m10 offset-l1 l10 s12">
+        <h5 class="lighten"><b>DELIVERY AREAS</b></h5>
+         <div class="input-field col s8 m6 l6">
+                <input id="icon_prefix" type="text" class="search-table validate">
+                <label for="icon_prefix">Search</label>
+                <i id="search_icon" class="material-icons top-indent prefix">search</i>
+        </div>
+        <div class="col s4 m6 l6 top-indent no-padding" >
+          <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#areas_modal">Create</a>
+        </div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col offset-m1 m10 offset-l1 l10 s12">
+        <!-- {{> leaderboard}} -->
+      </div>
+    </div>
+
+    <div id="areas_modal" class="modal">
+      <div class="modal-content">
+        <h5>Fill Information</h5>
+          <div class="row">
+            <div class="input-field col s4">
+              <input placeholder="Delivery Area" id="area_name" type="text">
+            </div>
+            <div class="input-field col s3">
+              <input placeholder="Fee" id="area_fee" type="text">
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close modal-action waves-effect waves-green btn-flat ">OK</a>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <script type="text/javascript">
+    var currentDate = new Date();
+    $(document).ready(function() {
+      var $input = $('.datepicker').pickadate();
+      var picker = $input.pickadate('picker');
+      picker.set('select', new Date());
+      $('select').material_select();
+    });
+    $('#delivery').change(function () {
+      if ($(this).is(':checked')) {
+          $('#delivery_modal').openModal();
+      }
+    });
+    $(document).ready(function(){
+      $('.modal-trigger').leanModal();
+    });
+    $(document).ready(function(){
+     $('ul.tabs').tabs();
+   });
+   $(document).ready(function(){
+    $(".button-collapse").sideNav();
+  });
+
+    </script>
+  </body>
+</template>
