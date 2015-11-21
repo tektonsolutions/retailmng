@@ -6,6 +6,14 @@ if(Meteor.isClient){
   });
 
   Template.register.onRendered(function(){
+    $('.register').validate({
+        rules: {
 
+        },
+        messages:{
+
+        },
+
+    });
   });
 }
