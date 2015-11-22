@@ -11,3 +11,26 @@
 <template name="main">
   {{> yield}}
 </template>
+
+<!--scripts-->
+<template name="ui_script">
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var currentDate = new Date();
+      var $input = $(".datepicker").pickadate();
+      var picker = $input.pickadate("picker");
+      picker.set("select", new Date());
+      $("select").material_select();
+
+      $(".modal-trigger").leanModal();
+      $(".button-collapse").sideNav();
+      $("ul.tabs").tabs();
+    });
+
+    $("#delivery").change(function () {
+      if ($(this).is(":checked")) {
+          $("#delivery_modal").openModal();
+      }
+    });
+  </script>
+</template>

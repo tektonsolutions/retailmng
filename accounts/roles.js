@@ -1,5 +1,14 @@
 roles = {
-  admin: "Manager",
-  supervisor: "Supervisor",
-  sales:"Sales"
+  admin: {
+    key: "manager",
+    name: "Manager"
+  },
+  supervisor:{
+    key: "supervisor",
+    name: "Supervisor"
+  },
+  sales: {
+    key: "sales-person",
+    name: "Sales Person"
+  }
 };

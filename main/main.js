@@ -7,7 +7,7 @@ if(Meteor.isServer){
       };
       var id = Accounts.createUser(userObject);
       if(id){
-        Roles.addUsersToRoles(id, roles.admin);
+        Roles.addUsersToRoles(id, roles.admin.key);
       }
     }
   });
@@ -32,6 +32,17 @@ Router.route("/", {
 });
 Router.route("/register");
 Router.route("/sales");
+Router.route("/employees", {
+  name: "employees",
+  template: "employeeMain"
+});
 
 //retailmng html
 Router.route("/retailmng");
+
+function loggedIn(){
+  var currentUser = Meteor.userId();
+  if(!currentUser){
+    throw new Meteor.Error("not-logged-in", "You're not logged-in.");
+  }
+}

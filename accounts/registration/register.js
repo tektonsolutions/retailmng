@@ -43,7 +43,7 @@ if(Meteor.isClient){
              });
            }
         });
-        Roles.addUsersToRoles(id, roles.admin);
+        Roles.addUsersToRoles(id, roles.admin.key);
         Router.go("sales");
       }
     });

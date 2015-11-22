@@ -1,0 +1,81 @@
+<template name="employeeMain">
+  <div class="row">
+    <div class="col offset-m1 m10 offset-l1 l10 s12">
+      <h5 class="lighten">
+        <b>EMPLOYEES</b>
+      </h5>
+      <div class="input-field col s8 m6 l6">
+        <input class="search-table validate" id="icon_prefix" type="text">
+        <label for="icon_prefix">Search</label>
+        <i class="material-icons top-indent prefix" id="search_icon">search</i>
+      </div>
+      <div class="col s4 m6 l6 top-indent no-padding">
+        <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#emp_modal">Create</a>
+      </div>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col offset-m1 m10 offset-l1 l10 s12">
+      {{> employeeList}}
+    </div>
+  </div>
+
+  {{> employeeCreate}}
+  {{> ui_script}}
+</template>
+
+<template name="employeeList"></template>
+
+<template name="employeeCreate">
+  <div class="modal modal-fixed-footer" id="emp_modal">
+
+    <form class="register">
+      <div class="modal-content">
+        <h5>Fill Information</h5>
+        <div class="row">
+          <div class="input-field col s4">
+            <input id="emp_name" placeholder="Employee Name" type="text">
+          </div>
+          <div class="input-field col s4">
+            <input class="datepicker" id="emp_birthdate" placeholder="Birthdate" type="date">
+          </div>
+          <div class="input-field col s4">
+            <input id="emp_contact" placeholder="Contact No." type="text">
+          </div>
+        </div>
+        <div class="row no-margin">
+          <div class="input-field col s8 no-margin">
+            <textarea class="materialize-textarea" id="emp_address" placeholder="Address" type="text"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s4">
+            {{> employeePosition}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s4">
+            <input id="emp_username" placeholder="Username" type="email">
+          </div>
+          <div class="input-field col s4">
+            <input class="validate" id="emp_pw" placeholder="Password" type="password">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="modal-action waves-effect waves-green btn-flat">OK</button>
+      </div>
+    </form>
+
+  </div>
+</template>
+
+<template name="employeePosition">
+  <select>
+    <option disabled selected value="">Position</option>
+    {{#each positions}}
+      <option value="{{role}}">{{name}}</option>
+    {{/each}}
+  </select>
+</template>
