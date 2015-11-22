@@ -12,11 +12,11 @@ if(Meteor.isClient){
       rules:{
         username:{
           required: true,
-          minlength: 6
+          minlength: 5
         },
         password:{
           required: true,
-          minlength: 6
+          minlength: 5
         }
       },
       messages:{
@@ -35,7 +35,6 @@ if(Meteor.isClient){
         Meteor.loginWithPassword(username, password, function(error){
           if(error){
             if(error.reason == "User not found"){
-              console.log(error.reason);
               validator.showErrors({
                 username: error.reason
               });
@@ -46,8 +45,7 @@ if(Meteor.isClient){
               });
             }
           } else{
-            console.log(Meteor.userId());
-            //do something
+            Router.go("sales");
           }
         });
       }

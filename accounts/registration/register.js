@@ -12,11 +12,11 @@ if(Meteor.isClient){
       rules:{
         username:{
           required: true,
-          minlength: 6
+          minlength: 5
         },
         password:{
           required: true,
-          minlength: 6
+          minlength: 5
         }
       },
       messages:{
@@ -36,17 +36,15 @@ if(Meteor.isClient){
           username: username,
           password: password
         };
-        Accounts.createUser(userObject, function(error){
+        var id = Accounts.createUser(userObject, function(error){
            if(error){
              validator.showErrors({
                username: error.reason
              });
-           } else{
-             //do something
            }
         });
-        console.log(Meteor.userId());
-        //do something after submit
+        Roles.addUsersToRoles(id, roles.admin);
+        Router.go("sales");
       }
     });
   });
