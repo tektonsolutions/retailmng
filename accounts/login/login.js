@@ -7,8 +7,13 @@ if(Meteor.isClient){
 
   Template.login.onRendered(function(){
     var validator = $(".login").validate({
-      wrapper: "li",
-      errorLabelContainer: "#errorBox",
+      errorClass: 'invalid',
+      errorPlacement: function (error, element) {
+        $(element)
+        .closest("form")
+        .find("label[for='" + element.attr("id") + "']")
+        .attr('data-error', error.text());
+      },
       rules:{
         username:{
           required: true,

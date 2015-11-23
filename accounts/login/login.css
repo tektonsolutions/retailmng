@@ -1,0 +1,4 @@
+.login,
+label[data-error]:after {
+  white-space: nowrap;
+}

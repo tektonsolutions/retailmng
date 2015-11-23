@@ -35,7 +35,8 @@
         <h5>Fill Information</h5>
         <div class="row">
           <div class="input-field col s4">
-            <input id="emp_name" placeholder="Employee Name" type="text">
+            <input id="emp_name" name="name" placeholder="Employee Name" type="text">
+            <label class="active" for="emp_name">&zwnj;</label>
           </div>
           <div class="input-field col s4">
             <input class="datepicker" id="emp_birthdate" placeholder="Birthdate" type="date">
@@ -51,20 +52,27 @@
         </div>
         <div class="row">
           <div class="input-field col s4">
-            {{> employeePosition}}
+            <select name="role">
+              <option disabled selected value="">Position</option>
+              {{> employeePosition}}
+            </select>
+            <div id="selectErrorContainer">
+            </div>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s4">
-            <input id="emp_username" placeholder="Username" type="email">
+            <input id="emp_username" name="username" placeholder="Username" type="text">
+            <label class="active" for="emp_username">&zwnj;</label>
           </div>
           <div class="input-field col s4">
-            <input class="validate" id="emp_pw" placeholder="Password" type="password">
+            <input id="emp_pw" name="password" placeholder="Password" type="password">
+            <label class="active" for="emp_pw">&zwnj;</label>
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="modal-action waves-effect waves-green btn-flat">OK</button>
+        <button class="modal-action waves-effect waves-green btn-flat" type="submit">OK</button>
       </div>
     </form>
 
@@ -72,10 +80,7 @@
 </template>
 
 <template name="employeePosition">
-  <select>
-    <option disabled selected value="">Position</option>
-    {{#each positions}}
-      <option value="{{role}}">{{name}}</option>
-    {{/each}}
-  </select>
+  {{#each positions}}
+    <option value="{{role}}">{{name}}</option>
+  {{/each}}
 </template>
