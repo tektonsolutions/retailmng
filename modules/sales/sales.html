@@ -1,4 +1,7 @@
 <template name="sales">
+  {{> sidebar}}
+  <main>
+  {{> navbar}}
     <div class="row">
       <h5 class="lighten left-indent"><b>SALES</b></h5>
       <div class="col s12 m7 l7">
@@ -322,5 +325,14 @@
         </div>
       </div>
     </div>
+  </main>
     {{> tabs_script }}
+    {{> select_script}}
+    <script type="text/javascript">
+      $("#delivery").change(function () {
+        if ($(this).is(":checked")) {
+            $("#delivery_modal").openModal();
+        }
+      });
+    </script>
 </template>

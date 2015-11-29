@@ -1,97 +1,101 @@
 <template name="inventoryEntry">  
-  <div class="row">
-      <h5 class="lighten"><b>INVENTORY ENTRY</b></h5>
-      <div class="col s12 m6 l6 vertical-seperator">
-        <div class="row">
-          <div class="input-field col s4">
-                <input id="item_prefix" type="text" class="validate">
-                <label for="item_prefix">Item Code</label>
+   {{> sidebar}}
+   <main>
+   {{> navbar}}
+    <div class="row">
+        <h5 class="lighten"><b>INVENTORY ENTRY</b></h5>
+        <div class="col s12 m6 l6 vertical-seperator">
+          <div class="row">
+            <div class="input-field col s4">
+                  <input id="item_prefix" type="text" class="validate">
+                  <label for="item_prefix">Item Code</label>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="desc_prefix" type="text" class="validate">
-            <label for="desc_prefix">Item Description</label>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="desc_prefix" type="text" class="validate">
+              <label for="desc_prefix">Item Description</label>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s6">
-                <select>
-                  <option value="" disabled selected>Unit</option>
-                  <option value="1">grams</option>
-                  <option value="2">kilo</option>
-                  <option value="3">ounce</option>
-                </select>
-                <label for="unit_prefix">Unit of Measure</label>
-          </div>
-          <div class="input-field col s6">
-                  <select >
-                    <option value="" disabled selected>Category</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
+          <div class="row">
+            <div class="input-field col s6">
+                  <select>
+                    <option value="" disabled selected>Unit</option>
+                    <option value="1">grams</option>
+                    <option value="2">kilo</option>
+                    <option value="3">ounce</option>
                   </select>
-                  <label>Item Category</label>
+                  <label for="unit_prefix">Unit of Measure</label>
+            </div>
+            <div class="input-field col s6">
+                    <select >
+                      <option value="" disabled selected>Category</option>
+                      <option value="1">Option 1</option>
+                      <option value="2">Option 2</option>
+                      <option value="3">Option 3</option>
+                    </select>
+                    <label>Item Category</label>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s3">
-                <input id="avecost_prefix" type="text" class="validate">
-                <label for="avecost_prefix">Average Cost</label>
+          <div class="row">
+            <div class="input-field col s3">
+                  <input id="avecost_prefix" type="text" class="validate">
+                  <label for="avecost_prefix">Average Cost</label>
+            </div>
+            <div class="input-field col s3">
+                  <input id="lastcost_prefix" type="text" class="validate">
+                  <label for="lastcost_prefix">Last Cost</label>
+            </div>
           </div>
-          <div class="input-field col s3">
-                <input id="lastcost_prefix" type="text" class="validate">
-                <label for="lastcost_prefix">Last Cost</label>
+          <div class="row">
+            <div class="input-field col s5">
+                  <input id="sellingprice_prefix" type="text" class="validate">
+                  <label for="sellingprice_prefix">Selling Price</label>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s5">
-                <input id="sellingprice_prefix" type="text" class="validate">
-                <label for="sellingprice_prefix">Selling Price</label>
+          <div class="row">
+            <div class="input-field col s5">
+                  <input id="qty_prefix" type="text" class="validate">
+                  <label for="qty_prefix">Qty. on Hand</label>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s5">
-                <input id="qty_prefix" type="text" class="validate">
-                <label for="qty_prefix">Qty. on Hand</label>
-          </div>
-        </div>
 
+        </div>
+        <div class="col s12 m6 l6">
+          <div class="row">
+            <div class="input-field col s12 m6 l4">
+                  <input id="item_prefix" type="text" class="validate">
+                  <label for="item_prefix">Reorder Qty</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12 m6 l4">
+                  <input id="item_prefix" type="text" class="validate">
+                  <label for="item_prefix">Reorder Pt.</label>
+            </div>
+          </div>
+          <hr class="dashed top-indent">
+          <b>CONVERT TO RETAIL</b>
+          <div class="row top-indent">
+            <div class="input-field col s3">
+              <select>
+                    <option value="" disabled selected>Unit</option>
+                    <option value="1">grams</option>
+                    <option value="2">kilo</option>
+                    <option value="3">ounce</option>
+              </select>
+              <label>Presets</label>
+            </div>
+          </div>
+          <hr class="dashed top-indent">
+          <div class="row right top-indent">
+            <button class="btn right left-indent waves-effect blue waves-light side-indent">Save</button>
+            <button class="btn waves-effect side-indent right waves-light">Print</button>
+            <button class="btn waves-effect side-indent right waves-light">Delete</button>
+            <button class="btn waves-effect side-indent right waves-light">Cancel</button>
+          </div>
+        </div>
       </div>
-      <div class="col s12 m6 l6">
-        <div class="row">
-          <div class="input-field col s12 m6 l4">
-                <input id="item_prefix" type="text" class="validate">
-                <label for="item_prefix">Reorder Qty</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12 m6 l4">
-                <input id="item_prefix" type="text" class="validate">
-                <label for="item_prefix">Reorder Pt.</label>
-          </div>
-        </div>
-        <hr class="dashed top-indent">
-        <b>CONVERT TO RETAIL</b>
-        <div class="row top-indent">
-          <div class="input-field col s3">
-            <select>
-                  <option value="" disabled selected>Unit</option>
-                  <option value="1">grams</option>
-                  <option value="2">kilo</option>
-                  <option value="3">ounce</option>
-            </select>
-            <label>Presets</label>
-          </div>
-        </div>
-        <hr class="dashed top-indent">
-        <div class="row right top-indent">
-          <button class="btn right left-indent waves-effect blue waves-light side-indent">Save</button>
-          <button class="btn waves-effect side-indent right waves-light">Print</button>
-          <button class="btn waves-effect side-indent right waves-light">Delete</button>
-          <button class="btn waves-effect side-indent right waves-light">Cancel</button>
-        </div>
-      </div>
-    </div>
+    </main>
      {{> select_script}}
 </template>
