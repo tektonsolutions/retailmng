@@ -1,3 +1,4 @@
+
 if(Meteor.isClient){
   Template.login.events({
     "submit form": function(event){
@@ -9,6 +10,8 @@ if(Meteor.isClient){
     var validator = $(".login").validate({
       errorClass: 'invalid',
       errorPlacement: function (error, element) {
+        
+        // Materialize.toast(error.text(), 4000);
         $(element)
         .closest("form")
         .find("label[for='" + element.attr("id") + "']")

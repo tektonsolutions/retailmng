@@ -13,33 +13,6 @@ if(Meteor.isServer){
   });
 }
 
-Router.configure({
-  layoutTemplate:"main",
-  loadingTemplate: "loading"
-});
-
-Router.route("/", {
-  name: "login",
-  template: "login",
-  onBeforeAction: function(){
-    var currentUser = Meteor.userId();
-    if(currentUser){
-      Router.go("sales");
-    } else{
-      this.next();
-    }
-  }
-});
-Router.route("/register");
-Router.route("/sales");
-Router.route("/employees", {
-  name: "employees",
-  template: "employeeMain"
-});
-
-//retailmng html
-Router.route("/retailmng");
-
 function loggedIn(){
   var currentUser = Meteor.userId();
   if(!currentUser){

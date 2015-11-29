@@ -1,0 +1,57 @@
+<template name="presets">
+  <div class="row">
+        <div class="col offset-m1 m10 offset-l1 l10 s12">
+          <h5 class="lighten"><b>RETAIL PRESETS</b></h5>
+           <div class="input-field col s8 m6 l6">
+                  <input id="icon_prefix" type="text" class="search-table validate">
+                  <label for="icon_prefix">Search</label>
+                  <i id="search_icon" class="material-icons top-indent prefix">search</i>
+          </div>
+          <div class="col s4 m6 l6 top-indent no-padding" >
+            <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#retailpreset_modal">Create</a>
+          </div>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col offset-m1 m10 offset-l1 l10 s12">
+          <!-- {{> leaderboard}} -->
+        </div>
+      </div>
+
+      <div id="retailpreset_modal" class="modal modal-fixed-footer">
+        <div class="modal-content">
+          <h5>Fill Information</h5>
+            <div class="row">
+              <div class="input-field col s5">
+                <input id="preset_title" type="text">
+                <label for="preset_title">Retail Preset Title</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s8">
+                <textarea placeholder="e.g. Retail Preset for (product)." id="preset_description" class="materialize-textarea" type="text"></textarea>
+                <label for="preset_description">Short Description</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s3">
+                <input id="retail_value" type="text">
+                <label for="retail_value">Retail Value</label>
+              </div>
+              <div class="input-field col s5">
+                <select>
+                  <option value="" disabled selected>Unit</option>
+                  <option value="1">Option 1</option>
+                  <option value="2">Option 2</option>
+                  <option value="3">Option 3</option>
+                </select>
+              </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close modal-action waves-effect waves-green btn-flat ">OK</a>
+        </div>
+      </div>
+      {{> modal_script}}
+</template>
