@@ -5,7 +5,7 @@
         <b>EMPLOYEES</b>
       </h5>
       <div class="input-field col s8 m6 l6">
-        <input class="search-table validate" id="icon_prefix" type="text">
+        {{> EasySearch.Input index=employeesIndex attributes=employeeSearchAttributes }}
         <label for="icon_prefix">Search</label>
         <i class="material-icons top-indent prefix" id="search_icon">search</i>
       </div>
@@ -25,62 +25,100 @@
   {{> ui_script}}
 </template>
 
-<template name="employeeList"></template>
+<template name="employeeList">
+  {{#EasySearch.IfInputEmpty index=employeesIndex }}
+    <!-- do something -->
+    {{else}}
+    {{#if employeesCount}}
+      <div>{{employeesCount}}
+        results found.</div>
+    {{/if}}
+  {{/EasySearch.IfInputEmpty}}
+
+  {{#EasySearch.IfSearching index=employeesIndex }}
+    <div>Searching</div>
+  {{/EasySearch.IfSearching }}
+
+  <ul class="collection no-margin">
+    {{#EasySearch.Each index=employeesIndex}}
+      {{> employee}}
+    {{/EasySearch.Each}}
+  </ul>
+
+  {{#EasySearch.IfNoResults index=employeesIndex }}
+    <div>No results found</div>
+    {{else}}
+    <!-- do something -->
+  {{/EasySearch.IfNoResults }}
+
+  {{> EasySearch.Pagination index=employeesIndex maxPages=10}}
+</template>
+
+<template name="employee">
+<li class="collection-item dismissable">
+  <div>{{profile.name}}
+    <a class="secondary-content" href="#!">
+      <i class="material-icons">send</i>
+    </a>
+  </div>
+</li>
+</template>
 
 <template name="employeeCreate">
-  <div class="modal modal-fixed-footer" id="emp_modal">
+<div class="modal modal-fixed-footer" id="emp_modal">
 
-    <form class="register">
-      <div class="modal-content">
-        <h5>Fill Information</h5>
-        <div class="row">
-          <div class="input-field col s4">
-            <input id="emp_name" name="name" placeholder="Employee Name" type="text">
-            <label class="active" for="emp_name">&zwnj;</label>
-          </div>
-          <div class="input-field col s4">
-            <input class="datepicker" id="emp_birthdate" placeholder="Birthdate" type="date">
-          </div>
-          <div class="input-field col s4">
-            <input id="emp_contact" placeholder="Contact No." type="text">
-          </div>
+  <form class="register">
+    <div class="modal-content">
+      <h5>Fill Information</h5>
+      <div class="row">
+        <div class="input-field col s4">
+          <input id="emp_name" name="name" placeholder="Employee Name" type="text">
+          <label class="active" for="emp_name">&zwnj;</label>
         </div>
-        <div class="row no-margin">
-          <div class="input-field col s8 no-margin">
-            <textarea class="materialize-textarea" id="emp_address" placeholder="Address" type="text"></textarea>
-          </div>
+        <div class="input-field col s4">
+          <input class="datepicker" id="emp_birthdate" placeholder="Birthdate" type="date">
         </div>
-        <div class="row">
-          <div class="input-field col s4">
-            <select name="role">
-              <option disabled selected value="">Position</option>
-              {{> employeePosition}}
-            </select>
-            <div id="selectErrorContainer">
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s4">
-            <input id="emp_username" name="username" placeholder="Username" type="text">
-            <label class="active" for="emp_username">&zwnj;</label>
-          </div>
-          <div class="input-field col s4">
-            <input id="emp_pw" name="password" placeholder="Password" type="password">
-            <label class="active" for="emp_pw">&zwnj;</label>
-          </div>
+        <div class="input-field col s4">
+          <input id="emp_contact" placeholder="Contact No." type="text">
         </div>
       </div>
-      <div class="modal-footer">
-        <button class="modal-action waves-effect waves-green btn-flat" type="submit">OK</button>
+      <div class="row no-margin">
+        <div class="input-field col s8 no-margin">
+          <textarea class="materialize-textarea" id="emp_address" placeholder="Address" type="text"></textarea>
+        </div>
       </div>
-    </form>
+      <div class="row">
+        <div class="input-field col s4" onchange="onSelectChanged()">
+          <select name="role">
+            <option disabled selected value="">Position</option>
+            {{> employeePosition}}
+          </select>
+        </div>
+        <div class="col s4">
+          <p class="selectErrorContainer"></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s4">
+          <input id="emp_username" name="username" placeholder="Username" type="text">
+          <label class="active" for="emp_username">&zwnj;</label>
+        </div>
+        <div class="input-field col s4">
+          <input id="emp_pw" name="password" placeholder="Password" type="password">
+          <label class="active" for="emp_pw">&zwnj;</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-action waves-effect waves-green btn-flat" type="submit">OK</button>
+    </div>
+  </form>
 
-  </div>
+</div>
 </template>
 
 <template name="employeePosition">
-  {{#each positions}}
-    <option value="{{role}}">{{name}}</option>
-  {{/each}}
+{{#each positions}}
+  <option value="{{role}}">{{name}}</option>
+{{/each}}
 </template>

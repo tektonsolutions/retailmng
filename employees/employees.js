@@ -1,9 +1,45 @@
+// Search functionality
+EmployeesIndex = new EasySearch.Index({
+  collection: Meteor.users,
+  fields: ["profile.name"],
+  defaultSearchOptions: {
+    limit: 10
+  },
+  engine: new EasySearch.Minimongo({
+    sort: function (){
+      return  { "profile.name": 1};
+    }
+  })
+});
+
 if(Meteor.isClient){
+  Template.employeeMain.onCreated(function () {
+    this.subscribe("employees");
+  });
+
+  Template.employeeMain.helpers({
+    "employeesIndex": function(){
+      return EmployeesIndex;
+    },
+    "employeeSearchAttributes": function(){
+      return {"id": "icon_prefix", "class": "search-table validate", "type": "text" };
+    }
+  });
+
   Template.employeePosition.helpers({
     positions: [
       {name: roles.supervisor.name, role: roles.supervisor.key},
       {name: roles.sales.name, role: roles.sales.key}
     ]
+  });
+
+  Template.employeeList.helpers({
+    "employeesIndex": function(){
+      return EmployeesIndex;
+    },
+    "employeesCount": function(){
+      return EmployeesIndex.getComponentDict().get("count");
+    }
   });
 
   Template.employeeCreate.events({
@@ -15,6 +51,8 @@ if(Meteor.isClient){
   Template.employeeCreate.onRendered(function(){
     var validator = $(".register").validate({
       submitHandler: function(event){
+        var currentUser = Meteor.userId();
+
         var username = $("#emp_username").val();
         var password = $("#emp_pw").val();
 
@@ -32,15 +70,21 @@ if(Meteor.isClient){
             name: name,
             birthdate: birthdate,
             contactNo: contactNo,
-            address: address
+            address: address,
+            managedBy: currentUser
           }
         };
+
         Meteor.call("createEmployee", userObject, role, function(error, result){
           if(error){
-            console.log(error.reason);
-          }
-          if(result){
-            validator.resetForm();
+            if(error.reason == "Username already exists."){
+              validator.showErrors({
+                username: error.reason
+              });
+            }
+          } else{
+            var form = validator.currentForm;
+            form.reset();
           }
         });
       }
@@ -53,7 +97,10 @@ if(Meteor.isClient){
     errorPlacement: function (error, element) {
       var select = $("select").get(0);
       if(select === element.get(0)){
-        $("#selectErrorContainer").text(error.text());
+        $(element)
+        .closest("form")
+        .find("p[class='selectErrorContainer']")
+        .text(error.text());
       }else {
         $(element)
         .closest("form")
@@ -96,24 +143,52 @@ if(Meteor.isClient){
   });
 }
 
-function checkEmployeeObject(userObject, role){
-  check(userObject.username, String);
-  //check(userObject.password, String);
-  check(userObject.profile.name, String);
-  check(userObject.profile.birthdate, String);
-  check(userObject.profile.contactNo, String);
-  check(userObject.profile.address, String);
+function isEmployeeObjectSafe(userObject, role){
+  var safe1 = Match.test(userObject, {
+    username: String,
+    password: String,
+    profile : {
+      name: String,
+      birthdate: String,
+      contactNo: String,
+      address: String,
+      managedBy: String
+    }
+  });
 
-  check(role, roles);
+  var safe2 = Match.test(role, String);
+
+  if(safe1 && safe2){
+    return true;
+  } else{
+    return false;
+  }
 }
 
 if(Meteor.isServer){
+  Meteor.publish("employees", function(){
+      var currentUser = this.userId;
+      return Meteor.users.find({"$and": [{"profile.managedBy": currentUser}, {"profile.managedBy": {"$exists": true}}]},
+        {fields:{"profile": 1}});
+  });
+
   Meteor.methods({
-    "createEmployee":function(userObject, role){
+    "createEmployee": function(userObject, role){
        var currentUser = Meteor.userId();
 
-       checkEmployeeObject(userObject, role);
-       loggedIn();
+       if(!currentUser){
+         throw new Meteor.Error("not-logged-in", "You're not logged-in.");
+       }
+
+       if(!isEmployeeObjectSafe(userObject, role)){
+         console.log("server error");
+       } else {
+         var result = Accounts.createUser(userObject);
+         if(result){
+           Roles.addUsersToRoles(result, role);
+         }
+         return result;
+       }
     }
   });
 }

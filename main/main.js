@@ -12,10 +12,3 @@ if(Meteor.isServer){
     }
   });
 }
-
-function loggedIn(){
-  var currentUser = Meteor.userId();
-  if(!currentUser){
-    throw new Meteor.Error("not-logged-in", "You're not logged-in.");
-  }
-}

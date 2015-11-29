@@ -41,16 +41,33 @@ if(Meteor.isClient){
           username: username,
           password: password
         };
-        var id = Accounts.createUser(userObject, function(error){
+
+        Accounts.createUser(userObject, function(error){
            if(error){
-             validator.showErrors({
-               username: error.reason
+             if(error.reason == "Username already exists."){
+               validator.showErrors({
+                 username: error.reason
+               });
+             }
+           }else {
+             Meteor.call("registerRole", function(error, result){
+               if(error){
+                 console.log(error.reason);
+               } else {
+                 Router.go("sales");
+               }
              });
            }
         });
-        Roles.addUsersToRoles(id, roles.admin.key);
-        Router.go("sales");
       }
     });
+  });
+}
+
+if(Meteor.isServer){
+  Meteor.methods({
+    "registerRole": function(){
+      Roles.addUsersToRoles(Meteor.userId(), roles.admin.key);
+    }
   });
 }

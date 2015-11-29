@@ -1,4 +1,3 @@
-//Guests Routes
 Router.configure({
   layoutTemplate:"main",
   loadingTemplate: "loading"
