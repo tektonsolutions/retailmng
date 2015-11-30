@@ -27,11 +27,7 @@
       $("ul.tabs").tabs();
     });
 
-    $("#delivery").change(function () {
-      if ($(this).is(":checked")) {
-          $("#delivery_modal").openModal();
-      }
-    });
+    
   </script>
 </template>
 <template name="select_script">
@@ -52,4 +48,52 @@
   <script type="text/javascript">
     $(".modal-trigger").leanModal();
   </script>
+</template>
+<template name="sidenav_script">
+ <script type="text/javascript">
+    $(document).ready(function() {
+      $(".button-collapse").sideNav();
+    });
+  </script>
+</template>
+<template name="sidebar">
+  <ul id="slide-out" class="side-nav fixed">
+      <li><a href="/sales">Sales</a></li>
+      <li><a href="/employees">Employees</a></li>
+      <li><a href="/suppliers">Suppliers</a></li>
+      <li><a href="/inventory">Inventory</a></li>
+      <li><a href="/presets">Presets</a></li>
+      <li><a href="/units">Units</a></li>
+  </ul>
+  {{> sidenav_script}}
+</template>
+<template name="navbar">
+  <nav class="navbar-indent teal">
+      <div class="nav-wrapper">
+        <div class="row">
+          <div class="col toggle-parent">
+            <ul class="left">
+              <li><a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+              <li><a href="/sales">Sales</a></li>
+              <li><a href="/employees">Employees</a></li>
+              <li><a href="/suppliers">Suppliers</a></li>
+              <li><a href="/inventory">Inventory</a></li>
+              <li><a href="/presets">Presets</a></li>
+              <li><a href="/units">Units</a></li>
+            </ul>
+          </div>
+          <div class="col s12 m12 l12 no-padding search-parent">
+            <form>
+              <div class="input-field">
+                <input id="search" type="search" class="right-align right-padding col s12"/>
+                <label for="search"><i class="material-icons">search</i></label>
+                <i class="material-icons">close</i>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </nav>
 </template>

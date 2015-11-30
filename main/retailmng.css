@@ -12,11 +12,29 @@
 .right-indent{
 	margin-right: 5px;
 }
+.navbar-indent{
+	margin-bottom: 20px;
+}
 .no-padding{
 	padding: 0;
 }
+.no-border{
+	border: none;
+}
 .no-margin{
 	margin: 0 !important;
+}
+.right-padding{
+	padding-right: 50px !important;
+}
+.bottom-padding{
+	padding-bottom: 50px !important;
+}
+.top-padding{
+	padding-top: 50px !important;
+}
+.left-padding{
+	padding-left: 50px !important;
 }
 .dropdown-option {
 	font-size:  1.6em !important;
@@ -39,4 +57,34 @@ input{
 }
 hr.dashed{
 	border-top: dashed 2px #aaa;
+}
+
+header, main, footer {
+    padding-left: 240px;
+    box-sizing: border-box;
+ }
+
+@media only screen and (max-width : 992px) {
+    header, main, footer {
+      padding-left: 0;
+    }
+    .search-parent{
+    	width: calc(100% - 64px) !important;
+    }
+    .toggle-parent{
+    	width: 64px !important;
+    	padding: 0px !important;
+    }
+
+
+}
+
+/* For navbar with search */
+
+.nav-wrapper .input-field input[type=search]{
+	width: 100%;
+	padding-right: 50px;
+}
+nav{
+	box-shadow: 0px 2px 1px 1px rgba(0,0,0,0.16) !important;
 }
