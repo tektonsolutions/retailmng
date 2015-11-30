@@ -48,6 +48,20 @@ if(Meteor.isClient){
     }
   });
 
+  Template.employee.events({
+    "click #emp_delete": function(event){
+      var userObject = this._id;
+      var r = confirm("Delete?");
+      if (r === true) {
+        Meteor.call("deleteEmployee", userObject, function(error, result){
+          if(error){
+            console.log(error.reason);
+          }
+        });
+      }
+    }
+  });
+
   Template.employeeCreate.onRendered(function(){
     var validator = $(".register").validate({
       submitHandler: function(event){
@@ -168,27 +182,34 @@ function isEmployeeObjectSafe(userObject, role){
 if(Meteor.isServer){
   Meteor.publish("employees", function(){
       var currentUser = this.userId;
-      return Meteor.users.find({"$and": [{"profile.managedBy": currentUser}, {"profile.managedBy": {"$exists": true}}]},
+      if(Meteor.myFunctions.isAdmin(currentUser)){
+        return Meteor.users.find({"$and": [{"profile.managedBy": currentUser}, {"softDelete": false}]},
         {fields:{"profile": 1}});
+      }
   });
 
   Meteor.methods({
     "createEmployee": function(userObject, role){
        var currentUser = Meteor.userId();
 
-       if(!currentUser){
-         throw new Meteor.Error("not-logged-in", "You're not logged-in.");
-       }
-
-       if(!isEmployeeObjectSafe(userObject, role)){
-         console.log("server error");
-       } else {
-         var result = Accounts.createUser(userObject);
-         if(result){
-           Roles.addUsersToRoles(result, role);
+       if(Meteor.myFunctions.isAdmin(currentUser)){
+         if(!isEmployeeObjectSafe(userObject, role)){
+           console.log("server error");
+         } else {
+           var result = Accounts.createUser(userObject);
+           if(result){
+             Roles.addUsersToRoles(result, role);
+           }
+           return result;
          }
-         return result;
        }
+    },
+    "deleteEmployee": function(userObject){
+      var currentUser = Meteor.userId();
+
+      if(Meteor.myFunctions.isAdmin(currentUser)){
+        Meteor.users.update({"_id": userObject}, {"$set": { "softDelete": true }});
+      }
     }
   });
 }
