@@ -1,43 +1,40 @@
 <template name="categories">
-   {{> sidebar}}
-   <main>
-   {{> navbar}}
-     <div class="row">
-        <div class="col offset-m1 m10 offset-l1 l10 s12">
-          <h5 class="lighten"><b>CATEGORIES</b></h5>
-           <div class="input-field col s8 m6 l6">
-                  <input id="icon_prefix" type="text" class="search-table validate">
-                  <label for="icon_prefix">Search</label>
-                  <i id="search_icon" class="material-icons top-indent prefix">search</i>
-          </div>
-          <div class="col s4 m6 l6 top-indent no-padding" >
-            <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#category_modal">Create</a>
-          </div>
-
-        </div>
+  <div class="row">
+    <div class="col offset-m1 m10 offset-l1 l10 s12">
+      <h5 class="lighten">
+        <b>CATEGORIES</b>
+      </h5>
+      <div class="input-field col s8 m6 l6">
+        <input class="search-table validate" id="icon_prefix" type="text">
+        <label for="icon_prefix">Search</label>
+        <i class="material-icons top-indent prefix" id="search_icon">search</i>
       </div>
+      <div class="col s4 m6 l6 top-indent no-padding">
+        <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#category_modal">Create</a>
+      </div>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col offset-m1 m10 offset-l1 l10 s12">
+      <!-- {{> leaderboard}} -->
+    </div>
+  </div>
+
+  <div class="modal" id="category_modal">
+    <div class="modal-content">
+      <h5>Fill Information</h5>
       <div class="row">
-        <div class="col offset-m1 m10 offset-l1 l10 s12">
-          <!-- {{> leaderboard}} -->
+        <div class="input-field col s4">
+          <input id="cat_name" placeholder="Category Name" type="text">
+        </div>
+        <div class="input-field col s3">
+          <input id="cat_short" placeholder="Shortname" type="text">
         </div>
       </div>
-
-      <div id="category_modal" class="modal">
-        <div class="modal-content">
-          <h5>Fill Information</h5>
-            <div class="row">
-              <div class="input-field col s4">
-                <input placeholder="Category Name" id="cat_name" type="text">
-              </div>
-              <div class="input-field col s3">
-                <input placeholder="Shortname" id="cat_short" type="text">
-              </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-          <a href="#!" class="modal-close modal-action waves-effect waves-green btn-flat ">OK</a>
-        </div>
-      </div>
-    </main>
-  {{> sidenav_script}}
+    </div>
+    <div class="modal-footer">
+      <a class="modal-close modal-action waves-effect waves-green btn-flat " href="#!">OK</a>
+    </div>
+  </div>
 </template>

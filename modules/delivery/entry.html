@@ -1,156 +1,171 @@
 <template name="deliveryEntry">
-
-  <body>
-  {{> sidebar}}
-  <main>
-  {{> navbar}}
-    <div class="row">
-        <h5 class="lighten left-indent"><b>DELIVERY REGISTER ENTRY</b></h5><br>
-        <div class="col s12 m8 l8 vertical-seperator">
-          <div class="row">
-              <div class="input-field col s5 m5 l4">
-                      <input id="delivery_prefix" type="text" class="validate">
-                      <label for="delivery_prefix">Delivery No.</label>
-              </div>
-              <div class="input-field col s4">
-                      <label for="calendar_prefix">Date Delivered</label>
-                      <input id="calendar_prefix" type="date" class="datepicker">
-              </div>
-              <div class="input-field col s3 l4">
-                      <label for="calendar_prefix">Due Date</label>
-                      <input id="calendar_prefix" type="date" class="datepicker">
-              </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s6 m5 l4">
-                <select >
-                  <option value="" disabled selected>Supplier</option>
-                  <option value="1">Option 1</option>
-                  <option value="2">Option 2</option>
-                  <option value="3">Option 3</option>
-                </select>
-                <label>Supplier</label>
-            </div>
-            <div class="input-field col s2 m2 l3">
-              <input id="payment_term" value="" type="text" class="validate">
-              <label for="payment_term">Term</label>
-            </div>
-            <div class="input-field col s5">
-              <input id="receipt_prefix" value="" type="text" class="validate">
-              <label for="receipt_prefix">D.R. No.</label>
-            </div>
-          </div>
-          <br><br>
-          <h6 class="center-align"><b>INVENTORY ENTRY</b></h6>
-          <div class="row">
-            <div class="input-field col s1">
-              <input id="qty" placeholder="Qty." type="text" class="validate">
-            </div>
-            <div class="input-field col s2">
-                <select>
-                  <option value="" disabled selected>Unit</option>
-                  <option value="1">Thanks Obama</option>
-                  <option value="2">Pabebe Duterte</option>
-                  <option value="3">Marmar Roroxas</option>
-                </select>
-            </div>
-            <div class="input-field col s5">
-              <input id="item" placeholder="Item" type="text" class="validate">
-            </div>
-            <div class="input-field col s2">
-                <select>
-                  <option value="" disabled selected>Category</option>
-                  <option value="1">Thanks Obama</option>
-                  <option value="2">Pabebe Duterte</option>
-                  <option value="3">Marmar Roroxas</option>
-                </select>
-            </div>
-            <div class="input-field col s2">
-              <input id="unitprice" placeholder="U/P" type="text" class="validate">
-            </div>
-          </div>
-
-          <div class="row no-margin">
-              <!-- {{> leaderboard}} -->
-          </div>
+  <div class="row">
+    <h5 class="lighten left-indent">
+      <b>DELIVERY REGISTER ENTRY</b>
+    </h5>
+    <br>
+    <div class="col s12 m8 l8 vertical-seperator">
+      <div class="row">
+        <div class="input-field col s5 m5 l4">
+          <input class="validate" id="delivery_prefix" type="text">
+          <label for="delivery_prefix">Delivery No.</label>
         </div>
-
-        <div class="col s12 m4 l4">
-            <div class="row">
-                <div class="col s12 m10 l10 no-padding">
-                    <div class="row">
-                      <div class="input-field col s12">
-                          <select >
-                            <option value="" disabled selected>Personnel</option>
-                            <option value="1">Thanks Obama</option>
-                            <option value="2">Pabebe Duterte</option>
-                            <option value="3">Marmar Roroxas</option>
-                          </select>
-                          <label>Received By</label>
-                      </div>
-                    </div>
-                    <div class="row">
-                    <div class="input-field col s12">
-                    <select >
-                      <option value="" class="teal" disabled selected>Personnel</option>
-                      <option value="1">Jessica Johnson</option>
-                      <option value="2">Chuck Norris</option>
-                      <option value="3">Adolf Poe Hitler</option>
-                    </select>
-                    <label>Encoded By</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col s10 no-padding">
-                  <div class="row no-margin">
-                    <div class="col s3 m5">
-                        <b>VAT SALES</b>
-                    </div>
-                    <div class="col left-align teal-text s6">
-                        ₱0.00
-                    </div>
-                  </div>
-                  <div class="row no-margin">
-                    <div class="col s3 m5">
-                        <b>12% VAT</b>
-                    </div>
-                    <div class="col left-align teal-text s6">
-                        ₱0.00
-                    </div>
-                    <br>
-                  </div>
-              </div>
-              <div class="row">
-                <div class="col s10">
-                  <div class="input-field no-padding col s7 m8">
-                    <input placeholder="Total" id="total" type="text" class="validate">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr class="dashed top-indent">
-            <div class="row col s12 right-align no-padding hide-on-med-and-down" >
-              <button class="col s2 btn waves-effect side-indent waves-light"><i class="material-icons">keyboard_return</i></button>
-              <button class="col s2 btn waves-effect side-indent waves-light"><i class="material-icons">delete</i></button>
-              <button class="col s2 btn waves-effect side-indent waves-light"><i class="material-icons">print</i></button>
-              <button class="col s5 btn side-indent waves-effect blue waves-light right">Save</button>
-            </div>
-
-            <div class="col hide-on-large-only s7 m7" >
-                <ul id='dropdown2' class='dropdown-content'>
-                  <li><a href="#!">Cancel</a></li>
-                  <li><a href="#!">Delete</a></li>
-                  <li><a href="#!">Print</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#!">Save</a></li>
-                </ul>
-               <a class="btn-flat right waves-effect dropdown-option no-padding waves-light dropdown-button" href='#' data-activates='dropdown2'><i class="dropdown-option material-icons">arrow_drop_down_circle</i></a>
-            </div>
+        <div class="input-field col s4">
+          <label for="calendar_prefix">Date Delivered</label>
+          <input class="datepicker" id="calendar_prefix" type="date">
+        </div>
+        <div class="input-field col s3 l4">
+          <label for="calendar_prefix">Due Date</label>
+          <input class="datepicker" id="calendar_prefix" type="date">
         </div>
       </div>
-    </main>
-  </body>
+      <div class="row">
+        <div class="input-field col s6 m5 l4">
+          <select>
+            <option disabled selected value="">Supplier</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+          </select>
+          <label>Supplier</label>
+        </div>
+        <div class="input-field col s2 m2 l3">
+          <input class="validate" id="payment_term" type="text" value="">
+          <label for="payment_term">Term</label>
+        </div>
+        <div class="input-field col s5">
+          <input class="validate" id="receipt_prefix" type="text" value="">
+          <label for="receipt_prefix">D.R. No.</label>
+        </div>
+      </div>
+      <br>
+      <br>
+      <h6 class="center-align">
+        <b>INVENTORY ENTRY</b>
+      </h6>
+      <div class="row">
+        <div class="input-field col s1">
+          <input class="validate" id="qty" placeholder="Qty." type="text">
+        </div>
+        <div class="input-field col s2">
+          <select>
+            <option disabled selected value="">Unit</option>
+            <option value="1">Thanks Obama</option>
+            <option value="2">Pabebe Duterte</option>
+            <option value="3">Marmar Roroxas</option>
+          </select>
+        </div>
+        <div class="input-field col s5">
+          <input class="validate" id="item" placeholder="Item" type="text">
+        </div>
+        <div class="input-field col s2">
+          <select>
+            <option disabled selected value="">Category</option>
+            <option value="1">Thanks Obama</option>
+            <option value="2">Pabebe Duterte</option>
+            <option value="3">Marmar Roroxas</option>
+          </select>
+        </div>
+        <div class="input-field col s2">
+          <input class="validate" id="unitprice" placeholder="U/P" type="text">
+        </div>
+      </div>
+
+      <div class="row no-margin">
+        <!-- {{> leaderboard}} -->
+      </div>
+    </div>
+
+    <div class="col s12 m4 l4">
+      <div class="row">
+        <div class="col s12 m10 l10 no-padding">
+          <div class="row">
+            <div class="input-field col s12">
+              <select>
+                <option disabled selected value="">Personnel</option>
+                <option value="1">Thanks Obama</option>
+                <option value="2">Pabebe Duterte</option>
+                <option value="3">Marmar Roroxas</option>
+              </select>
+              <label>Received By</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <select>
+                <option class="teal" disabled selected value="">Personnel</option>
+                <option value="1">Jessica Johnson</option>
+                <option value="2">Chuck Norris</option>
+                <option value="3">Adolf Poe Hitler</option>
+              </select>
+              <label>Encoded By</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s10 no-padding">
+          <div class="row no-margin">
+            <div class="col s3 m5">
+              <b>VAT SALES</b>
+            </div>
+            <div class="col left-align teal-text s6">
+              ₱0.00
+            </div>
+          </div>
+          <div class="row no-margin">
+            <div class="col s3 m5">
+              <b>12% VAT</b>
+            </div>
+            <div class="col left-align teal-text s6">
+              ₱0.00
+            </div>
+            <br>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s10">
+            <div class="input-field no-padding col s7 m8">
+              <input class="validate" id="total" placeholder="Total" type="text">
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="dashed top-indent">
+      <div class="row col s12 right-align no-padding hide-on-med-and-down">
+        <button class="col s2 btn waves-effect side-indent waves-light">
+          <i class="material-icons">keyboard_return</i>
+        </button>
+        <button class="col s2 btn waves-effect side-indent waves-light">
+          <i class="material-icons">delete</i>
+        </button>
+        <button class="col s2 btn waves-effect side-indent waves-light">
+          <i class="material-icons">print</i>
+        </button>
+        <button class="col s5 btn side-indent waves-effect blue waves-light right">Save</button>
+      </div>
+
+      <div class="col hide-on-large-only s7 m7">
+        <ul class='dropdown-content' id='dropdown2'>
+          <li>
+            <a href="#!">Cancel</a>
+          </li>
+          <li>
+            <a href="#!">Delete</a>
+          </li>
+          <li>
+            <a href="#!">Print</a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a href="#!">Save</a>
+          </li>
+        </ul>
+        <a class="btn-flat right waves-effect dropdown-option no-padding waves-light dropdown-button" data-activates='dropdown2' href='#'>
+          <i class="dropdown-option material-icons">arrow_drop_down_circle</i>
+        </a>
+      </div>
+    </div>
+  </div>
   {{> ui_script}}
 </template>

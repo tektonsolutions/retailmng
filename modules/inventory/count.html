@@ -1,97 +1,115 @@
-<template name="inventoryCount"> 
-  {{> sidebar}}
-  <main>
-  {{> navbar}} 
-   <div class="row">
-      <div class="col offset-m1 m10 offset-l1 l10 s12">
-        <h5 class="lighten"><b>PHYSICAL INVENTORY COUNT</b></h5>
-         <div class="input-field col s8 m6 l6">
-                <input id="icon_prefix" type="text" class="search-table validate">
-                <label for="icon_prefix">Search</label>
-                <i id="search_icon" class="material-icons top-indent prefix">search</i>
-        </div>
-        <div class="col s4 m6 l6 top-indent no-padding" >
-          <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#!">Create</a>
-        </div>
-
+<template name="inventoryCount">
+  <div class="row">
+    <div class="col offset-m1 m10 offset-l1 l10 s12">
+      <h5 class="lighten">
+        <b>PHYSICAL INVENTORY COUNT</b>
+      </h5>
+      <div class="input-field col s8 m6 l6">
+        <input class="search-table validate" id="icon_prefix" type="text">
+        <label for="icon_prefix">Search</label>
+        <i class="material-icons top-indent prefix" id="search_icon">search</i>
       </div>
+      <div class="col s4 m6 l6 top-indent no-padding">
+        <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#!">Create</a>
+      </div>
+
     </div>
-    <div class="row">
-      <div class="col offset-m1 m10 offset-l1 l10 s12">
+  </div>
+  <div class="row">
+    <div class="col offset-m1 m10 offset-l1 l10 s12">
+      <!-- {{> leaderboard}} -->
+    </div>
+  </div>]
+</template>
+
+<template name="inventoryPerform">
+  <div class="row">
+    <h5 class="lighten left-indent">
+      <b>PERFORM INVENTORY COUNT</b>
+    </h5>
+    <br>
+    <div class="col s12 m8 l8 vertical-seperator">
+      <div class="row">
+        <div class="input-field col s8">
+          <input class="validate" id="delivery_prefix" type="text">
+          <label for="delivery_prefix">Inventory Count Title</label>
+        </div>
+        <div class="input-field col s4">
+          <label for="calendar_prefix">Inventory Count Date</label>
+          <input class="datepicker" id="calendar_prefix" type="date">
+        </div>
+      </div>
+      <div class="row col s12 m12 l12">
+        <div class="input-field no-padding col s5 m5 l5">
+          <input class="validate" id="item" placeholder="Item" type="text">
+        </div>
+        <div class="input-field col s2 m2 l2">
+          <input class="validate" id="qty" placeholder="Qty." type="text">
+        </div>
+        <br>
+        <button class="col s1 m1 l1 side-indent btn waves-effect waves-light">
+          <i class="material-icons">remove</i>
+        </button>
+        <button class="col s1 m1 l1 side-indent btn waves-effect waves-light">
+          <i class="material-icons">add</i>
+        </button>
+        <button class="col s2 m2 l2 right blue btn waves-effect waves-light">COUNT</button>
+      </div>
+
+      <div class="row no-margin">
         <!-- {{> leaderboard}} -->
       </div>
     </div>
-  </main>
-</template>
-<template name="inventoryPerform">  
-  {{> sidebar}}
-   <main>
-  {{> navbar}}
-    <div class="row">
-        <h5 class="lighten left-indent"><b>PERFORM INVENTORY COUNT</b></h5><br>
-        <div class="col s12 m8 l8 vertical-seperator">
-          <div class="row">
-              <div class="input-field col s8">
-                  <input id="delivery_prefix" type="text" class="validate">
-                  <label for="delivery_prefix">Inventory Count Title</label>
-              </div>
-              <div class="input-field col s4">
-                  <label for="calendar_prefix">Inventory Count Date</label>
-                  <input id="calendar_prefix" type="date" class="datepicker">
-              </div>
-          </div>
-          <div class="row col s12 m12 l12">
-            <div class="input-field no-padding col s5 m5 l5">
-              <input id="item" placeholder="Item" type="text" class="validate">
-            </div>
-            <div class="input-field col s2 m2 l2">
-              <input id="qty" placeholder="Qty." type="text" class="validate">
-            </div>
-            <br>
-            <button class="col s1 m1 l1 side-indent btn waves-effect waves-light"><i class="material-icons">remove</i></button>
-            <button class="col s1 m1 l1 side-indent btn waves-effect waves-light"><i class="material-icons">add</i></button>
-            <button class="col s2 m2 l2 right blue btn waves-effect waves-light">COUNT</button>
-          </div>
 
-          <div class="row no-margin">
-              <!-- {{> leaderboard}} -->
-          </div>
-        </div>
-
-        <div class="col s12 m4 l4">
-          <div class="row">
-            <div class="input-field col s7 no-padding no-margin">
-              <p class="no-margin">
-                <input class="with-gap" name="group3" type="radio" id="full" checked="checked" />
-                <label for="full" class="top-indent">FULL COUNT</label>
-                <input class="with-gap" name="group3" type="radio" id="partial"  />
-                <label for="partial">PARTIAL COUNT</label>
-              </p>
-            </div>
-          </div>
-          <div class="row col s11 offset-s1">
-            <div class="input-field">
-              <input placeholder="Supplier or Category" id="search" value="" type="text" class="validate">
-            </div>
-          </div>
-          <div class="row col s12 right-align no-padding hide-on-med-and-down" >
-            <button class="col s2 btn waves-effect side-indent waves-light"><i class="material-icons">keyboard_return</i></button>
-            <button class="col s2 btn waves-effect side-indent waves-light"><i class="material-icons">delete</i></button>
-            <button class="col s2 btn waves-effect side-indent waves-light"><i class="material-icons">print</i></button>
-            <button class="col s5 btn side-indent waves-effect blue waves-light right">UPDATE INVENTORY</button>
-          </div>
-
-          <div class="col hide-on-large-only s7 m7" >
-              <ul id='dropdown6' class='dropdown-content'>
-                <li><a href="#!">Cancel</a></li>
-                <li><a href="#!">Delete</a></li>
-                <li><a href="#!">Print</a></li>
-                <li class="divider"></li>
-                <li><a href="#!">Update</a></li>
-              </ul>
-             <a class="btn-flat right waves-effect dropdown-option no-padding waves-light dropdown-button" href='#' data-activates='dropdown6'><i class="dropdown-option material-icons">arrow_drop_down_circle</i></a>
-          </div>
+    <div class="col s12 m4 l4">
+      <div class="row">
+        <div class="input-field col s7 no-padding no-margin">
+          <p class="no-margin">
+            <input checked="checked" class="with-gap" id="full" name="group3" type="radio"/>
+            <label class="top-indent" for="full">FULL COUNT</label>
+            <input class="with-gap" id="partial" name="group3" type="radio"/>
+            <label for="partial">PARTIAL COUNT</label>
+          </p>
         </div>
       </div>
-    </main>
+      <div class="row col s11 offset-s1">
+        <div class="input-field">
+          <input class="validate" id="search" placeholder="Supplier or Category" type="text" value="">
+        </div>
+      </div>
+      <div class="row col s12 right-align no-padding hide-on-med-and-down">
+        <button class="col s2 btn waves-effect side-indent waves-light">
+          <i class="material-icons">keyboard_return</i>
+        </button>
+        <button class="col s2 btn waves-effect side-indent waves-light">
+          <i class="material-icons">delete</i>
+        </button>
+        <button class="col s2 btn waves-effect side-indent waves-light">
+          <i class="material-icons">print</i>
+        </button>
+        <button class="col s5 btn side-indent waves-effect blue waves-light right">UPDATE INVENTORY</button>
+      </div>
+
+      <div class="col hide-on-large-only s7 m7">
+        <ul class='dropdown-content' id='dropdown6'>
+          <li>
+            <a href="#!">Cancel</a>
+          </li>
+          <li>
+            <a href="#!">Delete</a>
+          </li>
+          <li>
+            <a href="#!">Print</a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a href="#!">Update</a>
+          </li>
+        </ul>
+        <a class="btn-flat right waves-effect dropdown-option no-padding waves-light dropdown-button" data-activates='dropdown6' href='#'>
+          <i class="dropdown-option material-icons">arrow_drop_down_circle</i>
+        </a>
+      </div>
+    </div>
+  </div>
 </template>

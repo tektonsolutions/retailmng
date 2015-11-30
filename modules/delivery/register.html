@@ -1,36 +1,38 @@
 <template name="deliveryRegistry">
-  <body>
-    {{> sidebar}}
-    <main>
-    {{> navbar}}
-      <div class="row">
-            <div class="col offset-m1 m10 offset-l1 l10 s12">
-              <h5 class="lighten"><b>DELIVERY REGISTER</b></h5>
-               <div class="input-field col s10 m10 l5">
-                      <input id="icon_prefix" type="text" class="search-table validate">
-                      <label for="icon_prefix">Search</label>
-                      <i id="search_icon" class="material-icons top-indent prefix">search</i>
-              </div>
-              <div class="col hide-on-med-and-down s12 top-indent no-padding offset-m1 offset-l1 m11 l6">
-                <button class="btn right left-indent waves-effect blue waves-light">Create</button>
-                <button class="btn waves-effect side-indent right waves-light">View Report</button>
-              </div>
+  <div class="row">
+    <div class="col offset-m1 m10 offset-l1 l10 s12">
+      <h5 class="lighten">
+        <b>DELIVERY REGISTER</b>
+      </h5>
+      <div class="input-field col s10 m10 l5">
+        <input class="search-table validate" id="icon_prefix" type="text">
+        <label for="icon_prefix">Search</label>
+        <i class="material-icons top-indent prefix" id="search_icon">search</i>
+      </div>
+      <div class="col hide-on-med-and-down s12 top-indent no-padding offset-m1 offset-l1 m11 l6">
+        <button class="btn right left-indent waves-effect blue waves-light">Create</button>
+        <button class="btn waves-effect side-indent right waves-light">View Report</button>
+      </div>
 
-              <div class="col hide-on-large-only s2 m2 no-padding" >
-                  <ul id='dropdown1' class='dropdown-content'>
-                    <li><a href="#!">Report</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#!">Create</a></li>
-                  </ul>
-                 <a class="btn-flat right waves-effect dropdown-option top-indent no-padding waves-light dropdown-button" href='#' data-activates='dropdown1'><i class="dropdown-option material-icons">more_vert</i></a>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col offset-m1 m10 offset-l1 l10 s12">
-              <!-- {{> leaderboard}} -->
-            </div>
-        </div>
-      </main>
-    </body>
-  </template>
+      <div class="col hide-on-large-only s2 m2 no-padding">
+        <ul class='dropdown-content' id='dropdown1'>
+          <li>
+            <a href="#!">Report</a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a href="#!">Create</a>
+          </li>
+        </ul>
+        <a class="btn-flat right waves-effect dropdown-option top-indent no-padding waves-light dropdown-button" data-activates='dropdown1' href='#'>
+          <i class="dropdown-option material-icons">more_vert</i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col offset-m1 m10 offset-l1 l10 s12">
+      <!-- {{> leaderboard}} -->
+    </div>
+  </div>
+</template>
