@@ -118,6 +118,59 @@
 </div>
 </template>
 
+<template name="employeeUpdate">
+<div class="modal modal-fixed-footer" id="emp_update_modal">
+    <div class="modal-content">
+      <h5>Fill Information</h5>
+      <div class="row">
+        <div class="input-field col s4">
+          <input id="emp_name" name="name" placeholder="Employee Name" type="text">
+          <label class="active" for="emp_name">&zwnj;</label>
+        </div>
+        <div class="input-field col s4">
+          <input class="datepicker" id="emp_birthdate" placeholder="Birthdate" type="date">
+        </div>
+        <div class="input-field col s4">
+          <input id="emp_contact" placeholder="Contact No." type="text">
+        </div>
+      </div>
+      <div class="row no-margin">
+        <div class="input-field col s8 no-margin">
+          <textarea class="materialize-textarea" id="emp_address" placeholder="Address" type="text"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s4" onchange="onSelectChanged()">
+          <select name="role">
+            <option disabled selected value="">Position</option>
+            {{> employeePosition}}
+          </select>
+        </div>
+        <div class="col s4">
+          <p class="selectErrorContainer"></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s4">
+          <input id="emp_username" name="username" type="text">
+          <label class="active" for="emp_username">&zwnj;Username</label>
+        </div>
+        <div class="input-field col s4">
+          <input id="emp_pw" name="password" placeholder="Password" type="password">
+          <label class="active" for="emp_pw">&zwnj;Old Password</label>
+        </div>
+        <div class="input-field col s4">
+          <input id="emp_pw" name="new_password" placeholder="Enter New Password" type="password">
+          <label class="active" for="emp_newpw">&zwnj;New Password</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-action waves-effect waves-green btn-flat" type="submit">OK</button>
+    </div>
+</div>
+</template>
+
 <template name="employeePosition">
 {{#each positions}}
   <option value="{{role}}">{{name}}</option>
