@@ -22,6 +22,7 @@
   </div>
 
   {{> employeeModal}}
+  {{> employeeUpdate}}
   {{> ui_script}}
 </template>
 
@@ -120,6 +121,7 @@
 
 <template name="employeeUpdate">
 <div class="modal modal-fixed-footer" id="emp_update_modal">
+  <form class="register">
     <div class="modal-content">
       <h5>Fill Information</h5>
       <div class="row">
@@ -152,22 +154,23 @@
       </div>
       <div class="row">
         <div class="input-field col s4">
-          <input id="emp_username" name="username" type="text">
-          <label class="active" for="emp_username">&zwnj;Username</label>
+          <input id="emp_username" name="username" placeholder="Username" type="text">
+          <label class="active" for="emp_username">&zwnj;</label>
         </div>
         <div class="input-field col s4">
           <input id="emp_pw" name="password" placeholder="Password" type="password">
-          <label class="active" for="emp_pw">&zwnj;Old Password</label>
+          <label class="active" for="emp_pw">&zwnj;</label>
         </div>
         <div class="input-field col s4">
-          <input id="emp_pw" name="new_password" placeholder="Enter New Password" type="password">
-          <label class="active" for="emp_newpw">&zwnj;New Password</label>
+          <input id="emp_newpw" name="new_password" placeholder="Enter New Password" type="password">
+          <label class="active" for="emp_newpw">&zwnj;</label>
         </div>
       </div>
     </div>
     <div class="modal-footer">
       <button class="modal-action waves-effect waves-green btn-flat" type="submit">OK</button>
     </div>
+  </form>
 </div>
 </template>
 

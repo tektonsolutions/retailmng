@@ -96,7 +96,7 @@ if(Meteor.isClient){
       $("select").val(this.roles[0]);
       $("select").material_select();
 
-      $("#emp_modal").openModal();
+      $("#emp_update_modal").openModal();
     }
   });
 
