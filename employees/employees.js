@@ -26,6 +26,25 @@ if(Meteor.isClient){
     }
   });
 
+  Template.employeeMain.events({
+    "click #emp_create": function(event){
+      var validator = $(".register").validate({
+        submitHandler: function(event){
+          registerEmployee(validator);
+        }
+      });
+
+      $("#emp_username").val("");
+      $("#emp_name").val("");
+      $("#emp_birthdate").val("");
+      $("#emp_contact").val("");
+      $("#emp_address").val("");
+
+      $("select").val("");
+      $('select').material_select();
+    }
+  });
+
   Template.employeePosition.helpers({
     positions: [
       {name: roles.supervisor.name, role: roles.supervisor.key},
@@ -42,53 +61,43 @@ if(Meteor.isClient){
     }
   });
 
-  Template.employeeCreate.events({
+  Template.employeeModal.events({
     "submit form": function(event, template){
       event.preventDefault();
     }
   });
 
-  Template.employeeCreate.onRendered(function(){
-    var validator = $(".register").validate({
-      submitHandler: function(event){
-        var currentUser = Meteor.userId();
-
-        var username = $("#emp_username").val();
-        var password = $("#emp_pw").val();
-
-        var name = $("#emp_name").val();
-        var birthdate = $("#emp_birthdate").val();
-        var contactNo = $("#emp_contact").val();
-        var address = $("#emp_address").val();
-
-        var role = $("select").val();
-
-        var userObject = {
-          username: username,
-          password: password,
-          profile: {
-            name: name,
-            birthdate: birthdate,
-            contactNo: contactNo,
-            address: address,
-            managedBy: currentUser
-          }
-        };
-
-        Meteor.call("createEmployee", userObject, role, function(error, result){
+  Template.employee.events({
+    "click #emp_delete": function(event){
+      var currentId = this._id;
+      var r = confirm("Delete?");
+      if (r === true) {
+        Meteor.call("deleteEmployee", currentId, function(error, result){
           if(error){
-            if(error.reason == "Username already exists."){
-              validator.showErrors({
-                username: error.reason
-              });
-            }
-          } else{
-            var form = validator.currentForm;
-            form.reset();
+            console.log(error.reason);
           }
         });
       }
-    });
+    },
+    "click #emp_update": function(event){
+      var currentId = this._id;
+      var validator = $(".register").validate({
+        submitHandler: function(event){
+          updateEmployee(currentId, validator);
+        }
+      });
+
+      $("#emp_username").val(this.username);
+      $("#emp_name").val(this.profile.name);
+      $("#emp_birthdate").val(this.profile.birthdate);
+      $("#emp_contact").val(this.profile.contactNo);
+      $("#emp_address").val(this.profile.address);
+
+      $("select").val(this.roles[0]);
+      $("select").material_select();
+
+      $("#emp_modal").openModal();
+    }
   });
 
   $.validator.setDefaults({
@@ -143,6 +152,69 @@ if(Meteor.isClient){
   });
 }
 
+function getFields(){
+  var currentUser = Meteor.userId();
+  var username = $("#emp_username").val();
+  var password = $("#emp_pw").val();
+
+  var name = $("#emp_name").val();
+  var birthdate = $("#emp_birthdate").val();
+  var contactNo = $("#emp_contact").val();
+  var address = $("#emp_address").val();
+
+  var role = $("select").val();
+
+  var userObject = {
+    username: username,
+    password: password,
+    profile: {
+      name: name,
+      birthdate: birthdate,
+      contactNo: contactNo,
+      address: address,
+      managedBy: currentUser
+    }
+  };
+
+  return {userObject: userObject, role: role};
+}
+
+function registerEmployee(validator){
+  Meteor.call("createEmployee", getFields().userObject, getFields().role, function(error, result){
+    if(error){
+      if(error.reason == "Username already exists."){
+        validator.showErrors({
+          username: error.reason
+        });
+      }
+    } else{
+      var form = validator.currentForm;
+
+      $("select").val("");
+      $('select').material_select();
+      form.reset();
+    }
+  });
+}
+
+function updateEmployee(currentId, validator){
+  Meteor.call("updateEmployee", currentId, getFields().userObject, getFields().role, function(error, result){
+    if(error){
+      if(error.reason == "Username already exists."){
+        validator.showErrors({
+          username: error.reason
+        });
+      }
+    } else {
+      var form = validator.currentForm;
+
+      $("select").val("");
+      $('select').material_select();
+      form.reset();
+    }
+  });
+}
+
 function isEmployeeObjectSafe(userObject, role){
   var safe1 = Match.test(userObject, {
     username: String,
@@ -168,27 +240,52 @@ function isEmployeeObjectSafe(userObject, role){
 if(Meteor.isServer){
   Meteor.publish("employees", function(){
       var currentUser = this.userId;
-      return Meteor.users.find({"$and": [{"profile.managedBy": currentUser}, {"profile.managedBy": {"$exists": true}}]},
-        {fields:{"profile": 1}});
+      if(Meteor.myFunctions.isAdmin(currentUser)){
+        return Meteor.users.find({"$and": [{"profile.managedBy": currentUser}, {"softDelete": false}]},
+        {fields:{"username": 1, "profile": 1, "roles": 1}});
+      }
   });
 
   Meteor.methods({
     "createEmployee": function(userObject, role){
        var currentUser = Meteor.userId();
 
-       if(!currentUser){
-         throw new Meteor.Error("not-logged-in", "You're not logged-in.");
-       }
-
-       if(!isEmployeeObjectSafe(userObject, role)){
-         console.log("server error");
-       } else {
-         var result = Accounts.createUser(userObject);
-         if(result){
-           Roles.addUsersToRoles(result, role);
+       if(Meteor.myFunctions.isAdmin(currentUser)){
+         if(!isEmployeeObjectSafe(userObject, role)){
+           console.log("not safe");
+         } else {
+           var result = Accounts.createUser(userObject);
+           if(result){
+             Roles.addUsersToRoles(result, role);
+           }
+           return result;
          }
-         return result;
        }
+    },
+    "deleteEmployee": function(userObject){
+      var currentUser = Meteor.userId();
+
+      if(Meteor.myFunctions.isAdmin(currentUser)){
+        Meteor.users.update({"_id": userObject}, {"$set": { "softDelete": true }});
+      }
+    },
+    "updateEmployee": function(currentId, userObject, role){
+      var currentUser = Meteor.userId();
+
+      if(Meteor.myFunctions.isAdmin(currentUser)){
+        if(!isEmployeeObjectSafe(userObject, role)){
+          console.log("not safe");
+        } else {
+          Accounts.setUsername(currentId, userObject.username);
+          Meteor.users.update({_id:currentId}, {$set:{
+            "profile.name": userObject.profile.name,
+            "profile.birthdate": userObject.profile.birthdate,
+            "profile.contactNo": userObject.profile.contactNo,
+            "profile.address": userObject.profile.address,
+            "roles": [role]
+          }});
+        }
+      }
     }
   });
 }

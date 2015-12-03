@@ -1,21 +1,29 @@
 <head>
   <title>Retail Management</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-   <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+  <!-- Compiled and minified CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css" rel="stylesheet">
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
 </head>
 
 <template name="main">
-  {{> yield}}
+  {{#if currentUser}}
+    {{> sidebar}}
+    <main>
+      {{> navbar}}
+      {{> yield}}
+    </main>
+    {{else}}
+    {{> yield}}
+  {{/if}}
 </template>
 
 <!--scripts-->
 <template name="ui_script">
   <script type="text/javascript">
-    $(document).ready(function() {
+    $(document).ready(function () {
       var currentDate = new Date();
       var $input = $(".datepicker").pickadate();
       var picker = $input.pickadate("picker");
@@ -27,29 +35,105 @@
       $("ul.tabs").tabs();
     });
 
-    $("#delivery").change(function () {
-      if ($(this).is(":checked")) {
-          $("#delivery_modal").openModal();
-      }
-    });
+    function onSelectChanged(){
+      $(".selectErrorContainer").text("");
+    }
   </script>
 </template>
 <template name="select_script">
   <script type="text/javascript">
-    $(document).ready(function() {
+    $(document).ready(function () {
       $("select").material_select();
     });
-    </script>
+  </script>
 </template>
 <template name="tabs_script">
-<script type="text/javascript">
-    $(document).ready(function() {
+  <script type="text/javascript">
+    $(document).ready(function () {
       $("ul.tabs").tabs();
     });
-</script>
+  </script>
 </template>
 <template name="modal_script">
   <script type="text/javascript">
     $(".modal-trigger").leanModal();
   </script>
+</template>
+<template name="sidenav_script">
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $(".button-collapse").sideNav();
+    });
+  </script>
+</template>
+<template name="sidebar">
+  <ul class="side-nav fixed" id="slide-out">
+    <li>
+      <a href="{{pathFor route='sales'}}">Sales</a>
+    </li>
+    <li>
+      <a href="{{pathFor route='employees'}}">Employees</a>
+    </li>
+    <li>
+      <a href="{{pathFor route='suppliers'}}">Suppliers</a>
+    </li>
+    <li>
+      <a href="{{pathFor route='inventory'}}">Inventory</a>
+    </li>
+    <li>
+      <a href="{{pathFor route='presets'}}">Presets</a>
+    </li>
+    <li>
+      <a href="{{pathFor route='units'}}">Units</a>
+    </li>
+  </ul>
+  {{> sidenav_script}}
+</template>
+<template name="navbar">
+  <nav class="navbar-indent teal">
+    <div class="nav-wrapper">
+      <div class="row">
+        <div class="col toggle-parent">
+          <ul class="left">
+            <li>
+              <a class="button-collapse" data-activates="mobile-demo" href="#">
+                <i class="material-icons">menu</i>
+              </a>
+            </li>
+          </ul>
+          <ul class="side-nav" id="mobile-demo">
+            <li>
+              <a href="{{pathFor route='sales'}}">Sales</a>
+            </li>
+            <li>
+              <a href="{{pathFor route='employees'}}">Employees</a>
+            </li>
+            <li>
+              <a href="{{pathFor route='suppliers'}}">Suppliers</a>
+            </li>
+            <li>
+              <a href="{{pathFor route='inventory'}}">Inventory</a>
+            </li>
+            <li>
+              <a href="{{pathFor route='presets'}}">Presets</a>
+            </li>
+            <li>
+              <a href="{{pathFor route='units'}}">Units</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col s12 m12 l12 no-padding search-parent">
+          <form>
+            <div class="input-field">
+              <input class="right-align right-padding col s12" id="search" type="search"/>
+              <label for="search">
+                <i class="material-icons">search</i>
+              </label>
+              <i class="material-icons">close</i>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
 </template>
