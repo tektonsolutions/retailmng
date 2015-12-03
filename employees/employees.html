@@ -10,7 +10,7 @@
         <i class="material-icons top-indent prefix" id="search_icon">search</i>
       </div>
       <div class="col s4 m6 l6 top-indent no-padding">
-        <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#emp_modal">Create</a>
+        <a class="btn right left-indent waves-effect blue waves-light modal-trigger" id="emp_create" href="#emp_modal">Create</a>
       </div>
 
     </div>
@@ -21,7 +21,7 @@
     </div>
   </div>
 
-  {{> employeeCreate}}
+  {{> employeeModal}}
   {{> ui_script}}
 </template>
 
@@ -57,17 +57,17 @@
 <template name="employee">
 <li class="collection-item dismissable">
   <div>{{profile.name}}
-    <a id="emp_delete" class="secondary-content" href="">
+    <a class="secondary-content" href="" id="emp_delete">
       <i class="material-icons">delete</i>
     </a>
-    <a id="emp_update" class="secondary-content" href="">
+    <a class="secondary-content" href="" id="emp_update">
       <i class="material-icons">update</i>
     </a>
   </div>
 </li>
 </template>
 
-<template name="employeeCreate">
+<template name="employeeModal">
 <div class="modal modal-fixed-footer" id="emp_modal">
   <form class="register">
     <div class="modal-content">
@@ -90,8 +90,8 @@
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s4" onchange="onSelectChanged()">
-          <select name="role">
+        <div class="input-field col s4">
+          <select name="role" onchange="onSelectChanged()">
             <option disabled selected value="">Position</option>
             {{> employeePosition}}
           </select>

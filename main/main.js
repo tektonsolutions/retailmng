@@ -32,4 +32,4 @@ Meteor.myFunctions = {
       return false;
     }
   }
-}
+};
