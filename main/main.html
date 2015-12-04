@@ -15,6 +15,7 @@
       {{> navbar}}
       {{> yield}}
     </main>
+    {{> ui_script}}
     {{else}}
     {{> yield}}
   {{/if}}
@@ -40,32 +41,7 @@
     }
   </script>
 </template>
-<template name="select_script">
-  <script type="text/javascript">
-    $(document).ready(function () {
-      $("select").material_select();
-    });
-  </script>
-</template>
-<template name="tabs_script">
-  <script type="text/javascript">
-    $(document).ready(function () {
-      $("ul.tabs").tabs();
-    });
-  </script>
-</template>
-<template name="modal_script">
-  <script type="text/javascript">
-    $(".modal-trigger").leanModal();
-  </script>
-</template>
-<template name="sidenav_script">
-  <script type="text/javascript">
-    $(document).ready(function () {
-      $(".button-collapse").sideNav();
-    });
-  </script>
-</template>
+
 <template name="sidebar">
   <ul class="side-nav fixed" id="slide-out">
     <li>
@@ -87,7 +63,6 @@
       <a href="{{pathFor route='units'}}">Units</a>
     </li>
   </ul>
-  {{> sidenav_script}}
 </template>
 <template name="navbar">
   <nav class="navbar-indent teal">
