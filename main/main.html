@@ -15,7 +15,6 @@
       {{> navbar}}
       {{> yield}}
     </main>
-    {{> ui_script}}
     {{else}}
     {{> yield}}
   {{/if}}
@@ -29,7 +28,10 @@
       var $input = $(".datepicker").pickadate();
       var picker = $input.pickadate("picker");
       picker.set("select", new Date());
-      $("select").material_select();
+
+      if(picker){
+        $("select").material_select();
+      }
 
       $(".modal-trigger").leanModal();
       $(".button-collapse").sideNav();
@@ -48,13 +50,16 @@
       <a href="{{pathFor route='sales'}}">Sales</a>
     </li>
     <li>
+      <a href="{{pathFor route='delivery-registry'}}">Delivery Entry</a>
+    </li>
+    <li>
+      <a href="{{pathFor route='inventory'}}">Inventory</a>
+    </li>
+    <li>
       <a href="{{pathFor route='employees'}}">Employees</a>
     </li>
     <li>
       <a href="{{pathFor route='suppliers'}}">Suppliers</a>
-    </li>
-    <li>
-      <a href="{{pathFor route='inventory'}}">Inventory</a>
     </li>
     <li>
       <a href="{{pathFor route='presets'}}">Presets</a>
@@ -64,6 +69,7 @@
     </li>
   </ul>
 </template>
+
 <template name="navbar">
   <nav class="navbar-indent teal">
     <div class="nav-wrapper">
@@ -81,13 +87,16 @@
               <a href="{{pathFor route='sales'}}">Sales</a>
             </li>
             <li>
+              <a href="{{pathFor route='delivery-registry'}}">Delivery Entry</a>
+            </li>
+            <li>
+              <a href="{{pathFor route='inventory'}}">Inventory</a>
+            </li>
+            <li>
               <a href="{{pathFor route='employees'}}">Employees</a>
             </li>
             <li>
               <a href="{{pathFor route='suppliers'}}">Suppliers</a>
-            </li>
-            <li>
-              <a href="{{pathFor route='inventory'}}">Inventory</a>
             </li>
             <li>
               <a href="{{pathFor route='presets'}}">Presets</a>
