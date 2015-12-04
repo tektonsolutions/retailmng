@@ -1,10 +1,9 @@
 <template name="presets">
-  <h5 class="lighten teal no-margin no-border top-padding bottom-padding left-padding">
-    <b>RETAIL PRESETS</b>
-  </h5>
   <div class="row">
     <div class="col offset-m1 m10 offset-l1 l10 s12">
-
+      <h5 class="lighten">
+        <b>RETAIL PRESETS</b>
+      </h5>
       <div class="input-field col s8 m6 l6">
         <input class="search-table validate" id="icon_prefix" type="text">
         <label for="icon_prefix">Search</label>
@@ -33,7 +32,7 @@
       </div>
       <div class="row">
         <div class="input-field col s8">
-          <textarea class="materialize-textarea" id="preset_description" placeholder="e.g. Retail Preset for (product)." type="text"></textarea>
+          <textarea class="materialize-textarea" id="preset_description" placeholder="e.g. Retail Preset for (product)." type="text">&zwnj;</textarea>
           <label for="preset_description">Short Description</label>
         </div>
       </div>
@@ -56,5 +55,4 @@
       <a class="modal-close modal-action waves-effect waves-green btn-flat " href="#!">OK</a>
     </div>
   </div>
-  {{> modal_script}}
 </template>

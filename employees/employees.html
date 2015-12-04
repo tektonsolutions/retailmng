@@ -10,7 +10,7 @@
         <i class="material-icons top-indent prefix" id="search_icon">search</i>
       </div>
       <div class="col s4 m6 l6 top-indent no-padding">
-        <a class="btn right left-indent waves-effect blue waves-light modal-trigger" id="emp_create" href="#emp_modal">Create</a>
+        <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#emp_modal" id="emp_create">Create</a>
       </div>
 
     </div>
@@ -22,7 +22,7 @@
   </div>
 
   {{> employeeModal}}
-  {{> ui_script}}
+  {{> employeePasswordModal}}
 </template>
 
 <template name="employeeList">
@@ -63,15 +63,30 @@
     <a class="secondary-content" href="" id="emp_update">
       <i class="material-icons">update</i>
     </a>
+    <a class="secondary-content" href="" id="emp_change_pw">
+      <i class="material-icons">update</i>
+    </a>
   </div>
 </li>
 </template>
 
 <template name="employeeModal">
 <div class="modal modal-fixed-footer" id="emp_modal">
-  <form class="register">
+  <form id="register">
     <div class="modal-content">
       <h5>Fill Information</h5>
+      <div class="row">
+        <div class="input-field col s4">
+          <input id="emp_username" name="username" placeholder="Username" type="text">
+          <label class="active" for="emp_username">&zwnj;</label>
+        </div>
+      </div>
+      <div id="div_row_password" class="row">
+        <div id="div_password" class="input-field col s4">
+          <input id="emp_pw" name="password" placeholder="Password" type="password">
+          <label class="active" for="emp_pw">&zwnj;</label>
+        </div>
+      </div>
       <div class="row">
         <div class="input-field col s4">
           <input id="emp_name" name="name" placeholder="Employee Name" type="text">
@@ -100,14 +115,29 @@
           <p class="selectErrorContainer"></p>
         </div>
       </div>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-action waves-effect waves-green btn-flat" type="submit">OK</button>
+    </div>
+  </form>
+</div>
+</template>
+
+<template name="employeePasswordModal">
+<div class="modal" id="emp_password_modal">
+  <form id="changePassword">
+    <div class="modal-content">
+      <h5>Change Password</h5>
       <div class="row">
         <div class="input-field col s4">
-          <input id="emp_username" name="username" placeholder="Username" type="text">
-          <label class="active" for="emp_username">&zwnj;</label>
+          <input id="emp_new_pw" name="password" placeholder="New password" type="password">
+          <label class="active" for="emp_new_pw">&zwnj;</label>
         </div>
+      </div>
+      <div class="row">
         <div class="input-field col s4">
-          <input id="emp_pw" name="password" placeholder="Password" type="password">
-          <label class="active" for="emp_pw">&zwnj;</label>
+          <input id="emp_new_conf_pw" name="confirm_password" placeholder="Confirm new password" type="password">
+          <label class="active" for="emp_new_conf_pw">&zwnj;</label>
         </div>
       </div>
     </div>
