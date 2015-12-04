@@ -48,13 +48,16 @@
       <a href="{{pathFor route='sales'}}">Sales</a>
     </li>
     <li>
+      <a href="{{pathFor route='delivery-registry'}}">Delivery Entry</a>
+    </li>
+    <li>
+      <a href="{{pathFor route='inventory'}}">Inventory</a>
+    </li>
+    <li>
       <a href="{{pathFor route='employees'}}">Employees</a>
     </li>
     <li>
       <a href="{{pathFor route='suppliers'}}">Suppliers</a>
-    </li>
-    <li>
-      <a href="{{pathFor route='inventory'}}">Inventory</a>
     </li>
     <li>
       <a href="{{pathFor route='presets'}}">Presets</a>
@@ -64,6 +67,7 @@
     </li>
   </ul>
 </template>
+
 <template name="navbar">
   <nav class="navbar-indent teal">
     <div class="nav-wrapper">
@@ -81,13 +85,16 @@
               <a href="{{pathFor route='sales'}}">Sales</a>
             </li>
             <li>
+              <a href="{{pathFor route='delivery-registry'}}">Delivery Entry</a>
+            </li>
+            <li>
+              <a href="{{pathFor route='inventory'}}">Inventory</a>
+            </li>
+            <li>
               <a href="{{pathFor route='employees'}}">Employees</a>
             </li>
             <li>
               <a href="{{pathFor route='suppliers'}}">Suppliers</a>
-            </li>
-            <li>
-              <a href="{{pathFor route='inventory'}}">Inventory</a>
             </li>
             <li>
               <a href="{{pathFor route='presets'}}">Presets</a>
@@ -116,4 +123,5 @@
       </div>
     </div>
   </nav>
+  {{> sidenav_script}}
 </template>
