@@ -10,7 +10,6 @@
       <div class="col s4 m6 l6 top-indent no-padding">
         <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#units_modal">Create</a>
       </div>
-
     </div>
   </div>
   <div class="row">
@@ -18,4 +17,23 @@
       <!-- {{> leaderboard}} -->
     </div>
   </div>
+
+
+  <div id="units_modal" class="modal">
+    <div class="modal-content">
+      <h5>Fill Information</h5>
+        <div class="row">
+          <div class="input-field col s4">
+            <input placeholder="Unit Name" id="unit_name" type="text">
+          </div>
+          <div class="input-field col s3">
+            <input placeholder="Shortname" id="unit_short" type="text">
+          </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close modal-action waves-effect waves-green btn-flat ">OK</a>
+    </div>
+  </div>
+  {{> modal_script}}
 </template>
