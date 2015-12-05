@@ -10,9 +10,9 @@
 
 <template name="main">
   {{#if currentUser}}
-    {{> sidebar}}
+    {{> navbar}}
     <main>
-      {{> navbar}}
+      {{> sidebar}}
       {{> yield}}
     </main>
     {{else}}
@@ -45,16 +45,27 @@
 </template>
 
 <template name="sidebar">
-  <ul class="side-nav fixed" id="slide-out">
+  <ul id="slide-out" class="side-nav no-padding">
     <li>
       <a href="{{pathFor route='sales'}}">Sales</a>
     </li>
     <li>
-      <a href="{{pathFor route='delivery-registry'}}">Delivery Entry</a>
+      <a href="{{pathFor route='delivery-registry'}}">Delivery Register</a>
     </li>
-    <li>
-      <a href="{{pathFor route='inventory'}}">Inventory</a>
-    </li>
+    <br>
+    <ul class="collapsible collapsible-accordion">
+      <li>
+        <a class="collapsible-header waves-effect waves-teal">Inventory</a>
+        <div class="collapsible-body">
+          <ul>
+            <li><a href="{{pathFor route='invetory'}}">Inventory Register</a></li>
+          </ul>
+          <ul>
+            <li><a href="{{pathFor route='invetory-count'}}">Physical Inventory Count</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
     <li>
       <a href="{{pathFor route='employees'}}">Employees</a>
     </li>
@@ -68,59 +79,25 @@
       <a href="{{pathFor route='units'}}">Units</a>
     </li>
   </ul>
+
+  {{ui_script}}
 </template>
 
 <template name="navbar">
-  <nav class="navbar-indent teal">
-    <div class="nav-wrapper">
+  <nav>
+    <div class="nav-wrapper teal">
       <div class="row">
-        <div class="col toggle-parent">
-          <ul class="left">
-            <li>
-              <a class="button-collapse" data-activates="mobile-demo" href="#">
-                <i class="material-icons">menu</i>
-              </a>
-            </li>
-          </ul>
-          <ul class="side-nav" id="mobile-demo">
-            <li>
-              <a href="{{pathFor route='sales'}}">Sales</a>
-            </li>
-            <li>
-              <a href="{{pathFor route='delivery-registry'}}">Delivery Entry</a>
-            </li>
-            <li>
-              <a href="{{pathFor route='inventory'}}">Inventory</a>
-            </li>
-            <li>
-              <a href="{{pathFor route='employees'}}">Employees</a>
-            </li>
-            <li>
-              <a href="{{pathFor route='suppliers'}}">Suppliers</a>
-            </li>
-            <li>
-              <a href="{{pathFor route='presets'}}">Presets</a>
-            </li>
-            <li>
-              <a href="{{pathFor route='units'}}">Units</a>
-            </li>
-          </ul>
+        <div class="col s2 m1 l1 middle-align">
+          <i class="mdi-navigation-menu button-collapse" data-activates="slide-out"></i>
         </div>
-        <div class="row">
-          <div class="col s2 m1 l1 center">
-            <i class="material-icons large center">menu</i>
-          </div>
-          <div class="col s10 m11 l11 no-padding search-parent">
-            <form>
-              <div class="input-field">
-                <input class="right-align right-padding col s12" id="search" type="search"/>
-                <label for="search">
-                  <i class="material-icons">search</i>
-                </label>
-                <i class="material-icons">close</i>
-              </div>
-            </form>
-          </div>
+        <div class="col s10 m11 l11 right no-padding">
+          <form>
+            <div class="input-field">
+              <input class="right-align right-padding col s12" id="search" type="search" required>
+              <label for="search"><i class="material-icons">search</i></label>
+              <i class="material-icons">close</i>
+            </div>
+          </form>
         </div>
       </div>
     </div>
