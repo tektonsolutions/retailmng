@@ -36,6 +36,8 @@
       $(".modal-trigger").leanModal();
       $(".button-collapse").sideNav();
       $("ul.tabs").tabs();
+      $('.collapsible').collapsible({accordion : false});
+      $(".dropdown-button").dropdown();
     });
 
     function onSelectChanged(){
@@ -46,6 +48,11 @@
 
 <template name="sidebar">
   <ul id="slide-out" class="side-nav no-padding">
+    <li class="center">
+      <a href="">
+        <i class="mdi-navigation-menu"></i>
+      </a>
+    </li>
     <li>
       <a href="{{pathFor route='sales'}}">Sales</a>
     </li>
@@ -58,10 +65,10 @@
         <a class="collapsible-header waves-effect waves-teal">Inventory</a>
         <div class="collapsible-body">
           <ul>
-            <li><a href="{{pathFor route='invetory'}}">Inventory Register</a></li>
+            <li><a href="{{pathFor route='inventory'}}">Inventory Register</a></li>
           </ul>
           <ul>
-            <li><a href="{{pathFor route='invetory-count'}}">Physical Inventory Count</a></li>
+            <li><a href="{{pathFor route='inventory-count'}}">Physical Inventory Count</a></li>
           </ul>
         </div>
       </li>
@@ -79,7 +86,6 @@
       <a href="{{pathFor route='units'}}">Units</a>
     </li>
   </ul>
-
   {{ui_script}}
 </template>
 
@@ -87,8 +93,10 @@
   <nav>
     <div class="nav-wrapper teal">
       <div class="row">
-        <div class="col s2 m1 l1 middle-align">
-          <i class="mdi-navigation-menu button-collapse" data-activates="slide-out"></i>
+        <div class="col s2 m1 l1 center">
+          <a href="#">
+            <i class="mdi-navigation-menu button-collapse" data-activates="slide-out"></i>
+          </a>
         </div>
         <div class="col s10 m11 l11 right no-padding">
           <form>
@@ -102,4 +110,5 @@
       </div>
     </div>
   </nav>
+  {{ui_script}}
 </template>

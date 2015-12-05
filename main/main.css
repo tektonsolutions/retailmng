@@ -1,3 +1,7 @@
 label[data-error]:after {
   white-space: nowrap;
 }
+
+head, main, footer{
+  padding-left: 0;
+}

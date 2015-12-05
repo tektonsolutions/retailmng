@@ -172,11 +172,11 @@ if(Meteor.isClient){
     messages:{
       username:{
         required: "You must enter a username.",
-        minlength: "Your username must be at least {0} characters."
+        minlength: "Username must be at least {0} characters."
       },
       password:{
         required: "You must enter a password.",
-        minlength: "Your password must be at least {0} characters."
+        minlength: "Password must be at least {0} characters."
       },
       confirm_password:{
         equalTo: "Please enter the same password."
