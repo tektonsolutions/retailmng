@@ -10,7 +10,7 @@
         <i class="material-icons top-indent prefix" id="search_icon">search</i>
       </div>
       <div class="col s4 m6 l6 top-indent no-padding">
-        <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#!">Create</a>
+        <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="{{pathFor route="inventory-perform"}}">Create</a>
       </div>
 
     </div>
@@ -77,18 +77,6 @@
           <input class="validate" id="search" placeholder="Supplier or Category" type="text" value="">
         </div>
       </div>
-      <div class="row col s12 right-align no-padding hide-on-med-and-down">
-        <button class="col s2 btn waves-effect side-indent waves-light">
-          <i class="material-icons">keyboard_return</i>
-        </button>
-        <button class="col s2 btn waves-effect side-indent waves-light">
-          <i class="material-icons">delete</i>
-        </button>
-        <button class="col s2 btn waves-effect side-indent waves-light">
-          <i class="material-icons">print</i>
-        </button>
-        <button class="col s5 btn side-indent waves-effect blue waves-light right">UPDATE INVENTORY</button>
-      </div>
 
       <div class="col hide-on-large-only s7 m7">
         <ul class='dropdown-content' id='dropdown6'>
@@ -112,6 +100,22 @@
       </div>
     </div>
   </div>
-
   {{> ui_script}}
+
+  <footer class="page-footer transparent">
+        <div class="row">
+            <div class="row col s4 offset-s8 right-align no-padding hide-on-med-and-down">
+              <button class="col s2 btn waves-effect side-indent waves-light">
+                <i class="material-icons">keyboard_return</i>
+              </button>
+              <button class="col s2 btn waves-effect side-indent waves-light">
+                <i class="material-icons">delete</i>
+              </button>
+              <button class="col s2 btn waves-effect side-indent waves-light">
+                <i class="material-icons">print</i>
+              </button>
+              <button class="col s5 btn side-indent waves-effect blue waves-light right">UPDATE INVENTORY</button>
+            </div>
+        </div>
+  </footer>
 </template>

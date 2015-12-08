@@ -47,43 +47,44 @@
 </template>
 
 <template name="sidebar">
-  <ul id="slide-out" class="side-nav no-padding">
-    <li class="center">
-      <a href="">
-        <i class="mdi-navigation-menu"></i>
+  <ul id="slide-out" class="side-nav no-padding transparent">
+    <li class="center white no-padding">
+      <a class="waves-effect waves-teal">
+        <i class="mdi-navigation-menu" href="#!"></i>
       </a>
     </li>
-    <li>
-      <a href="{{pathFor route='sales'}}">Sales</a>
+    <li class="no-padding">
+      <a class="waves-effect waves-teal white-text" href="{{pathFor route='sales'}}">Sales</a>
     </li>
-    <li>
-      <a href="{{pathFor route='delivery-registry'}}">Delivery Register</a>
+    <div class="row center no-margin">
+      <label class="white-text">INVENTORY</label>
+    </div>
+    <li class="no-padding">
+      <a class="waves-effect waves-teal white-text" href="{{pathFor route='delivery-registry'}}">Delivery Register</a>
     </li>
-    <br>
-    <ul class="collapsible collapsible-accordion">
-      <li>
-        <a class="collapsible-header waves-effect waves-teal">Inventory</a>
-        <div class="collapsible-body">
-          <ul>
-            <li><a href="{{pathFor route='inventory'}}">Inventory Register</a></li>
-          </ul>
-          <ul>
-            <li><a href="{{pathFor route='inventory-count'}}">Physical Inventory Count</a></li>
-          </ul>
-        </div>
-      </li>
-    </ul>
-    <li>
-      <a href="{{pathFor route='employees'}}">Employees</a>
+    <li class="no-padding">
+      <a class="waves-effect waves-teal white-text" href="{{pathFor route='inventory'}}">Inventory</a>
     </li>
-    <li>
-      <a href="{{pathFor route='suppliers'}}">Suppliers</a>
+    <li class="no-padding">
+      <a class="waves-effect waves-teal white-text" href="{{pathFor route='inventory-count'}}">Physical Inventory Count</a>
     </li>
-    <li>
-      <a href="{{pathFor route='presets'}}">Presets</a>
+    <div class="row center no-margin">
+      <label class="white-text">RESOURCE</label>
+    </div>
+    <li class="no-padding">
+      <a class="waves-effect waves-teal white-text" href="{{pathFor route='employees'}}">Employees</a>
     </li>
-    <li>
-      <a href="{{pathFor route='units'}}">Units</a>
+    <li class="no-padding">
+      <a class="waves-effect waves-teal white-text" href="{{pathFor route='suppliers'}}">Suppliers</a>
+    </li>
+    <li class="no-padding">
+      <a class="waves-effect waves-teal white-text" href="{{pathFor route='presets'}}">Presets</a>
+    </li>
+    <li class="no-padding">
+      <a class="waves-effect waves-teal white-text" href="{{pathFor route='units'}}">Units</a>
+    </li>
+    <li class="no-padding">
+      <a class="waves-effect waves-teal white-text" href="{{pathFor route='delivery-areas'}}">Delivery Areas</a>
     </li>
   </ul>
   {{ui_script}}

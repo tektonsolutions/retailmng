@@ -1,4 +1,7 @@
 <template name="employeeMain">
+  <head>
+    <title>Employees</title>
+  </head>
   <div class="row">
     <div class="col offset-m1 m10 offset-l1 l10 s12">
       <h5 class="lighten">
@@ -12,7 +15,6 @@
       <div class="col s4 m6 l6 top-indent no-padding">
         <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#emp_modal" id="emp_create">Create</a>
       </div>
-
     </div>
   </div>
   <div class="row">
@@ -27,7 +29,7 @@
 </template>
 
 <template name="employeeList">
-  {{#EasySearch.IfInputEmpty index=employeesIndex }}
+  {{#EasySearch.IfInputEmpty index=employeesIndex}}
     <!-- do something -->
     {{else}}
     {{#if employeesCount}}
@@ -58,14 +60,14 @@
 <template name="employee">
 <li class="collection-item dismissable">
   <div>{{profile.name}}
-    <a class="secondary-content" href="" id="emp_delete">
+    <a class="secondary-content side-indent" href="" id="emp_delete">
       <i class="material-icons">delete</i>
     </a>
-    <a class="secondary-content" href="" id="emp_update">
+    <a class="secondary-content side-indent" href="" id="emp_update">
       <i class="material-icons">update</i>
     </a>
-    <a class="secondary-content" href="" id="emp_change_pw">
-      <i class="material-icons">update</i>
+    <a class="secondary-content side-indent" href="" id="emp_change_pw">
+      <i class="material-icons">vpn_key</i>
     </a>
   </div>
 </li>

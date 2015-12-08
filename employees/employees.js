@@ -179,7 +179,7 @@ if(Meteor.isClient){
         minlength: "Password must be at least {0} characters."
       },
       confirm_password:{
-        equalTo: "Please enter the same password."
+        equalTo: "Passwords don't match."
       },
       name:{
         required: "You must enter a name."
