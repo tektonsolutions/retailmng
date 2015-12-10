@@ -3,49 +3,55 @@
     <h5 class="lighten left-indent">
       <b>DELIVERY REGISTER ENTRY</b>
     </h5>
-    <br>
     <div class="col s12 m8 l8 vertical-seperator">
-      <div class="row">
-        <div class="input-field col s5 m5 l4">
-          <input class="validate" id="delivery_prefix" type="text">
-          <label for="delivery_prefix">Delivery No.</label>
+      <ul class="collapsible" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header active"><i class="material-icons">info</i>Delivery Info</div>
+        <div class="collapsible-body">
+          <div class="row">
+            <br>
+            <div class="input-field col s5 m5 l4">
+              <input class="validate" id="del_num" type="text">
+              <label for="del_num">Delivery No.</label>
+            </div>
+            <div class="input-field col s4">
+              <label for="del_date">Date Delivered</label>
+              <input class="datepicker" id="del_date" type="date">
+            </div>
+            <div class="input-field col s3 l4">
+              <label for="del_due">Due Date</label>
+              <input class="datepicker" id="del_due" type="date">
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6 m5 l4">
+              <select>
+                <option disabled selected value="">Supplier</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+              </select>
+              <label>Supplier</label>
+            </div>
+            <div class="input-field col s2 m2 l3">
+              <input class="validate" id="del_term" type="text" value="">
+              <label for="del_term">Term</label>
+            </div>
+            <div class="input-field col s5">
+              <input class="validate" id="del_receipt" type="text" value="">
+              <label for="del_receipt">D.R. No.</label>
+            </div>
+          </div>
         </div>
-        <div class="input-field col s4">
-          <label for="calendar_prefix">Date Delivered</label>
-          <input class="datepicker" id="calendar_prefix" type="date">
-        </div>
-        <div class="input-field col s3 l4">
-          <label for="calendar_prefix">Due Date</label>
-          <input class="datepicker" id="calendar_prefix" type="date">
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6 m5 l4">
-          <select>
-            <option disabled selected value="">Supplier</option>
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-            <option value="3">Option 3</option>
-          </select>
-          <label>Supplier</label>
-        </div>
-        <div class="input-field col s2 m2 l3">
-          <input class="validate" id="payment_term" type="text" value="">
-          <label for="payment_term">Term</label>
-        </div>
-        <div class="input-field col s5">
-          <input class="validate" id="receipt_prefix" type="text" value="">
-          <label for="receipt_prefix">D.R. No.</label>
-        </div>
-      </div>
-      <br>
-      <br>
+      </li>
+    </ul>
+    <br>
       <h6 class="center-align">
         <b>INVENTORY ENTRY</b>
       </h6>
       <div class="row">
         <div class="input-field col s1">
-          <input class="validate" id="qty" placeholder="Qty." type="text">
+          <input class="validate" id="inv_qty" placeholder="Qty." type="text">
         </div>
         <div class="input-field col s2">
           <select>
@@ -56,7 +62,7 @@
           </select>
         </div>
         <div class="input-field col s5">
-          <input class="validate" id="item" placeholder="Item" type="text">
+          <input class="validate" id="inv_item" placeholder="Item" type="text">
         </div>
         <div class="input-field col s2">
           <select>
@@ -67,7 +73,7 @@
           </select>
         </div>
         <div class="input-field col s2">
-          <input class="validate" id="unitprice" placeholder="U/P" type="text">
+          <input class="validate" id="inv_unitprice" placeholder="U/P" type="text">
         </div>
       </div>
 
@@ -126,7 +132,7 @@
         <div class="row">
           <div class="col s10">
             <div class="input-field no-padding col s7 m8">
-              <input class="validate" id="total" placeholder="Total" type="text">
+              <input class="validate" id="del_total" placeholder="Total" type="text">
             </div>
           </div>
         </div>
