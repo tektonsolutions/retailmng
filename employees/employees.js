@@ -14,7 +14,7 @@ EmployeesIndex = new EasySearch.Index({
 
 if(Meteor.isClient){
   Template.employeeMain.onCreated(function () {
-    Session.set("emp_pw", "attached");
+    Session.set("div_password", "attached");
     this.subscribe("employees");
   });
 
