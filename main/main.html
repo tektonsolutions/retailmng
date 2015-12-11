@@ -10,9 +10,9 @@
 
 <template name="main">
   {{#if currentUser}}
-    {{> sidebar}}
+    {{> navbar}}
     <main>
-      {{> navbar}}
+      {{> sidebar}}
       {{> yield}}
     </main>
     {{else}}
@@ -36,6 +36,8 @@
       $(".modal-trigger").leanModal();
       $(".button-collapse").sideNav();
       $("ul.tabs").tabs();
+      $('.collapsible').collapsible({accordion : false});
+      $(".dropdown-button").dropdown();
     });
 
     function onSelectChanged(){
@@ -45,84 +47,69 @@
 </template>
 
 <template name="sidebar">
-  <ul class="side-nav fixed" id="slide-out">
-    <li>
-      <a href="{{pathFor route='sales'}}">Sales</a>
+  <ul id="slide-out" class="side-nav no-padding transparent">
+    <li class="center white no-padding">
+      <a class="waves-effect waves-teal">
+        <i class="mdi-navigation-menu" href="#!"></i>
+      </a>
     </li>
-    <li>
-      <a href="{{pathFor route='delivery-registry'}}">Delivery Entry</a>
+    <li class="no-padding">
+      <a class="waves-effect waves-teal white-text" href="{{pathFor route='sales'}}">Sales</a>
     </li>
-    <li>
-      <a href="{{pathFor route='inventory'}}">Inventory</a>
+    <div class="row center no-margin">
+      <label class="white-text"><b>INVENTORY</b></label>
+    </div>
+    <li class="no-padding">
+      <a class="waves-effect waves-teal white-text" href="{{pathFor route='delivery-registry'}}">Delivery Register</a>
     </li>
-    <li>
-      <a href="{{pathFor route='employees'}}">Employees</a>
+    <li class="no-padding">
+      <a class="waves-effect waves-teal white-text" href="{{pathFor route='inventory'}}">Inventory</a>
     </li>
-    <li>
-      <a href="{{pathFor route='suppliers'}}">Suppliers</a>
+    <li class="no-padding">
+      <a class="waves-effect waves-teal white-text" href="{{pathFor route='inventory-count'}}">Physical Inventory Count</a>
     </li>
-    <li>
-      <a href="{{pathFor route='presets'}}">Presets</a>
+    <div class="row center no-margin">
+      <label class="white-text"><b>RESOURCE</b></label>
+    </div>
+    <li class="no-padding">
+      <a class="waves-effect waves-teal white-text" href="{{pathFor route='employees'}}">Employees</a>
     </li>
-    <li>
-      <a href="{{pathFor route='units'}}">Units</a>
+    <li class="no-padding">
+      <a class="waves-effect waves-teal white-text" href="{{pathFor route='suppliers'}}">Suppliers</a>
+    </li>
+    <li class="no-padding">
+      <a class="waves-effect waves-teal white-text" href="{{pathFor route='presets'}}">Presets</a>
+    </li>
+    <li class="no-padding">
+      <a class="waves-effect waves-teal white-text" href="{{pathFor route='units'}}">Units</a>
+    </li>
+    <li class="no-padding">
+      <a class="waves-effect waves-teal white-text" href="{{pathFor route='delivery-areas'}}">Delivery Areas</a>
     </li>
   </ul>
+  {{ui_script}}
 </template>
 
 <template name="navbar">
-  <nav class="navbar-indent teal">
-    <div class="nav-wrapper">
+  <nav>
+    <div class="nav-wrapper teal">
       <div class="row">
-        <div class="col toggle-parent">
-          <ul class="left">
-            <li>
-              <a class="button-collapse" data-activates="mobile-demo" href="#">
-                <i class="material-icons">menu</i>
-              </a>
-            </li>
-          </ul>
-          <ul class="side-nav" id="mobile-demo">
-            <li>
-              <a href="{{pathFor route='sales'}}">Sales</a>
-            </li>
-            <li>
-              <a href="{{pathFor route='delivery-registry'}}">Delivery Entry</a>
-            </li>
-            <li>
-              <a href="{{pathFor route='inventory'}}">Inventory</a>
-            </li>
-            <li>
-              <a href="{{pathFor route='employees'}}">Employees</a>
-            </li>
-            <li>
-              <a href="{{pathFor route='suppliers'}}">Suppliers</a>
-            </li>
-            <li>
-              <a href="{{pathFor route='presets'}}">Presets</a>
-            </li>
-            <li>
-              <a href="{{pathFor route='units'}}">Units</a>
-            </li>
-          </ul>
+        <div class="col s2 m1 l1 center">
+          <a href="#">
+            <i class="mdi-navigation-menu button-collapse" data-activates="slide-out"></i>
+          </a>
         </div>
-        <div class="row">
-          <div class="col s2 m1 l1 center">
-            <i class="material-icons large center">menu</i>
-          </div>
-          <div class="col s10 m11 l11 no-padding search-parent">
-            <form>
-              <div class="input-field">
-                <input class="right-align right-padding col s12" id="search" type="search"/>
-                <label for="search">
-                  <i class="material-icons">search</i>
-                </label>
-                <i class="material-icons">close</i>
-              </div>
-            </form>
-          </div>
+        <div class="col s10 m11 l11 right no-padding">
+          <form>
+            <div class="input-field">
+              <input class="right-align right-padding col s12" id="search" type="search" required>
+              <label for="search"><i class="material-icons">search</i></label>
+              <i class="material-icons">close</i>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </nav>
+  {{ui_script}}
 </template>

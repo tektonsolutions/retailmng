@@ -6,13 +6,13 @@
     <div class="col s12 m6 l6 vertical-seperator">
       <div class="row">
         <div class="input-field col s4">
-          <input class="validate" id="item_prefix" type="text">
+          <input class="validate" id="inv_code" type="text">
           <label for="item_prefix">Item Code</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input class="validate" id="desc_prefix" type="text">
+          <input class="validate" id="inv_item" type="text">
           <label for="desc_prefix">Item Description</label>
         </div>
       </div>
@@ -24,7 +24,7 @@
             <option value="2">kilo</option>
             <option value="3">ounce</option>
           </select>
-          <label for="unit_prefix">Unit of Measure</label>
+          <label for="inv_unit">Unit of Measure</label>
         </div>
         <div class="input-field col s6">
           <select>
@@ -38,24 +38,24 @@
       </div>
       <div class="row">
         <div class="input-field col s3">
-          <input class="validate" id="avecost_prefix" type="text">
-          <label for="avecost_prefix">Average Cost</label>
+          <input class="validate" id="inv_avecost" type="text">
+          <label for="inv_avecost">Average Cost</label>
         </div>
         <div class="input-field col s3">
-          <input class="validate" id="lastcost_prefix" type="text">
-          <label for="lastcost_prefix">Last Cost</label>
+          <input class="validate" id="inv_lastcost" type="text">
+          <label for="inv_lastcost">Last Cost</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s5">
-          <input class="validate" id="sellingprice_prefix" type="text">
-          <label for="sellingprice_prefix">Selling Price</label>
+          <input class="validate" id="inv_sellingprice" type="text">
+          <label for="inv_sellingprice">Selling Price</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s5">
-          <input class="validate" id="qty_prefix" type="text">
-          <label for="qty_prefix">Qty. on Hand</label>
+          <input class="validate" id="inv_qty" type="text">
+          <label for="inv_qty">Qty. on Hand</label>
         </div>
       </div>
 
@@ -63,14 +63,14 @@
     <div class="col s12 m6 l6">
       <div class="row">
         <div class="input-field col s12 m6 l4">
-          <input class="validate" id="item_prefix" type="text">
-          <label for="item_prefix">Reorder Qty</label>
+          <input class="validate" id="inv_reorderqty" type="text">
+          <label for="inv_reorderqty">Reorder Qty.</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12 m6 l4">
-          <input class="validate" id="item_prefix" type="text">
-          <label for="item_prefix">Reorder Pt.</label>
+          <input class="validate" id="inv_reorderpt" type="text">
+          <label for="inv_reorderpt">Reorder Pt.</label>
         </div>
       </div>
       <hr class="dashed top-indent">
@@ -86,15 +86,18 @@
           <label>Presets</label>
         </div>
       </div>
-      <hr class="dashed top-indent">
-      <div class="row right top-indent">
-        <button class="btn right left-indent waves-effect blue waves-light side-indent">Save</button>
-        <button class="btn waves-effect side-indent right waves-light">Print</button>
-        <button class="btn waves-effect side-indent right waves-light">Delete</button>
-        <button class="btn waves-effect side-indent right waves-light">Cancel</button>
-      </div>
     </div>
   </div>
-
   {{> ui_script}}
+
+  <footer class="page-footer transparent">
+        <div class="row">
+          <div class="row right top-indent">
+            <button class="btn right left-indent waves-effect blue waves-light side-indent">Save</button>
+            <button class="btn waves-effect side-indent right waves-light">Print</button>
+            <button class="btn waves-effect side-indent right waves-light">Delete</button>
+            <button class="btn waves-effect side-indent right waves-light">Cancel</button>
+          </div>
+        </div>
+  </footer>
 </template>

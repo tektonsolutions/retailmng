@@ -10,7 +10,7 @@
         <i class="material-icons top-indent prefix" id="search_icon">search</i>
       </div>
       <div class="col s4 m6 l6 top-indent no-padding">
-        <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#!">Create</a>
+        <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="{{pathFor route="inventory-perform"}}">Create</a>
       </div>
 
     </div>
@@ -19,7 +19,7 @@
     <div class="col offset-m1 m10 offset-l1 l10 s12">
       <!-- {{> leaderboard}} -->
     </div>
-  </div>]
+  </div>
 </template>
 
 <template name="inventoryPerform">
@@ -31,20 +31,20 @@
     <div class="col s12 m8 l8 vertical-seperator">
       <div class="row">
         <div class="input-field col s8">
-          <input class="validate" id="delivery_prefix" type="text">
-          <label for="delivery_prefix">Inventory Count Title</label>
+          <input class="validate" id="count_title" type="text">
+          <label for="count_title">Inventory Count Title</label>
         </div>
         <div class="input-field col s4">
-          <label for="calendar_prefix">Inventory Count Date</label>
-          <input class="datepicker" id="calendar_prefix" type="date">
+          <label for="count_date">Inventory Count Date</label>
+          <input class="datepicker" id="count_date" type="date">
         </div>
       </div>
       <div class="row col s12 m12 l12">
         <div class="input-field no-padding col s5 m5 l5">
-          <input class="validate" id="item" placeholder="Item" type="text">
+          <input class="validate" id="count_item" placeholder="Item" type="text">
         </div>
         <div class="input-field col s2 m2 l2">
-          <input class="validate" id="qty" placeholder="Qty." type="text">
+          <input class="validate" id="count_qty" placeholder="Qty." type="text">
         </div>
         <br>
         <button class="col s1 m1 l1 side-indent btn waves-effect waves-light">
@@ -77,18 +77,6 @@
           <input class="validate" id="search" placeholder="Supplier or Category" type="text" value="">
         </div>
       </div>
-      <div class="row col s12 right-align no-padding hide-on-med-and-down">
-        <button class="col s2 btn waves-effect side-indent waves-light">
-          <i class="material-icons">keyboard_return</i>
-        </button>
-        <button class="col s2 btn waves-effect side-indent waves-light">
-          <i class="material-icons">delete</i>
-        </button>
-        <button class="col s2 btn waves-effect side-indent waves-light">
-          <i class="material-icons">print</i>
-        </button>
-        <button class="col s5 btn side-indent waves-effect blue waves-light right">UPDATE INVENTORY</button>
-      </div>
 
       <div class="col hide-on-large-only s7 m7">
         <ul class='dropdown-content' id='dropdown6'>
@@ -112,6 +100,22 @@
       </div>
     </div>
   </div>
-
   {{> ui_script}}
+
+  <footer class="page-footer transparent">
+        <div class="row">
+            <div class="row col s4 offset-s8 right-align no-padding hide-on-med-and-down">
+              <button class="col s2 btn waves-effect side-indent waves-light">
+                <i class="material-icons">keyboard_return</i>
+              </button>
+              <button class="col s2 btn waves-effect side-indent waves-light">
+                <i class="material-icons">delete</i>
+              </button>
+              <button class="col s2 btn waves-effect side-indent waves-light">
+                <i class="material-icons">print</i>
+              </button>
+              <button class="col s5 btn side-indent waves-effect blue waves-light right">UPDATE INVENTORY</button>
+            </div>
+        </div>
+  </footer>
 </template>

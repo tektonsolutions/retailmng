@@ -1,7 +1,7 @@
 <template name="sales">
   <div class="row">
     <h5 class="lighten left-indent">
-      <b>SALES</b>
+      <title>SALES</title>
     </h5>
     <div class="col s12 m7 l7">
       <div class="row">
@@ -332,14 +332,6 @@
         </div>
         <!--otheropt_tab ends-->
       </div>
-      <br>
-      <div class="row col s12 right-align hide-on-med-and-down no-padding">
-        <button class="col s3 btn waves-effect side-indent waves-light">clear</button>
-        <!-- Discount -->
-        <a class="col s4 modal-trigger waves-effect side-indent waves-light btn" href="#discount_modal">discount</a>
-        <!-- Settle -->
-        <a class="col s4 right modal-trigger blue waves-effect side-indent waves-light btn" href="#cash_modal" id="settle">settle</a>
-      </div>
 
       <div class="hide-on-large-only col s7 m7">
         <ul class='dropdown-content' id='dropdown4'>
@@ -364,7 +356,20 @@
   {{> ui_script}}
   <script type="text/javascript">
     $("#delivery").change(function () {
-      if ($(this).is(":checked")) {$("#delivery_modal").openModal();}
+      if ($(this).is(":checked")) {
+      $("#delivery_modal").openModal();}
     });
   </script>
+
+  <footer class="page-footer transparent">
+        <div class="row">
+          <div class="col s5 offset-s7 hide-on-med-and-down no-padding">
+            <button class="col s3 btn waves-effect side-indent waves-light">clear</button>
+            <!-- Discount -->
+            <a class="col s3 modal-trigger waves-effect side-indent waves-light btn" href="#discount_modal">discount</a>
+            <!-- Settle -->
+            <a class="col s5 right modal-trigger blue waves-effect side-indent waves-light btn" href="#cash_modal" id="settle">settle</a>
+          </div>
+        </div>
+  </footer>
 </template>
