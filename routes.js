@@ -35,7 +35,10 @@ Router.route("/sales");
 Router.route("/presets");
 
 //Units Route
-Router.route("/units");
+Router.route("/units", {
+  name: "units",
+  template: "unitsMain"
+});
 
 //Suppliers Route
 Router.route("/suppliers");

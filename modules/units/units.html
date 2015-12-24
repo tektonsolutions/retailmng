@@ -1,39 +1,90 @@
-<template name="units">
+<template name="unitsMain">
   <div class="row">
     <div class="col offset-m1 m10 offset-l1 l10 s12">
-      <h5 class="lighten"><b>UNITS</b></h5>
+      <h5 class="lighten">
+        <b>UNITS</b>
+      </h5>
       <div class="input-field col s8 m6 l6">
-        <input id="icon_prefix" type="text" class="search-table validate">
+        {{> EasySearch.Input index=unitsIndex attributes=unitsSearchAttributes }}
         <label for="icon_prefix">Search</label>
-        <i id="search_icon" class="material-icons top-indent prefix">search</i>
+        <i class="material-icons top-indent prefix" id="search_icon">search</i>
       </div>
       <div class="col s4 m6 l6 top-indent no-padding">
-        <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#units_modal">Create</a>
+        <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#units_modal" id="unit_create">Create</a>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col offset-m1 m10 offset-l1 l10 s12">
-      <!-- {{> leaderboard}} -->
+      {{> unitsList}}
     </div>
   </div>
 
+  {{> unitsModal}}
+  {{> ui_script}}
+</template>
 
-  <div id="units_modal" class="modal">
+<template name="unitsList">
+  {{#EasySearch.IfInputEmpty index=unitsIndex}}
+    <!-- do something -->
+    {{else}}
+    {{#if unitsCount}}
+      <div>{{unitsCount}}
+        results found.</div>
+    {{/if}}
+  {{/EasySearch.IfInputEmpty}}
+
+  {{#EasySearch.IfSearching index=unitsIndex }}
+    <div>Searching</div>
+  {{/EasySearch.IfSearching }}
+
+  <ul class="collection no-margin">
+    {{#EasySearch.Each index=unitsIndex}}
+      {{> unit}}
+    {{/EasySearch.Each}}
+  </ul>
+
+  {{#EasySearch.IfNoResults index=unitsIndex }}
+    <div>No results found</div>
+    {{else}}
+    <!-- do something -->
+  {{/EasySearch.IfNoResults }}
+
+  {{> EasySearch.Pagination index=unitsIndex maxPages=10}}
+</template>
+
+<template name="unit">
+<li class="collection-item dismissable">
+  <div>{{name}} ({{shortname}})
+    <a class="secondary-content side-indent" href="" id="unit_delete">
+      <i class="material-icons">delete</i>
+    </a>
+    <a class="secondary-content side-indent" href="" id="unit_update">
+      <i class="material-icons">update</i>
+    </a>
+  </div>
+</li>
+</template>
+
+<template name="unitsModal">
+<div class="modal" id="units_modal">
+  <form id="register">
     <div class="modal-content">
       <h5>Fill Information</h5>
-        <div class="row">
-          <div class="input-field col s4">
-            <input placeholder="Unit Name" id="unit_name" type="text">
-          </div>
-          <div class="input-field col s3">
-            <input placeholder="Shortname" id="unit_shortname" type="text">
-          </div>
+      <div class="row">
+        <div class="input-field col s4">
+          <input id="unit_name" name="unit_name" placeholder="Unit Name" type="text">
+          <label class="active" for="unit_name">&zwnj;</label>
         </div>
+        <div class="input-field col s3">
+          <input id="unit_shortname" name="unit_shortname" placeholder="Shortname" type="text">
+          <label class="active" for="unit_shortname">&zwnj;</label>
+        </div>
+      </div>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-close modal-action waves-effect waves-green btn-flat ">OK</a>
+      <button class="modal-action waves-effect waves-green btn-flat" type="submit">OK</button>
     </div>
-  </div>
-  {{> ui_script}}
+  </form>
+</div>
 </template>

@@ -7,26 +7,6 @@ if(Meteor.isClient){
 
   Template.login.onRendered(function(){
     var validator = $(".login").validate({
-      rules:{
-        username:{
-          required: true,
-          minlength: 5
-        },
-        password:{
-          required: true,
-          minlength: 5
-        }
-      },
-      messages:{
-        username:{
-          required: "You must enter a username.",
-          minlength: "Your username must be at least {0} characters."
-        },
-        password:{
-          required: "You must enter a password.",
-          minlength: "Your password must be at least {0} characters."
-        }
-      },
       submitHandler: function(){
         var username = $("[name=username]").val();
         var password = $("[name=password]").val();
