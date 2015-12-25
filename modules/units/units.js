@@ -34,6 +34,37 @@ if(Meteor.isClient){
           registerUnit(validator);
         }
       });
+
+      $("#unit_name").val("");
+      $("#unit_shortname").val("");
+    }
+  });
+
+  Template.unit.events({
+    "click #unit_delete": function(event){
+       var currentId = this._id;
+       var r = confirm("Delete?");
+       if(r === true){
+         Meteor.call("deleteUnit", currentId, function(error, result){
+           if(error){
+             console.log(error.reason);
+           }
+         });
+       }
+    },
+    "click #unit_update": function(event){
+      var currentId = this._id;
+
+      var validator = $("#register").validate({
+        submitHandler: function(event){
+          updateUnit(currentId, validator);
+        }
+      });
+
+      $("#unit_name").val(this.name);
+      $("#unit_shortname").val(this.shortname);
+
+      $("#units_modal").openModal();
     }
   });
 
@@ -82,6 +113,22 @@ function registerUnit(validator){
   });
 }
 
+function updateUnit(currentId, validator){
+  var object = getFields();
+
+  Meteor.call("updateUnit", currentId, object, function(error, result){
+    if(error){
+      if(error.error === "duplicate-shortname"){
+        validator.showErrors({
+          unit_shortname: error.reason
+        });
+      }
+    } else{
+      $("#units_modal").closeModal();
+    }
+  });
+}
+
 function isSafe(object){
   var safe = Match.test(object, {
     name: String,
@@ -125,11 +172,33 @@ if(Meteor.isServer){
         }
       }
     },
-    updateUnit: function(){
+    updateUnit: function(currentId, object){
+      var currentUser = Meteor.userId();
 
+      if(Meteor.myFunctions.isAdmin(currentUser)){
+        if(!isSafe(object)){
+          console.log("not safe");
+        } else {
+          try{
+            Units.update({"_id": currentId}, {$set: {
+              "name": object.name,
+              "shortname": object.shortname
+            }});
+          } catch(e){
+            if(e.toString().indexOf("shortname") > - 1){
+              throw new Meteor.Error("duplicate-shortname", "Short name is already taken.");
+            }
+            //do name
+          }
+        }
+      }
     },
-    deleteUnit: function(){
+    deleteUnit: function(currentId){
+      var currentUser = Meteor.userId();
 
+      if(Meteor.myFunctions.isAdmin(currentUser)){
+        Units.remove({"_id":currentId, "createdBy": currentUser});
+      }
     }
   });
 }
