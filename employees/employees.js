@@ -31,7 +31,7 @@ if(Meteor.isClient){
     "click #emp_create": function(event){
       if(Session.equals("div_password", "detached")){
         //change namespace for production
-        $div_password.appendTo("#div_row_password");
+        $div_password.appendTo("#div_row_username_password");
         Session.set("div_password", "attached");
       }
 
@@ -191,11 +191,7 @@ function updateEmployee(currentId, validator){
         });
       }
     } else {
-      var form = validator.currentForm;
-
-      $("select").val("");
-      $('select').material_select();
-      form.reset();
+      $("#emp_modal").closeModal();
     }
   });
 }
@@ -260,11 +256,11 @@ if(Meteor.isServer){
          }
        }
     },
-    deleteEmployee: function(userObject){
+    deleteEmployee: function(currentId){
       var currentUser = Meteor.userId();
 
       if(Meteor.myFunctions.isAdmin(currentUser)){
-        Meteor.users.update({"_id": userObject}, {"$set": { "softDelete": true }});
+        Meteor.users.update({"_id": currentId}, {"$set": { "softDelete": true }});
       }
     },
     updateEmployee: function(currentId, userObject, role){
@@ -275,7 +271,7 @@ if(Meteor.isServer){
           console.log("not safe");
         } else {
           Accounts.setUsername(currentId, userObject.username);
-          Meteor.users.update({_id:currentId}, {$set:{
+          Meteor.users.update({"_id":currentId}, {$set:{
             "profile.name": userObject.profile.name,
             "profile.birthdate": userObject.profile.birthdate,
             "profile.contactNo": userObject.profile.contactNo,
