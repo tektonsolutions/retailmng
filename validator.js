@@ -39,6 +39,13 @@ if(Meteor.isClient){
       unit_shortname:{
         required: true,
         minlength: 1
+      },
+      //delivery areas
+      area_name: {
+        required: true
+      },
+      area_fee: {
+        required: true
       }
     },
     messages:{
@@ -64,6 +71,13 @@ if(Meteor.isClient){
       unit_shortname:{
         required: "You must enter a short name.",
         minlength: "Short name must be at least {0} character."
+      },
+      //delivery areas
+      area_name: {
+        required: "You must enter the area name."
+      },
+      area_fee: {
+        required: "You must enter a fee."
       }
     }
   });
