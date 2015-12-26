@@ -88,6 +88,7 @@ if(Meteor.isClient){
     },
     "click #emp_update": function(event){
       var currentId = this._id;
+      Session.set("currentId", currentId);
 
       if(Session.equals("div_password", "attached")){
         //change namespace for production
@@ -97,7 +98,7 @@ if(Meteor.isClient){
 
       var validator = $("#register").validate({
         submitHandler: function(event){
-          updateEmployee(currentId, validator);
+          updateEmployee(Session.get("currentId"), validator);
         }
       });
 
@@ -114,11 +115,12 @@ if(Meteor.isClient){
     },
     "click #emp_change_pw": function(event){
       var currentId = this._id;
+      Session.set("currentId", currentId);
 
       var validator = $("#changePassword").validate({
         submitHandler: function(event){
           var confirm_password = $("#emp_new_conf_pw").val();
-          changeEmployeePassword(currentId, confirm_password, validator);
+          changeEmployeePassword(Session.get("currentId"), confirm_password, validator);
         }
       });
 

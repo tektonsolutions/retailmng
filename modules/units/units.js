@@ -31,7 +31,7 @@ if(Meteor.isClient){
     "click #unit_create": function(event){
       var validator = $("#register").validate({
         submitHandler: function(event){
-          registerUnit(validator);
+          createUnit(validator);
         }
       });
 
@@ -54,10 +54,11 @@ if(Meteor.isClient){
     },
     "click #unit_update": function(event){
       var currentId = this._id;
+      Session.set("currentId", currentId);
 
       var validator = $("#register").validate({
         submitHandler: function(event){
-          updateUnit(currentId, validator);
+          updateUnit(Session.get("currentId"), validator);
         }
       });
 
@@ -98,7 +99,7 @@ function getFields(){
   return object;
 }
 
-function registerUnit(validator){
+function createUnit(validator){
   Meteor.call("createUnit", getFields(), function(error, result){
     if(error){
       if(error.error === "duplicate-shortname"){
