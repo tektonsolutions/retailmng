@@ -28,15 +28,9 @@ if(Meteor.isClient){
   });
 
   Template.unitsMain.events({
-    "click #unit_create": function(event){
-      var validator = $("#register").validate({
-        submitHandler: function(event){
-          createUnit(validator);
-        }
-      });
-
-      $("#unit_name").val("");
-      $("#unit_shortname").val("");
+    "click #unit_create": function(event, template){
+      Session.set("currentMethod", "create");
+      template.find("form").reset();
     }
   });
 
@@ -55,12 +49,8 @@ if(Meteor.isClient){
     "click #unit_update": function(event){
       var currentId = this._id;
       Session.set("currentId", currentId);
-
-      var validator = $("#register").validate({
-        submitHandler: function(event){
-          updateUnit(Session.get("currentId"), validator);
-        }
-      });
+      Session.set("currentMethod", "update");
+      $("#register")[0].reset();
 
       $("#unit_name").val(this.name);
       $("#unit_shortname").val(this.shortname);
@@ -81,6 +71,19 @@ if(Meteor.isClient){
   Template.unitsModal.events({
     "submit form": function(event, template){
       event.preventDefault();
+
+      var validator = $("#register").validate();
+      var valid = $("#register").valid();
+      var currentMethod = Session.get("currentMethod");
+
+      if(valid){
+        if(currentMethod === "create"){
+          createUnit(validator);
+        }
+        if(currentMethod === "update"){
+          updateUnit(Session.get("currentId"), validator);
+        }
+      }
     }
   });
 }

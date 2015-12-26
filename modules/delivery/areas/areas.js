@@ -28,16 +28,9 @@ if(Meteor.isClient){
   });
 
   Template.deliveryAreas.events({
-    "click #areas_create": function(event){
-      var validator = $("#register").validate({
-        submitHandler: function(event){
-          console.log("create");
-          // createArea(validator);
-        }
-      });
-
-      $("#area_name").val("");
-      $("#area_fee").val("");
+    "click #areas_create": function(event, template){
+      Session.set("currentMethod", "create");
+      template.find("form").reset();
     }
   });
 
@@ -56,13 +49,8 @@ if(Meteor.isClient){
     "click #area_update": function(event){
       var currentId = this._id;
       Session.set("currentId", currentId);
-
-      var validator = $("#register").validate({
-        submitHandler: function(event){
-          console.log("update");
-          // updateArea(Session.get("currentId"), validator);
-        }
-      });
+      Session.set("currentMethod", "update");
+      $("#register")[0].reset();
 
       $("#area_name").val(this.name);
       $("#area_fee").val(this.fee);
@@ -83,6 +71,19 @@ if(Meteor.isClient){
   Template.areasModal.events({
     "submit form": function(event, template){
       event.preventDefault();
+
+      var validator = $("#register").validate();
+      var valid = $("#register").valid();
+      var currentMethod = Session.get("currentMethod");
+
+      if(valid){
+        if(currentMethod === "create"){
+          createArea(validator);
+        }
+        if(currentMethod === "update"){
+          updateArea(Session.get("currentId"), validator);
+        }
+      }
     }
   });
 }
@@ -104,12 +105,12 @@ function getFields(){
 function createArea(validator){
   Meteor.call("createArea", getFields(), function(error, result){
     if(error){
-      console.log(error.reason);
+      validator.showErrors({
+        area_name: error.reason
+      });
     } else{
       var form = validator.currentForm;
       form.reset();
-
-      $("#areas_modal").closeModal();
     }
   });
 }
@@ -119,7 +120,9 @@ function updateArea(currentId, validator){
 
   Meteor.call("updateArea", currentId, object, function(error, result){
     if(error){
-      console.log(error.reason);
+      validator.showErrors({
+        area_name: error.reason
+      });
     } else{
       $("#areas_modal").closeModal();
     }
