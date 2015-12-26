@@ -56,16 +56,16 @@ if(Meteor.isClient){
       }
     },
     "click #emp_update": function(event){
-      var currentId = this._id;
-      Session.set("currentId", currentId);
-      Session.set("currentMethod", "update");
-      $("#register")[0].reset();
-
       if(Session.equals("div_password", "attached")){
         //change namespace for production
         $div_password = $("#div_password").detach();
         Session.set("div_password", "detached");
       }
+
+      var currentId = this._id;
+      Session.set("currentId", currentId);
+      Session.set("currentMethod", "update");
+      $("#register")[0].reset();
 
       $("#emp_username").val(this.username);
       $("#emp_name").val(this.profile.name);
