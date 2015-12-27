@@ -1,4 +1,4 @@
-<template name="unitsMain">
+<template name="units">
   <div class="row">
     <div class="col offset-m1 m10 offset-l1 l10 s12">
       <h5 class="lighten">
@@ -10,7 +10,7 @@
         <i class="material-icons top-indent prefix" id="search_icon">search</i>
       </div>
       <div class="col s4 m6 l6 top-indent no-padding">
-        <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#units_modal" id="unit_create">Create</a>
+        <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#unit_modal" id="unit_create">Create</a>
       </div>
     </div>
   </div>
@@ -20,7 +20,7 @@
     </div>
   </div>
 
-  {{> unitsModal}}
+  {{> unitModal}}
   {{> ui_script}}
 </template>
 
@@ -66,8 +66,8 @@
 </li>
 </template>
 
-<template name="unitsModal">
-<div class="modal" id="units_modal">
+<template name="unitModal">
+<div class="modal" id="unit_modal">
   <form id="register">
     <div class="modal-content">
       <h5>Fill Information</h5>

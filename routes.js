@@ -26,7 +26,10 @@ Router.route("/inventory-count");
 //Delivery Routes
 Router.route("/delivery-registry");
 Router.route("/delivery-entry");
-Router.route("/delivery-areas");
+Router.route("/delivery-areas", {
+  name: "delivery-areas",
+  template: "areas"
+});
 
 //Sales Route
 Router.route("/sales");
@@ -37,7 +40,7 @@ Router.route("/presets");
 //Units Route
 Router.route("/units", {
   name: "units",
-  template: "unitsMain"
+  template: "units"
 });
 
 //Suppliers Route
@@ -49,7 +52,7 @@ Router.route("/categories");
 //Employees Route
 Router.route("/employees", {
   name: "employees",
-  template: "employeeMain"
+  template: "employees"
 });
 
 //retailmng html

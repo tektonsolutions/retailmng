@@ -1,4 +1,4 @@
-Areas = new Mongo.Collection("deliveryAreas");
+Areas = new Mongo.Collection("areas");
 
 AreasIndex = new EasySearch.Index({
   collection: Areas,
@@ -14,11 +14,11 @@ AreasIndex = new EasySearch.Index({
 });
 
 if(Meteor.isClient){
-  Template.deliveryAreas.onCreated(function(){
-    this.subscribe("deliveryAreas");
+  Template.areas.onCreated(function(){
+    this.subscribe("areas");
   });
 
-  Template.deliveryAreas.helpers({
+  Template.areas.helpers({
     areasIndex: function(){
       return AreasIndex;
     },
@@ -27,8 +27,8 @@ if(Meteor.isClient){
     }
   });
 
-  Template.deliveryAreas.events({
-    "click #areas_create": function(event, template){
+  Template.areas.events({
+    "click #area_create": function(event, template){
       Session.set("currentMethod", "create");
       template.find("form").reset();
     }
@@ -55,7 +55,7 @@ if(Meteor.isClient){
       $("#area_name").val(this.name);
       $("#area_fee").val(this.fee);
 
-      $("#areas_modal").openModal();
+      $("#area_modal").openModal();
     }
   });
 
@@ -68,7 +68,7 @@ if(Meteor.isClient){
     }
   });
 
-  Template.areasModal.events({
+  Template.areaModal.events({
     "submit form": function(event, template){
       event.preventDefault();
 
@@ -124,7 +124,7 @@ function updateArea(currentId, validator){
         area_name: error.reason
       });
     } else{
-      $("#areas_modal").closeModal();
+      $("#area_modal").closeModal();
     }
   });
 }

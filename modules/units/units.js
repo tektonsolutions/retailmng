@@ -14,11 +14,11 @@ UnitsIndex = new EasySearch.Index({
 });
 
 if(Meteor.isClient){
-  Template.unitsMain.onCreated(function (){
+  Template.units.onCreated(function (){
     this.subscribe("units");
   });
 
-  Template.unitsMain.helpers({
+  Template.units.helpers({
     unitsIndex: function(){
       return UnitsIndex;
     },
@@ -27,7 +27,7 @@ if(Meteor.isClient){
     }
   });
 
-  Template.unitsMain.events({
+  Template.units.events({
     "click #unit_create": function(event, template){
       Session.set("currentMethod", "create");
       template.find("form").reset();
@@ -55,7 +55,7 @@ if(Meteor.isClient){
       $("#unit_name").val(this.name);
       $("#unit_shortname").val(this.shortname);
 
-      $("#units_modal").openModal();
+      $("#unit_modal").openModal();
     }
   });
 
@@ -68,7 +68,7 @@ if(Meteor.isClient){
     }
   });
 
-  Template.unitsModal.events({
+  Template.unitModal.events({
     "submit form": function(event, template){
       event.preventDefault();
 
@@ -128,7 +128,7 @@ function updateUnit(currentId, validator){
         });
       }
     } else{
-      $("#units_modal").closeModal();
+      $("#unit_modal").closeModal();
     }
   });
 }
