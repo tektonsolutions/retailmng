@@ -1,4 +1,4 @@
-<template name="employeeMain">
+<template name="employees">
   <head>
     <title>Employees</title>
   </head>
@@ -19,7 +19,7 @@
   </div>
   <div class="row">
     <div class="col offset-m1 m10 offset-l1 l10 s12">
-      {{> employeeList}}
+      {{> employeesList}}
     </div>
   </div>
 
@@ -28,7 +28,7 @@
   {{> ui_script}}
 </template>
 
-<template name="employeeList">
+<template name="employeesList">
   {{#EasySearch.IfInputEmpty index=employeesIndex}}
     <!-- do something -->
     {{else}}
@@ -95,14 +95,17 @@
         </div>
         <div class="input-field col s4">
           <input class="datepicker" id="emp_birthdate" placeholder="Birthdate" type="date">
+          <label class="active" for="emp_birthdate">&zwnj;</label>
         </div>
         <div class="input-field col s4">
           <input id="emp_contact" placeholder="Contact No." type="text">
+          <label class="active" for="emp_contact">&zwnj;</label>
         </div>
       </div>
       <div class="row no-margin">
         <div class="input-field col s8 no-margin">
           <textarea class="materialize-textarea" id="emp_address" placeholder="Address" type="text"></textarea>
+          <label class="active" for="emp_address">&zwnj;</label>
         </div>
       </div>
       <div class="row">

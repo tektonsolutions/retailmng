@@ -1,4 +1,4 @@
-<template name="deliveryAreas">
+<template name="areas">
   <div class="row">
     <div class="col offset-m1 m10 offset-l1 l10 s12">
       <h5 class="lighten">
@@ -10,7 +10,7 @@
         <i class="material-icons top-indent prefix" id="search_icon">search</i>
       </div>
       <div class="col s4 m6 l6 top-indent no-padding">
-        <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#areas_modal" id="areas_create">Create</a>
+        <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#area_modal" id="area_create">Create</a>
       </div>
     </div>
   </div>
@@ -20,7 +20,7 @@
     </div>
   </div>
 
-  {{> areasModal}}
+  {{> areaModal}}
   {{> ui_script}}
 </template>
 
@@ -66,8 +66,8 @@
 </li>
 </template>
 
-<template name="areasModal">
-<div class="modal" id="areas_modal">
+<template name="areaModal">
+<div class="modal" id="area_modal">
   <form id="register">
     <div class="modal-content">
       <h5>Fill Information</h5>

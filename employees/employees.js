@@ -1,4 +1,3 @@
-// Search functionality
 EmployeesIndex = new EasySearch.Index({
   collection: Meteor.users,
   fields: ["profile.name"],
@@ -13,12 +12,12 @@ EmployeesIndex = new EasySearch.Index({
 });
 
 if(Meteor.isClient){
-  Template.employeeMain.onCreated(function () {
+  Template.employees.onCreated(function () {
     Session.set("div_password", "attached");
     this.subscribe("employees");
   });
 
-  Template.employeeMain.helpers({
+  Template.employees.helpers({
     employeesIndex: function(){
       return EmployeesIndex;
     },
@@ -27,7 +26,7 @@ if(Meteor.isClient){
     }
   });
 
-  Template.employeeMain.events({
+  Template.employees.events({
     "click #emp_create": function(event, template){
       if(Session.equals("div_password", "detached")){
         //change namespace for production
@@ -96,7 +95,7 @@ if(Meteor.isClient){
     ]
   });
 
-  Template.employeeList.helpers({
+  Template.employeesList.helpers({
     employeesIndex: function(){
       return EmployeesIndex;
     },
