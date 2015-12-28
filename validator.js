@@ -46,6 +46,19 @@ if(Meteor.isClient){
       },
       area_fee: {
         required: true
+      },
+      //suppliers
+      sup_name:{
+        required: true
+      },
+      sup_contact:{
+        required: true
+      },
+      sup_address:{
+        required: true
+      },
+      sup_person:{
+        required: true
       }
     },
     messages:{
@@ -78,6 +91,19 @@ if(Meteor.isClient){
       },
       area_fee: {
         required: "You must enter a fee."
+      },
+      //suppliers
+      sup_name:{
+        required: "You must enter a name."
+      },
+      sup_contact:{
+        required: "You must enter a contact number."
+      },
+      sup_address:{
+        required: "You must enter an address."
+      },
+      sup_person:{
+        required: "You must enter a contact person."
       }
     }
   });
