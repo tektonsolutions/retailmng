@@ -1,4 +1,3 @@
-// Search functionality
 EmployeesIndex = new EasySearch.Index({
   collection: Meteor.users,
   fields: ["profile.name"],
@@ -13,12 +12,12 @@ EmployeesIndex = new EasySearch.Index({
 });
 
 if(Meteor.isClient){
-  Template.employeeMain.onCreated(function () {
-    Session.set("emp_pw", "attached");
+  Template.employees.onCreated(function () {
+    Session.set("div_password", "attached");
     this.subscribe("employees");
   });
 
-  Template.employeeMain.helpers({
+  Template.employees.helpers({
     employeesIndex: function(){
       return EmployeesIndex;
     },
@@ -27,50 +26,19 @@ if(Meteor.isClient){
     }
   });
 
-  Template.employeeMain.events({
-    "click #emp_create": function(event){
+  Template.employees.events({
+    "click #emp_create": function(event, template){
       if(Session.equals("div_password", "detached")){
         //change namespace for production
-        $div_password.appendTo("#div_row_password");
+        $div_password.appendTo("#div_row_username_password");
         Session.set("div_password", "attached");
       }
 
-      var validator = $("#register").validate({
-        submitHandler: function(event){
-          registerEmployee(validator);
-        }
-      });
-
-      $("#emp_username").val("");
-      $("#emp_name").val("");
-      $("#emp_birthdate").val("");
-      $("#emp_contact").val("");
-      $("#emp_address").val("");
+      Session.set("currentMethod", "create");
+      template.find("form").reset();
 
       $("select").val("");
       $('select').material_select();
-    }
-  });
-
-  Template.employeePosition.helpers({
-    positions: [
-      {name: roles.supervisor.name, role: roles.supervisor.key},
-      {name: roles.sales.name, role: roles.sales.key}
-    ]
-  });
-
-  Template.employeeList.helpers({
-    employeesIndex: function(){
-      return EmployeesIndex;
-    },
-    employeesCount: function(){
-      return EmployeesIndex.getComponentDict().get("count");
-    }
-  });
-
-  Template.employeeModal.events({
-    "submit form": function(event, template){
-      event.preventDefault();
     }
   });
 
@@ -87,19 +55,16 @@ if(Meteor.isClient){
       }
     },
     "click #emp_update": function(event){
-      var currentId = this._id;
-
       if(Session.equals("div_password", "attached")){
         //change namespace for production
         $div_password = $("#div_password").detach();
         Session.set("div_password", "detached");
       }
 
-      var validator = $("#register").validate({
-        submitHandler: function(event){
-          updateEmployee(currentId, validator);
-        }
-      });
+      var currentId = this._id;
+      Session.set("currentId", currentId);
+      Session.set("currentMethod", "update");
+      $("#register")[0].reset();
 
       $("#emp_username").val(this.username);
       $("#emp_name").val(this.profile.name);
@@ -114,79 +79,64 @@ if(Meteor.isClient){
     },
     "click #emp_change_pw": function(event){
       var currentId = this._id;
-
-      var validator = $("#changePassword").validate({
-        submitHandler: function(event){
-          var confirm_password = $("#emp_new_conf_pw").val();
-          changeEmployeePassword(currentId, confirm_password, validator);
-        }
-      });
+      Session.set("currentId", currentId);
+      Session.set("currentMethod", "changepw");
+      $("#register")[0].reset();
 
       $("#changePassword")[0].reset();
       $("#emp_password_modal").openModal();
     }
   });
 
-  Template.employeePasswordModal.events({
-    "submit form": function(event){
-       event.preventDefault();
+  Template.employeePosition.helpers({
+    positions: [
+      {name: roles.supervisor.name, role: roles.supervisor.key},
+      {name: roles.sales.name, role: roles.sales.key}
+    ]
+  });
+
+  Template.employeesList.helpers({
+    employeesIndex: function(){
+      return EmployeesIndex;
+    },
+    employeesCount: function(){
+      return EmployeesIndex.getComponentDict().get("count");
     }
   });
 
-  $.validator.setDefaults({
-    ignore: [],
-    errorClass: 'invalid',
-    errorPlacement: function (error, element) {
-      var select = $("select").get(0);
-      if(select === element.get(0)){
-        $(element)
-        .closest("form")
-        .find("p[class='selectErrorContainer']")
-        .text(error.text());
-      }else {
-        $(element)
-        .closest("form")
-        .find("label[for='" + element.attr("id") + "']")
-        .attr('data-error', error.text());
+  Template.employeeModal.events({
+    "submit form": function(event, template){
+      event.preventDefault();
+
+      var validator = $("#register").validate();
+      var valid = $("#register").valid();
+      var currentMethod = Session.get("currentMethod");
+
+      if(valid){
+        if(currentMethod === "create"){
+          createEmployee(validator);
+        }
+        if(currentMethod === "update"){
+          updateEmployee(Session.get("currentId"), validator);
+        }
       }
-     },
-     rules:{
-      username:{
-        required: true,
-        minlength: 5
-      },
-      password:{
-        required: true,
-        minlength: 5
-      },
-      confirm_password:{
-        equalTo: "#emp_new_pw"
-      },
-      name:{
-        required: true
-      },
-      role: {
-        required: true
-      }
-    },
-    messages:{
-      username:{
-        required: "You must enter a username.",
-        minlength: "Username must be at least {0} characters."
-      },
-      password:{
-        required: "You must enter a password.",
-        minlength: "Password must be at least {0} characters."
-      },
-      confirm_password:{
-        equalTo: "Passwords don't match."
-      },
-      name:{
-        required: "You must enter a name."
-      },
-      role:{
-        required: "Please select a position."
-      }
+    }
+  });
+
+  Template.employeePasswordModal.events({
+    "submit form": function(event){
+       event.preventDefault();
+
+       var validator = $("#changePassword").validate();
+       var valid = $("#changePassword").valid();
+       var currentMethod = Session.get("currentMethod");
+
+       if(valid){
+         if(currentMethod === "changepw"){
+           var confirm_password = $("#emp_new_conf_pw").val();
+           changeEmployeePassword(Session.get("currentId"), confirm_password, validator);
+         }
+       }
     }
   });
 }
@@ -218,7 +168,7 @@ function getFields(){
   return {userObject: userObject, role: role};
 }
 
-function registerEmployee(validator){
+function createEmployee(validator){
   Meteor.call("createEmployee", getFields().userObject, getFields().role, function(error, result){
     if(error){
       if(error.reason == "Username already exists."){
@@ -248,11 +198,7 @@ function updateEmployee(currentId, validator){
         });
       }
     } else {
-      var form = validator.currentForm;
-
-      $("select").val("");
-      $('select').material_select();
-      form.reset();
+      $("#emp_modal").closeModal();
     }
   });
 }
@@ -317,11 +263,11 @@ if(Meteor.isServer){
          }
        }
     },
-    deleteEmployee: function(userObject){
+    deleteEmployee: function(currentId){
       var currentUser = Meteor.userId();
 
       if(Meteor.myFunctions.isAdmin(currentUser)){
-        Meteor.users.update({"_id": userObject}, {"$set": { "softDelete": true }});
+        Meteor.users.update({"_id": currentId}, {"$set": { "softDelete": true }});
       }
     },
     updateEmployee: function(currentId, userObject, role){
@@ -332,7 +278,7 @@ if(Meteor.isServer){
           console.log("not safe");
         } else {
           Accounts.setUsername(currentId, userObject.username);
-          Meteor.users.update({_id:currentId}, {$set:{
+          Meteor.users.update({"_id":currentId}, {$set:{
             "profile.name": userObject.profile.name,
             "profile.birthdate": userObject.profile.birthdate,
             "profile.contactNo": userObject.profile.contactNo,

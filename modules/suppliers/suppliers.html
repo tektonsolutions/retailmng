@@ -5,56 +5,111 @@
         <b>SUPPLIERS</b>
       </h5>
       <div class="input-field col s8 m6 l6">
-        <input class="search-table validate" id="icon_prefix" type="text">
+        {{> EasySearch.Input index=suppliersIndex attributes=suppliersSearchAttributes }}
         <label for="icon_prefix">Search</label>
         <i class="material-icons top-indent prefix" id="search_icon">search</i>
       </div>
       <div class="col s4 m6 l6 top-indent no-padding">
-        <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#supplier_modal">Create</a>
+        <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#sup_modal" id="sup_create">Create</a>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col offset-m1 m10 offset-l1 l10 s12">
-      <!-- {{> leaderboard}} -->
+      {{> suppliersList}}
     </div>
   </div>
 
-  <div class="modal modal-fixed-footer" id="supplier_modal">
+  {{> supplierModal}}
+  {{> ui_script}}
+</template>
+
+<template name="suppliersList">
+  {{#EasySearch.IfInputEmpty index=suppliersIndex}}
+    <!-- do something -->
+    {{else}}
+    {{#if suppliersCount}}
+      <div>{{suppliersCount}}
+        results found.</div>
+    {{/if}}
+  {{/EasySearch.IfInputEmpty}}
+
+  {{#EasySearch.IfSearching index=suppliersIndex }}
+    <div>Searching</div>
+  {{/EasySearch.IfSearching }}
+
+  <ul class="collection no-margin">
+    {{#EasySearch.Each index=suppliersIndex}}
+      {{> supplier}}
+    {{/EasySearch.Each}}
+  </ul>
+
+  {{#EasySearch.IfNoResults index=suppliersIndex }}
+    <div>No results found</div>
+    {{else}}
+    <!-- do something -->
+  {{/EasySearch.IfNoResults }}
+
+  {{> EasySearch.Pagination index=suppliersIndex maxPages=10}}
+</template>
+
+<template name="supplier">
+<li class="collection-item dismissable">
+  <div>{{name}}
+    <a class="secondary-content side-indent" href="" id="sup_delete">
+      <i class="material-icons">delete</i>
+    </a>
+    <a class="secondary-content side-indent" href="" id="sup_update">
+      <i class="material-icons">update</i>
+    </a>
+  </div>
+</li>
+</template>
+
+<template name="supplierModal">
+<div class="modal modal-fixed-footer" id="sup_modal">
+  <form id="register">
     <div class="modal-content">
       <h5>Fill Information</h5>
       <div class="row">
         <div class="input-field col s4">
-          <input id="sup_name" placeholder="Supplier Name" type="text">
+          <input id="sup_name" name="sup_name" placeholder="Supplier Name" type="text">
+          <label class="active" for="sup_name">&zwnj;</label>
         </div>
         <div class="input-field col s4">
-          <input id="sup_tin" placeholder="TIN" type="text">
+          <input id="sup_tin" name="sup_tin" placeholder="TIN" type="text">
+          <label class="active" for="sup_tin">&zwnj;</label>
         </div>
 
         <div class="input-field col s4">
-          <input id="sup_email" placeholder="Email Address" type="text">
+          <input id="sup_email" name="sup_email" placeholder="Email Address" type="text">
+          <label class="active" for="sup_email">&zwnj;</label>
         </div>
       </div>
       <div class="row no-margin no-margin">
         <div class="input-field col s8">
-          <textarea class="materialize-textarea" id="sup_address" placeholder="Address" type="text"></textarea>
+          <textarea class="materialize-textarea" id="sup_address" name="sup_address" placeholder="Address" type="text"></textarea>
+          <label class="active" for="sup_address">&zwnj;</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s4">
-          <input id="sup_person" placeholder="Contact Person" type="text">
+          <input id="sup_person" name="sup_person" placeholder="Contact Person" type="text">
+          <label class="active" for="sup_person">&zwnj;</label>
         </div>
         <div class="input-field col s4">
-          <input id="sup_contact" placeholder="Contact No." type="text">
+          <input id="sup_contact" name="sup_contact" placeholder="Contact No." type="text">
+          <label class="active" for="sup_contact">&zwnj;</label>
         </div>
         <div class="input-field col s4">
-          <input id="sup_fax" placeholder="Fax No." type="text">
+          <input id="sup_fax" name="sup_fax" placeholder="Fax No." type="text">
+          <label class="active" for="sup_fax">&zwnj;</label>
         </div>
       </div>
     </div>
     <div class="modal-footer">
-      <a class="modal-close modal-action waves-effect waves-green btn-flat " href="#!">OK</a>
+      <button class="modal-action waves-effect waves-green btn-flat" type="submit">OK</button>
     </div>
-  </div>
-  {{> ui_script}}
+  </form>
+</div>
 </template>

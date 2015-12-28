@@ -27,27 +27,29 @@
       var currentDate = new Date();
       var $input = $(".datepicker").pickadate();
       var picker = $input.pickadate("picker");
-      picker.set("select", new Date());
 
-      if(picker){
-        $("select").material_select();
-      }
+      if (picker) {picker.set("select", new Date());}
 
+      $("select").material_select();
       $(".modal-trigger").leanModal();
       $(".button-collapse").sideNav();
       $("ul.tabs").tabs();
-      $('.collapsible').collapsible({accordion : false});
+      $('.collapsible').collapsible({accordion: false});
       $(".dropdown-button").dropdown();
     });
 
-    function onSelectChanged(){
+    function onSelectChanged() {
       $(".selectErrorContainer").text("");
     }
   </script>
 </template>
 
 <template name="sidebar">
+<<<<<<< HEAD
   <ul id="slide-out" class="side-nav no-padding">
+=======
+  <ul class="side-nav no-padding transparent" id="slide-out">
+>>>>>>> origin/master
     <li class="center white no-padding">
       <a class="waves-effect waves-teal">
         <i class="mdi-navigation-menu" href="#!"></i>
@@ -57,7 +59,13 @@
       <a class="waves-effect waves-teal" href="{{pathFor route='sales'}}">Sales</a>
     </li>
     <div class="row center no-margin">
+<<<<<<< HEAD
       <label><b>INVENTORY</b></label>
+=======
+      <label class="white-text">
+        <b>INVENTORY</b>
+      </label>
+>>>>>>> origin/master
     </div>
     <li class="no-padding">
       <a class="waves-effect waves-teal" href="{{pathFor route='delivery-registry'}}">Delivery Register</a>
@@ -69,7 +77,13 @@
       <a class="waves-effect waves-teal" href="{{pathFor route='inventory-count'}}">Physical Inventory Count</a>
     </li>
     <div class="row center no-margin">
+<<<<<<< HEAD
       <label><b>RESOURCE</b></label>
+=======
+      <label class="white-text">
+        <b>RESOURCE</b>
+      </label>
+>>>>>>> origin/master
     </div>
     <li class="no-padding">
       <a class="waves-effect waves-teal" href="{{pathFor route='employees'}}">Employees</a>
@@ -87,7 +101,6 @@
       <a class="waves-effect waves-teal" href="{{pathFor route='delivery-areas'}}">Delivery Areas</a>
     </li>
   </ul>
-  {{ui_script}}
 </template>
 
 <template name="navbar">
@@ -102,8 +115,10 @@
         <div class="col s10 m10 l11 no-padding">
           <form>
             <div class="input-field">
-              <input class="right-align right-padding col s12" id="search" type="search" required>
-              <label for="search"><i class="material-icons">search</i></label>
+              <input class="right-align right-padding col s12" id="search" required type="search">
+              <label for="search">
+                <i class="material-icons">search</i>
+              </label>
               <i class="material-icons">close</i>
             </div>
           </form>
@@ -124,5 +139,4 @@
       </div>
     </div>
   </nav>
-  {{ui_script}}
 </template>
