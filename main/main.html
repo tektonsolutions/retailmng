@@ -45,11 +45,7 @@
 </template>
 
 <template name="sidebar">
-<<<<<<< HEAD
   <ul id="slide-out" class="side-nav no-padding">
-=======
-  <ul class="side-nav no-padding transparent" id="slide-out">
->>>>>>> origin/master
     <li class="center white no-padding">
       <a class="waves-effect waves-teal">
         <i class="mdi-navigation-menu" href="#!"></i>
@@ -59,13 +55,7 @@
       <a class="waves-effect waves-teal" href="{{pathFor route='sales'}}">Sales</a>
     </li>
     <div class="row center no-margin">
-<<<<<<< HEAD
       <label><b>INVENTORY</b></label>
-=======
-      <label class="white-text">
-        <b>INVENTORY</b>
-      </label>
->>>>>>> origin/master
     </div>
     <li class="no-padding">
       <a class="waves-effect waves-teal" href="{{pathFor route='delivery-registry'}}">Delivery Register</a>
@@ -77,13 +67,7 @@
       <a class="waves-effect waves-teal" href="{{pathFor route='inventory-count'}}">Physical Inventory Count</a>
     </li>
     <div class="row center no-margin">
-<<<<<<< HEAD
       <label><b>RESOURCE</b></label>
-=======
-      <label class="white-text">
-        <b>RESOURCE</b>
-      </label>
->>>>>>> origin/master
     </div>
     <li class="no-padding">
       <a class="waves-effect waves-teal" href="{{pathFor route='employees'}}">Employees</a>
@@ -101,6 +85,7 @@
       <a class="waves-effect waves-teal" href="{{pathFor route='delivery-areas'}}">Delivery Areas</a>
     </li>
   </ul>
+  {{> ui_script}}
 </template>
 
 <template name="navbar">
@@ -139,4 +124,5 @@
       </div>
     </div>
   </nav>
+  {{> ui_script}}
 </template>
