@@ -37,6 +37,7 @@
           <p>
             <input class="filled-in" id="delivery" type="checkbox"/>
             <label for="delivery">Delivery</label>
+            <a class="waves-effect waves-light side-indent teal-text">EDIT</a>
             <!-- delivery -->
 
             <!-- delivery modal -->
@@ -77,52 +78,11 @@
           </p>
           <hr class="dashed top-indent">
           <br>
-          <div class="col s12 m5 l5 no-padding">
-            <div class="row no-margin">
-              <div class="col no-padding s4">
-                <b>Subtotal</b>
-              </div>
-              <div class="col s8 teal-text">
-                ₱0.00
-              </div>
-            </div>
-            <div class="row no-margin">
-              <div class="col no-padding s4">
-                <b>Discount</b>
-              </div>
-              <div class="col s8 teal-text">
-                ₱0.00
-              </div>
-            </div>
-            <div class="row no-margin">
-              <div class="col no-padding s4">
-                <b>Del. Fee</b>
-              </div>
-              <div class="col s8 teal-text">
-                ₱0.00
-              </div>
-            </div>
-          </div>
-
-          <div class="col s12 m7 l7">
-            <div class="row no-margin">
-              <div class="col left-align no-padding s12">
-                <h5 class="no-margin">
-                  <b>GRAND TOTAL</b>
-                </h5>
-              </div>
-            </div>
-            <div class="row no-margin">
-              <div class="col teal-text no-padding s12">
-                <h4 class="no-margin bottom-indent">
-                  <b>₱0.00</b>
-                </h4>
-              </div>
-            </div>
-            <div class="row offset-s8 no-margin">
+          <div class="col s12 m7 l7 no-padding">
+            <div class="card-panel grey lighten-5">
               <p class="no-margin">
                 <input checked="checked" class="with-gap" id="cash" name="group1" type="radio"/>
-                <label class="top-indent" for="cash">CASH</label>
+                <label class="top-indent no-margin" for="cash">CASH</label>
                 <br>
                 <input class="with-gap" id="check" name="group1" type="radio"/>
                 <label for="check">CHECK</label>
@@ -131,6 +91,40 @@
                 <label for="card">CARD</label>
               </p>
             </div>
+              <div class="card-panel grey lighten-5">
+                <div class="row no-margin">
+                  <div class="col no-padding s4">
+                    <b>Subtotal</b>
+                  </div>
+                  <div class="col s8 teal-text">
+                    ₱0.00
+                  </div>
+                </div>
+                <div class="row no-margin">
+                  <div class="col no-padding s4">
+                    <b>Discount</b>
+                  </div>
+                  <div class="col s8 teal-text">
+                    ₱0.00
+                  </div>
+                </div>
+                <div class="row no-margin">
+                  <div class="col no-padding s4">
+                    <b>Del. Fee</b>
+                  </div>
+                  <div class="col s8 teal-text">
+                    ₱0.00
+                  </div>
+                </div>
+              </div>
+                  <div class="card-panel grey lighten-5">
+                    <h5 class="no-margin">
+                      <b>GRAND TOTAL</b>
+                    </h5>
+                    <h4 class="no-margin bottom-indent teal-text">
+                      <b>₱0.00</b>
+                    </h4>
+                  </div>
           </div>
 
           <div class="row right no-padding">
@@ -290,21 +284,12 @@
           </div>
         </div>
         <!--sell tab ends-->
+
         <!--otheropt_tab starts-->
         <div class="col s12" id="others_tab">
           <br>
           <div class="row no-margin">
             <div class="col s12">
-              <p class="no-margin">
-                <input checked="checked" class="with-gap" id="return" name="group3" type="radio"/>
-                <label for="return">
-                  <b>RETURN</b>
-                </label>
-                <input class="with-gap" id="void" name="group3" type="radio"/>
-                <label for="void">
-                  <b>VOID</b>
-                </label>
-              </p>
               <div class="col s12">
                 <div class="row no-margin">
                   <div class="input-field no-margin">
@@ -318,16 +303,31 @@
                 </div>
               </div>
             </div>
-            <div class="col s12">
-              <div class="col s10 no-padding">
-                <h5 class="no-margin col s6">
-                  <b>RETURN</b>
-                </h5>
-                <h4 class="no-margin col s7 red-text">
-                  <b>₱0.00</b>
-                </h4>
-              </div>
-            </div>
+              <div class="col s7">
+                <div class="card-panel grey lighten-5">
+                  <p class="no-margin">
+                    <input checked="checked" class="with-gap" id="return" name="group3" type="radio"/>
+                    <label for="return">
+                      <b>RETURN</b>
+                    </label>
+                    <br>
+                    <input class="with-gap" id="void" name="group3" type="radio"/>
+                    <label for="void">
+                      <b>VOID</b>
+                    </label>
+                  </p>
+                </div>
+                </div>
+                <div class="col s7 no-margin">
+                  <div class="card-panel grey lighten-5 no-margin">
+                      <h5 class="no-margin">
+                        <b>RETURN</b>
+                      </h5>
+                      <h4 class="no-margin red-text">
+                        <b>₱0.00</b>
+                      </h4>
+                  </div>
+                </div>
           </div>
         </div>
         <!--otheropt_tab ends-->

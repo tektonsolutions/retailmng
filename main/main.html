@@ -47,44 +47,44 @@
 </template>
 
 <template name="sidebar">
-  <ul id="slide-out" class="side-nav no-padding transparent">
+  <ul id="slide-out" class="side-nav no-padding">
     <li class="center white no-padding">
       <a class="waves-effect waves-teal">
         <i class="mdi-navigation-menu" href="#!"></i>
       </a>
     </li>
     <li class="no-padding">
-      <a class="waves-effect waves-teal white-text" href="{{pathFor route='sales'}}">Sales</a>
+      <a class="waves-effect waves-teal" href="{{pathFor route='sales'}}">Sales</a>
     </li>
     <div class="row center no-margin">
-      <label class="white-text"><b>INVENTORY</b></label>
+      <label><b>INVENTORY</b></label>
     </div>
     <li class="no-padding">
-      <a class="waves-effect waves-teal white-text" href="{{pathFor route='delivery-registry'}}">Delivery Register</a>
+      <a class="waves-effect waves-teal" href="{{pathFor route='delivery-registry'}}">Delivery Register</a>
     </li>
     <li class="no-padding">
-      <a class="waves-effect waves-teal white-text" href="{{pathFor route='inventory'}}">Inventory</a>
+      <a class="waves-effect waves-teal" href="{{pathFor route='inventory'}}">Inventory</a>
     </li>
     <li class="no-padding">
-      <a class="waves-effect waves-teal white-text" href="{{pathFor route='inventory-count'}}">Physical Inventory Count</a>
+      <a class="waves-effect waves-teal" href="{{pathFor route='inventory-count'}}">Physical Inventory Count</a>
     </li>
     <div class="row center no-margin">
-      <label class="white-text"><b>RESOURCE</b></label>
+      <label><b>RESOURCE</b></label>
     </div>
     <li class="no-padding">
-      <a class="waves-effect waves-teal white-text" href="{{pathFor route='employees'}}">Employees</a>
+      <a class="waves-effect waves-teal" href="{{pathFor route='employees'}}">Employees</a>
     </li>
     <li class="no-padding">
-      <a class="waves-effect waves-teal white-text" href="{{pathFor route='suppliers'}}">Suppliers</a>
+      <a class="waves-effect waves-teal" href="{{pathFor route='suppliers'}}">Suppliers</a>
     </li>
     <li class="no-padding">
-      <a class="waves-effect waves-teal white-text" href="{{pathFor route='presets'}}">Presets</a>
+      <a class="waves-effect waves-teal" href="{{pathFor route='presets'}}">Presets</a>
     </li>
     <li class="no-padding">
-      <a class="waves-effect waves-teal white-text" href="{{pathFor route='units'}}">Units</a>
+      <a class="waves-effect waves-teal" href="{{pathFor route='units'}}">Units</a>
     </li>
     <li class="no-padding">
-      <a class="waves-effect waves-teal white-text" href="{{pathFor route='delivery-areas'}}">Delivery Areas</a>
+      <a class="waves-effect waves-teal" href="{{pathFor route='delivery-areas'}}">Delivery Areas</a>
     </li>
   </ul>
   {{ui_script}}
@@ -94,12 +94,12 @@
   <nav>
     <div class="nav-wrapper teal">
       <div class="row">
-        <div class="col s2 m1 l1 center">
-          <a href="#">
-            <i class="mdi-navigation-menu button-collapse" data-activates="slide-out"></i>
-          </a>
-        </div>
-        <div class="col s10 m11 l11 right no-padding">
+          <ul>
+            <li>
+              <a><i class="mdi-navigation-menu button-collapse" data-activates="slide-out"></i></a>
+            </li>
+          </ul>
+        <div class="col s10 m10 l11 no-padding">
           <form>
             <div class="input-field">
               <input class="right-align right-padding col s12" id="search" type="search" required>
@@ -108,6 +108,19 @@
             </div>
           </form>
         </div>
+          <ul>
+            <li class="right">
+              <a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons center">more_vert</i></a>
+            </li>
+          </ul>
+
+        <!-- Dropdown Structure -->
+        <ul id="dropdown1" class="dropdown-content">
+          <li><a href="#!">Settings</a></li>
+          <li><a href="#!">Security</a></li>
+          <li class="divider"></li>
+          <li><a href="#!" class="red-text text-lighten-2">Logout</a></li>
+        </ul>
       </div>
     </div>
   </nav>
