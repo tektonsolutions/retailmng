@@ -105,9 +105,7 @@ function getFields(){
 function createArea(validator){
   Meteor.call("createArea", getFields(), function(error, result){
     if(error){
-      validator.showErrors({
-        area_name: error.reason
-      });
+      //do something
     } else{
       var form = validator.currentForm;
       form.reset();
@@ -120,9 +118,7 @@ function updateArea(currentId, validator){
 
   Meteor.call("updateArea", currentId, object, function(error, result){
     if(error){
-      validator.showErrors({
-        area_name: error.reason
-      });
+      //do something
     } else{
       $("#area_modal").closeModal();
     }
@@ -144,7 +140,7 @@ function isSafe(object){
 }
 
 if(Meteor.isServer){
-  Meteor.publish("deliveryAreas", function(argument){
+  Meteor.publish("areas", function(argument){
       var currentUser = this.userId;
       if(Meteor.myFunctions.isAdmin(currentUser)){
         return Areas.find({"createdBy": currentUser});
