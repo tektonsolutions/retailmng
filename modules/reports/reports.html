@@ -1,0 +1,81 @@
+<template name="reports">
+
+  <div class="row">
+    <br>
+    <div class="col s12 m10 l10 no-padding">
+      <div class="no-margin">
+        <div class="col s12">
+          <ul class="tabs">
+            <li class="tab col s2"><a class="active" href="#dsr">Daily Sales Report</a></li>
+            <li class="tab col s2"><a href="#im">Inventory Masterlist</a></li>
+            <li class="tab col s2"><a href="#lsi">Low Stock Inventory</a></li>
+            <li class="tab col s2"><a href="#dr">Delivery Register</a></li>
+            <li class="tab col s2"><a href="#sir">Sales Invoice Register</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!--Daily Sales Report-->
+        <div id="dsr" class="col s12">
+          <ul class="collection">
+            <li class="collection-item">Alvin</li>
+            <li class="collection-item">Alvin</li>
+            <li class="collection-item">Alvin</li>
+            <li class="collection-item">Alvin</li>
+          </ul>
+        </div>
+
+      <!--Inventory Masterlist-->
+      <div id="im" class="col s10">Test 2</div>
+
+      <!--Low Stock Inventory-->
+      <div id="lsi" class="col s10">Test 3</div>
+
+      <!--Delivery Register-->
+      <div id="dr" class="col s10">Test 4</div>
+
+      <!--Sales Invoice Register-->
+      <div id="sir" class="col s10">Test 5</div>
+      </div>
+      <div class="col s12 m2 l2 offset-s10">
+          <div class="card-panel grey lighten-2">
+            <h6 class="center">DATE RANGE</h6>
+            <br>
+            <div class="row">
+              <div class="input-field">
+                <label for="date_from">From</label>
+                <input class="datepicker" id="date_from" type="date">
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field">
+                <label for="date_to">To</label>
+                <input class="datepicker" id="date_to" type="date">
+              </div>
+            </div>
+            <br>
+            <h6 class="center">REPORT OPTION</h6>
+            <div class="row">
+              <p>
+                <input class="with-gap" name="report_group" type="radio" id="summary"  />
+                <label for="summary">Summary</label>
+                <input class="with-gap" name="report_group" type="radio" id="detailed"  />
+                <label for="detailed">Detailed</label>
+              </p>
+            </div>
+            <div class="row">
+              <a class='top-indent dropdown-button btn blue center col s12 side-indent' href='#' data-activates='export_types'>Export/Print</a>
+            </div>
+            <ul id='export_types' class='dropdown-content'>
+              <li><a href="#!">PDF</a></li>
+              <li><a href="#!">Excel</a></li>
+              <li><a href="#!">Word</a></li>
+              <li class="divider"></li>
+              <li><a href="#" class="red-text text-lighten-2">Print</a></li>
+            </ul>
+          </div>
+      </div>
+  </div>
+
+  {{> ui_script}}
+</template>

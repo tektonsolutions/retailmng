@@ -10,8 +10,8 @@
 <template name="main">
   {{#if currentUser}}
     {{> navbar}}
+    {{> sidebar}}
     <main>
-      {{> sidebar}}
       {{> yield}}
     </main>
     {{else}}
@@ -79,6 +79,9 @@
                 <a class="waves-effect waves-teal" href="{{pathFor route='suppliers'}}">Suppliers</a>
               </li>
               <li class="no-padding">
+                <a class="waves-effect waves-teal" href="{{pathFor route='categories'}}">Categories</a>
+              </li>
+              <li class="no-padding">
                 <a class="waves-effect waves-teal" href="{{pathFor route='presets'}}">Presets</a>
               </li>
               <li class="no-padding">
@@ -94,6 +97,9 @@
     </li>
     <li class="white no-padding">
       <a class="waves-effect waves-teal" href="{{pathFor route='sales'}}">Sales</a>
+    </li>
+    <li class="white no-padding">
+      <a class="waves-effect waves-teal" href="{{pathFor route='reports'}}">Reports</a>
     </li>
     <li class="white no-padding">
       <a class="waves-effect waves-teal">Security</a>

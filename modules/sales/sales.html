@@ -3,22 +3,14 @@
     <h5 class="lighten left-indent">
       <title>SALES</title>
     </h5>
-    <div class="col s12 m7 l7">
-      <div class="row">
-        <div class="input-field col s12 m12 l12">
-          <input class="search-table validate" id="icon_prefix" type="text">
-          <label for="icon_prefix">Search</label>
-          <i class="material-icons top-indent prefix" id="search_icon">search</i>
-        </div>
-      </div>
+    <div class="col s12 m9 l9">
 
       <div class="row no-margin">
         <!-- {{> leaderboard}} -->
       </div>
     </div>
 
-    <div class="col s12 m5 l5">
-
+  <div class="col s12 m3 l3 offset-l9">
       <div class="row no-margin">
         <div class="col s12">
           <ul class="tabs">
@@ -71,26 +63,29 @@
               </div>
             </div>
           </p>
-
           <p>
             <input class="filled-in" id="cod" type="checkbox"/>
             <label for="cod">Cash On Delivery</label>
           </p>
-          <hr class="dashed top-indent">
+          <hr class="dashed top-inden">
           <br>
-          <div class="col s12 m7 l7 no-padding">
-            <div class="card-panel grey lighten-5">
-              <p class="no-margin">
-                <input checked="checked" class="with-gap" id="cash" name="group1" type="radio"/>
-                <label class="top-indent no-margin" for="cash">CASH</label>
-                <br>
-                <input class="with-gap" id="check" name="group1" type="radio"/>
-                <label for="check">CHECK</label>
-                <br>
-                <input class="with-gap" id="card" name="group1" type="radio"/>
-                <label for="card">CARD</label>
-              </p>
-            </div>
+          <div class="col s12 no-padding">
+              <div class="row">
+                <div class="col s2 no-padding">
+                  <input checked="checked" class="with-gap" id="cash" name="group1" type="radio"/>
+                  <label for="cash">CASH</label>
+                </div>
+
+                <div class="col s2 offset-s2 no-padding">
+                  <input class="with-gap" id="check" name="group1" type="radio"/>
+                  <label for="check">CHECK</label>
+                </div>
+
+                <div class="col s1 offset-s2">
+                  <input class="with-gap" id="card" name="group1" type="radio"/>
+                  <label for="card">CARD</label>
+                </div>
+              </div>
               <div class="card-panel grey lighten-5">
                 <div class="row no-margin">
                   <div class="col no-padding s4">
@@ -303,7 +298,7 @@
                 </div>
               </div>
             </div>
-              <div class="col s7">
+              <div class="col s12">
                 <div class="card-panel grey lighten-5">
                   <p class="no-margin">
                     <input checked="checked" class="with-gap" id="return" name="group3" type="radio"/>
@@ -318,7 +313,7 @@
                   </p>
                 </div>
                 </div>
-                <div class="col s7 no-margin">
+                <div class="col s12 no-margin">
                   <div class="card-panel grey lighten-5 no-margin">
                       <h5 class="no-margin">
                         <b>RETURN</b>
@@ -330,7 +325,6 @@
                 </div>
           </div>
         </div>
-        <!--otheropt_tab ends-->
       </div>
 
       <div class="hide-on-large-only col s7 m7">
