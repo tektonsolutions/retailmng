@@ -36,6 +36,11 @@
       $(".dropdown-button").dropdown();
     });
 
+    //sidenav-fix
+    $('body').click(function(){
+      $('div[id^=sidenav-overlay]').remove(); 
+    });
+
     function onSelectChanged() {
       $(".selectErrorContainer").text("");
     }
