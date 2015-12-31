@@ -1,22 +1,17 @@
 <template name="reports">
-
+  <br>
   <div class="row">
-    <br>
-    <div class="col s12 m10 l10 no-padding">
-      <div class="no-margin">
-        <div class="col s12">
+    <div class="col s9 m9 l9">
           <ul class="tabs">
-            <li class="tab col s2"><a class="active" href="#dsr">Daily Sales Report</a></li>
-            <li class="tab col s2"><a href="#im">Inventory Masterlist</a></li>
-            <li class="tab col s2"><a href="#lsi">Low Stock Inventory</a></li>
-            <li class="tab col s2"><a href="#dr">Delivery Register</a></li>
-            <li class="tab col s2"><a href="#sir">Sales Invoice Register</a></li>
+            <li class="tab col s1 m2 l2"><a class="active" href="#dsr">Sales Report</a></li>
+            <li class="tab col s1 m2 l2"><a href="#im">Inv. Masterlist</a></li>
+            <li class="tab col s1 m2 l2"><a href="#ss">Stock Status</a></li>
+            <li class="tab col s1 m2 l2"><a href="#dr">Delivery Register</a></li>
+            <li class="tab col s1 m2 l2"><a href="#sir">Invoice Register</a></li>
           </ul>
-        </div>
-      </div>
-
       <!--Daily Sales Report-->
         <div id="dsr" class="col s12">
+          <br>
           <ul class="collection">
             <li class="collection-item">Alvin</li>
             <li class="collection-item">Alvin</li>
@@ -29,7 +24,7 @@
       <div id="im" class="col s10">Test 2</div>
 
       <!--Low Stock Inventory-->
-      <div id="lsi" class="col s10">Test 3</div>
+      <div id="ss" class="col s10">Test 3</div>
 
       <!--Delivery Register-->
       <div id="dr" class="col s10">Test 4</div>
@@ -37,10 +32,20 @@
       <!--Sales Invoice Register-->
       <div id="sir" class="col s10">Test 5</div>
       </div>
-      <div class="col s12 m2 l2 offset-s10">
-          <div class="card-panel grey lighten-2">
+      <div class="col s3 m3 l3 offset-s10">
+          <div class="card-panel grey lighten-5">
+            <h6 class="center">SEARCH FILTER</h6>
+            <div class="row">
+              <p>
+                <input class="with-gap side-indent" name="search_group" type="radio" id="item"  />
+                <label for="item">Product</label><br>
+                <input class="with-gap side-indent" name="search_group" type="radio" id="supplier"  />
+                <label for="supplier">Supplier</label><br>
+                <input class="with-gap side-indent" name="search_group" type="radio" id="category"  />
+                <label for="category">Category</label>
+              </p>
+            </div>
             <h6 class="center">DATE RANGE</h6>
-            <br>
             <div class="row">
               <div class="input-field">
                 <label for="date_from">From</label>
@@ -58,7 +63,7 @@
             <div class="row">
               <p>
                 <input class="with-gap" name="report_group" type="radio" id="summary"  />
-                <label for="summary">Summary</label>
+                <label for="summary">Summary</label><br>
                 <input class="with-gap" name="report_group" type="radio" id="detailed"  />
                 <label for="detailed">Detailed</label>
               </p>
