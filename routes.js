@@ -55,5 +55,8 @@ Router.route("/employees", {
   template: "employees"
 });
 
+//Reports Route
+Router.route("/reports");
+
 //retailmng html
 Router.route("/retailmng");

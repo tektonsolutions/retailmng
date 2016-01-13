@@ -59,6 +59,16 @@ if(Meteor.isClient){
       },
       sup_person:{
         required: true
+      },
+      //presets
+      retail_title:{
+        required: true
+      },
+      retail_value:{
+        required: true
+      },
+      retail_unit:{
+        required: true
       }
     },
     messages:{
@@ -104,6 +114,16 @@ if(Meteor.isClient){
       },
       sup_person:{
         required: "You must enter a contact person."
+      },
+      //presets
+      retail_title:{
+        required: "You must enter a title."
+      },
+      retail_value:{
+        required: "You must enter a value."
+      },
+      retail_unit:{
+        required: "Please select a unit."
       }
     }
   });

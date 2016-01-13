@@ -5,56 +5,109 @@
         <b>RETAIL PRESETS</b>
       </h5>
       <div class="input-field col s8 m6 l6">
-        <input class="search-table validate" id="icon_prefix" type="text">
+        {{> EasySearch.Input index=presetsIndex attributes=presetsSearchAttributes }}
         <label for="icon_prefix">Search</label>
         <i class="material-icons top-indent prefix" id="search_icon">search</i>
       </div>
       <div class="col s4 m6 l6 top-indent no-padding">
-        <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#retailpreset_modal">Create</a>
+        <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#retailpreset_modal" id="preset_create">Create</a>
       </div>
-
     </div>
   </div>
   <div class="row">
     <div class="col offset-m1 m10 offset-l1 l10 s12">
-      <!-- {{> leaderboard}} -->
+      {{> presetsList}}
     </div>
   </div>
 
-  <div class="modal modal-fixed-footer" id="retailpreset_modal">
+  {{> presetModal}}
+  {{> ui_script}}
+</template>
+
+<template name="presetsList">
+  {{#EasySearch.IfInputEmpty index=presetsIndex}}
+    <!-- do something -->
+    {{else}}
+    {{#if presetsCount}}
+      <div>{{presetsCount}}
+        results found.</div>
+    {{/if}}
+  {{/EasySearch.IfInputEmpty}}
+
+  {{#EasySearch.IfSearching index=presetsIndex }}
+    <div>Searching</div>
+  {{/EasySearch.IfSearching }}
+
+  <ul class="collection no-margin">
+    {{#EasySearch.Each index=presetsIndex}}
+      {{> preset}}
+    {{/EasySearch.Each}}
+  </ul>
+
+  {{#EasySearch.IfNoResults index=presetsIndex }}
+    <div>No results found</div>
+    {{else}}
+    <!-- do something -->
+  {{/EasySearch.IfNoResults }}
+
+  {{> EasySearch.Pagination index=presetsIndex maxPages=10}}
+</template>
+
+<template name="preset">
+<li class="collection-item dismissable">
+  <div>{{title}}
+    <a class="secondary-content side-indent" href="" id="retailpreset_delete">
+      <i class="material-icons">delete</i>
+    </a>
+    <a class="secondary-content side-indent" href="" id="retailpreset_update">
+      <i class="material-icons">update</i>
+    </a>
+  </div>
+</li>
+</template>
+
+<template name="presetModal">
+<div class="modal modal-fixed-footer" id="retailpreset_modal">
+  <form id="register">
     <div class="modal-content">
       <h5>Fill Information</h5>
       <div class="row">
         <div class="input-field col s5">
-          <input id="retail_title" type="text">
-          <label for="retail_title">Retail Preset Title</label>
+          <input id="retail_title" name="retail_title" placeholder="Retail Preset Title" type="text">
+          <label class="active" for="retail_title">&zwnj;</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s8">
-          <textarea class="materialize-textarea" id="retail_desc" placeholder="e.g. Retail Preset for (product)." type="text">&zwnj;</textarea>
-          <label for="retail_desc">Short Description</label>
+          <textarea class="materialize-textarea" id="retail_desc" placeholder="Short Description" type="text"></textarea>
+          <label class="active" for="retail_desc">&zwnj;</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s3">
-          <input id="retail_value" type="text">
-          <label for="retail_value">Retail Value</label>
+          <input id="retail_value" name="retail_value" placeholder="Retail Value" type="text">
+          <label class="active" for="retail_value">&zwnj;</label>
         </div>
         <div class="input-field col s5">
-          <select>
+          <select name="retail_unit" onchange="onSelectChanged()">
             <option disabled selected value="">Unit</option>
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-            <option value="3">Option 3</option>
+            {{> presetUnit}}
           </select>
+          <div class="col s4">
+            <p class="selectErrorContainer"></p>
+          </div>
         </div>
       </div>
     </div>
     <div class="modal-footer">
-      <a class="modal-close modal-action waves-effect waves-green btn-flat " href="#!">OK</a>
+      <button class="modal-action waves-effect waves-green btn-flat" type="submit">OK</button>
     </div>
-  </div>
+  </form>
+</div>
+</template>
 
-  {{> ui_script}}
+<template name="presetUnit">
+{{#each units}}
+  <option value="{{shortname}}">{{shortname}}</option>
+{{/each}}
 </template>
