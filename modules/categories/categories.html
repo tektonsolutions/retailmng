@@ -5,38 +5,86 @@
         <b>CATEGORIES</b>
       </h5>
       <div class="input-field col s8 m6 l6">
-        <input class="search-table validate" id="icon_prefix" type="text">
+        {{> EasySearch.Input index=categoriesIndex attributes=categoriesSearchAttributes }}
         <label for="icon_prefix">Search</label>
         <i class="material-icons top-indent prefix" id="search_icon">search</i>
       </div>
       <div class="col s4 m6 l6 top-indent no-padding">
-        <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#category_modal">Create</a>
+        <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="#category_modal" id="category_create">Create</a>
       </div>
-
     </div>
   </div>
   <div class="row">
     <div class="col offset-m1 m10 offset-l1 l10 s12">
-      <!-- {{> leaderboard}} -->
+      {{> categoryList}}
     </div>
   </div>
 
-  <div class="modal" id="category_modal">
+  {{> categoryModal}}
+  {{> ui_script}}
+</template>
+
+<template name="categoryList">
+  {{#EasySearch.IfInputEmpty index=categoriesIndex}}
+    <!-- do something -->
+    {{else}}
+    {{#if categoriesCount}}
+      <div>{{categoriesCount}}
+        results found.</div>
+    {{/if}}
+  {{/EasySearch.IfInputEmpty}}
+
+  {{#EasySearch.IfSearching index=categoriesIndex }}
+    <div>Searching</div>
+  {{/EasySearch.IfSearching }}
+
+  <ul class="collection no-margin">
+    {{#EasySearch.Each index=categoriesIndex}}
+      {{> category}}
+    {{/EasySearch.Each}}
+  </ul>
+
+  {{#EasySearch.IfNoResults index=categoriesIndex }}
+    <div>No results found</div>
+    {{else}}
+    <!-- do something -->
+  {{/EasySearch.IfNoResults }}
+
+  {{> EasySearch.Pagination index=categoriesIndex maxPages=10}}
+</template>
+
+<template name="category">
+<li class="collection-item dismissable">
+  <div>{{name}}
+    <a class="secondary-content side-indent" href="" id="category_delete">
+      <i class="material-icons">delete</i>
+    </a>
+    <a class="secondary-content side-indent" href="" id="category_update">
+      <i class="material-icons">update</i>
+    </a>
+  </div>
+</li>
+</template>
+
+<template name="categoryModal">
+<div class="modal" id="category_modal">
+  <form id="register">
     <div class="modal-content">
       <h5>Fill Information</h5>
       <div class="row">
         <div class="input-field col s4">
-          <input id="cat_name" placeholder="Category Name" type="text">
+          <input id="category_name" name="category_name" placeholder="categoryegory Name" type="text">
+          <label class="active" for="category_name">&zwnj;</label>
         </div>
         <div class="input-field col s3">
-          <input id="cat_shortname" placeholder="Shortname" type="text">
+          <input id="category_shortname" name="category_shortname" placeholder="Shortname" type="text">
+          <label class="active" for="category_shortname">&zwnj;</label>
         </div>
       </div>
     </div>
     <div class="modal-footer">
-      <a class="modal-close modal-action waves-effect waves-green btn-flat " href="#!">OK</a>
+      <button class="modal-action waves-effect waves-green btn-flat" type="submit">OK</button>
     </div>
-  </div>
-
-  {{> ui_script}}
+  </form>
+</div>
 </template>

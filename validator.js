@@ -69,6 +69,11 @@ if(Meteor.isClient){
       },
       retail_unit:{
         required: true
+      },
+      //categories
+      category_shortname:{
+        required: true,
+        minlength: 1
       }
     },
     messages:{
@@ -124,6 +129,11 @@ if(Meteor.isClient){
       },
       retail_unit:{
         required: "Please select a unit."
+      },
+      //categories
+      category_shortname:{
+        required: "You must enter a short name.",
+        minlength: "Short name must be at least {0} character."
       }
     }
   });
