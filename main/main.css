@@ -2,6 +2,14 @@ label[data-error]:after {
   white-space: nowrap;
 }
 
-head, main, footer{
-  padding-left: 0;
+head, main, footer {
+  padding-left: auto;
+  padding-top: 60px;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
 }

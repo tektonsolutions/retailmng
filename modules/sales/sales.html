@@ -3,15 +3,30 @@
     <h5 class="lighten left-indent">
       <title>SALES</title>
     </h5>
-    <div class="col s12 m9 l9">
-
-      <div class="row no-margin">
+    <div class="col s12 m8 l8 no-padding">
         <!-- {{> leaderboard}} -->
-      </div>
+        <ul class="collection with-header" id="collection">
+          <li class="collection-header"><h5 class="center no-margin"><b>ORDERS</b></h5></li>
+         <li class="collection-item">
+           <div class="col s10 no-padding">
+             <p class="no-margin">
+               Item Description<br>
+               Qty Unit @ U/Price
+             </p>
+           </div>
+           <div class="col s2 no-padding">
+             <a href="#!" class="secondary-content right"><b>UPDATE QTY</b></a><br>
+             <a href="#!" class="secondary-content red-text text-lighten-2 right"><b>REMOVE</b></a><br>
+           </div>
+           <b>₱0.00</b>
+         </li>
+        </ul>
     </div>
 
-  <div class="col s12 m3 l3 offset-l9">
+  <div class="col s12 m3 l3 tabsec">
       <div class="row no-margin">
+        <a class="col s12 btn waves-effect blue waves-light btn-large"><b>NEW TRANSACTION</b></a>
+        <br><br><br>
         <div class="col s12">
           <ul class="tabs">
             <!--tabs init-->
@@ -30,44 +45,12 @@
             <input class="filled-in" id="delivery" type="checkbox"/>
             <label for="delivery">Delivery</label>
             <a class="waves-effect waves-light side-indent teal-text">EDIT</a>
-            <!-- delivery -->
-
-            <!-- delivery modal -->
-            <div class="modal" id="delivery_modal">
-              <div class="modal-content">
-                <h5>Delivery Info</h5>
-                <div class="row">
-                  <div class="input-field col s3">
-                    <select>
-                      <option disabled selected value="">Select Area</option>
-                      <option value="1">Area 1</option>
-                      <option value="2">Area 2</option>
-                      <option value="3">Area 3</option>
-                    </select>
-                    <label>Delivery Area</label>
-                  </div>
-                  <div class="input-field col s6">
-                    <input id="delivery_fee" placeholder="" type="text">
-                    <label for="delivery_fee">Delivery Fee</label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="input-field col s12">
-                    <textarea class="materialize-textarea" id="delivery_address"></textarea>
-                    <label for="delivery_address">Delivery Address</label>
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <a class="modal-close modal-action waves-effect waves-green btn-flat " href="#!">OK</a>
-              </div>
-            </div>
           </p>
           <p>
             <input class="filled-in" id="cod" type="checkbox"/>
             <label for="cod">Cash On Delivery</label>
           </p>
-          <hr class="dashed top-inden">
+          <hr class="dashed top-indent">
           <br>
           <div class="col s12 no-padding">
               <div class="row">
@@ -112,170 +95,17 @@
                   </div>
                 </div>
               </div>
-                  <div class="card-panel grey lighten-5">
-                    <h5 class="no-margin">
-                      <b>GRAND TOTAL</b>
-                    </h5>
-                    <h4 class="no-margin bottom-indent teal-text">
-                      <b>₱0.00</b>
-                    </h4>
-                  </div>
-          </div>
-
-          <div class="row right no-padding">
-
-            <!-- discount modal -->
-            <div class="modal" id="discount_modal">
-              <div class="modal-content">
-                <h5>Apply Discount</h5>
-                <div class="row">
-                  <div class="input-field col s6">
-                    <input id="discount" type="number">
-                    <label for="discount">
-                      Discount
-                    </label>
-                  </div>
-                </div>
-                <div class="row">
-                  <p>
-                    <input checked="checked" class="with-gap" id="price" name="group2" type="radio"/>
-                    <label class="right-indent" for="price">PRICE</label>
-                    <input class="with-gap" id="percentage" name="group2" type="radio"/>
-                    <label class="left-indent" for="percentage">PERCENTAGE</label>
-                  </p>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <a class="modal-close modal-action waves-effect waves-green btn-flat " href="#!">OK</a>
-              </div>
+              <div class="card-panel grey lighten-5">
+                <h5 class="no-margin">
+                  <b>GRAND TOTAL</b>
+                </h5>
+                <h4 class="no-margin bottom-indent teal-text">
+                <b>₱0.00</b>
+              </h4>
             </div>
 
-            <!-- Cash Info -->
-            <div class="modal modal-fixed-footer" id="cash_modal">
-              <div class="modal-content">
-                <h5>Fill Information</h5>
-                <div class="row">
-                  <div class="input-field col s6">
-                    <input id="customer_name" placeholder="" type="text">
-                    <label for="customer_name">Customer Name</label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="input-field col s6">
-                    <input class="validate" id="sales_pw" placeholder="Sales Person" type="password">
-                    <label for="sales_pw">Password</label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="input-field col s6">
-                    <input id="amount_paid" placeholder="" type="text">
-                    <label for="amount_paid">
-                      AMOUNT PAID
-                    </label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col s6">
-                    <h6>
-                      <b>CHANGE</b>
-                    </h6>
-                    <div class="row red-text">
-                      <h5 class="no-margin">
-                        <b>P0.00</b>
-                      </h5>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <a class="modal-close modal-action waves-effect waves-green btn-flat " href="#!">OK</a>
-              </div>
-            </div>
-
-            <!-- Check Info -->
-            <div class="modal" id="check_modal">
-              <div class="modal-content">
-                <h5>Fill Information</h5>
-                <div class="row">
-                  <div class="input-field col s5">
-                    <input id="bank_name" type="text">
-                    <label for="bank_name">Bank</label>
-                  </div>
-                  <div class="input-field col s7">
-                    <input id="payee" type="text">
-                    <label for="payee">Payee</label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="input-field col s5">
-                    <label for="checkdate">Check Date</label>
-                    <input class="datepicker" id="checkdate" type="date">
-                  </div>
-                  <div class="input-field col s7">
-                    <input id="checknum" type="text">
-                    <label for="checknum">Check No.</label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="input-field col s5">
-                    <input id="checkamount" placeholder="P0.00" type="text">
-                    <label for="checkamount">
-                      <b>CHECK AMOUNT</b>
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <a class="modal-close modal-action waves-effect waves-green btn-flat " href="#!">OK</a>
-              </div>
-            </div>
-
-            <!-- Card Info -->
-            <div class="modal" id="card_modal">
-              <div class="modal-content">
-                <h5>Fill Information</h5>
-                <div class="row">
-                  <div class="input-field col s5">
-                    <input id="bank_name" type="text">
-                    <label for="bank_name">Bank</label>
-                  </div>
-                  <div class="input-field col s3">
-                    <input id="card_num" placeholder="Last 4-digits" type="text">
-                    <label for="card_num">Card No.</label>
-                  </div>
-                  <div class="input-field col s2">
-                    <label for="exp_date_mm">Expiry Date</label>
-                    <input id="exp_date_mm" placeholder="MM" type="text">
-                  </div>
-                  <div class="input-field col s2">
-                    <input id="exp_date_yy" placeholder="YY" type="text">
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="input-field col s5">
-                    <input id="card_name" type="text">
-                    <label for="card_name">Name on Card</label>
-                  </div>
-                  <div class="input-field col s3">
-                    <select>
-                      <option disabled selected value="">Card Type</option>
-                      <option value="1">Option 1</option>
-                      <option value="2">Option 2</option>
-                      <option value="3">Option 3</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="input-field col s5">
-                    <input id="ref_num" type="text">
-                    <label for="ref_num">Approval/Reference No.</label>
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <a class="modal-close modal-action waves-effect waves-green btn-flat " href="#!">SETTLE</a>
-              </div>
-            </div>
+            <a class="col s7 modal-trigger waves-effect waves-light btn blue right" href="#cash_modal" id="settle">settle</a>
+            <a class="col s4 modal-trigger waves-effect waves-light btn" href="#discount_modal">discount</a>
           </div>
         </div>
         <!--sell tab ends-->
@@ -284,21 +114,16 @@
         <div class="col s12" id="others_tab">
           <br>
           <div class="row no-margin">
-            <div class="col s12">
-              <div class="col s12">
-                <div class="row no-margin">
-                  <div class="input-field no-margin">
-                    <input id="or_num" placeholder="O.R. No." type="text">
-                  </div>
-                </div>
-                <div class="row no-margin">
-                  <div class="input-field no-margin">
-                    <textarea class="materialize-textarea" id="reason" placeholder="Reason"></textarea>
-                  </div>
+              <div class="row no-margin">
+                <div class="input-field no-margin">
+                  <input id="or_num" placeholder="O.R. No." type="text">
                 </div>
               </div>
-            </div>
-              <div class="col s12">
+              <div class="row no-margin">
+                <div class="input-field no-margin">
+                  <textarea class="materialize-textarea" id="reason" placeholder="Reason"></textarea>
+                </div>
+              </div>
                 <div class="card-panel grey lighten-5">
                   <p class="no-margin">
                     <input checked="checked" class="with-gap" id="return" name="group3" type="radio"/>
@@ -312,18 +137,16 @@
                     </label>
                   </p>
                 </div>
-                </div>
-                <div class="col s12 no-margin">
-                  <div class="card-panel grey lighten-5 no-margin">
-                      <h5 class="no-margin">
-                        <b>RETURN</b>
-                      </h5>
-                      <h4 class="no-margin red-text">
-                        <b>₱0.00</b>
-                      </h4>
-                  </div>
+                <div class="card-panel grey lighten-5">
+                    <h5 class="no-margin">
+                      <b>RETURN</b>
+                    </h5>
+                    <h4 class="no-margin red-text">
+                      <b>₱0.00</b>
+                    </h4>
                 </div>
           </div>
+          <a class="col s12 modal-trigger waves-effect waves-light btn blue right" href="#!">settle</a>
         </div>
       </div>
 
@@ -348,6 +171,12 @@
   </div>
 
   {{> ui_script}}
+  {{> deliveryModal}}
+  {{> discountModal}}
+  {{> cashModal}}
+  {{> checkModal}}
+  {{> cardModal}}
+
   <script type="text/javascript">
     $("#delivery").change(function () {
       if ($(this).is(":checked")) {
@@ -358,12 +187,200 @@
   <footer class="page-footer transparent">
         <div class="row">
           <div class="col s5 offset-s7 hide-on-med-and-down no-padding">
-            <button class="col s3 btn waves-effect side-indent waves-light">clear</button>
-            <!-- Discount -->
-            <a class="col s3 modal-trigger waves-effect side-indent waves-light btn" href="#discount_modal">discount</a>
-            <!-- Settle -->
-            <a class="col s5 right modal-trigger blue waves-effect side-indent waves-light btn" href="#cash_modal" id="settle">settle</a>
+
           </div>
         </div>
   </footer>
+</template>
+
+<template name="deliveryModal">
+  <div class="modal" id="delivery_modal">
+    <div class="modal-content">
+      <h5>Delivery Info</h5>
+      <div class="row">
+        <div class="input-field col s3">
+          <select>
+            <option disabled selected value="">Select Area</option>
+            <option value="1">Area 1</option>
+            <option value="2">Area 2</option>
+            <option value="3">Area 3</option>
+          </select>
+          <label>Delivery Area</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="delivery_fee" placeholder="" type="text">
+          <label for="delivery_fee">Delivery Fee</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea class="materialize-textarea" id="delivery_address"></textarea>
+          <label for="delivery_address">Delivery Address</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a class="modal-close modal-action waves-effect waves-green btn-flat " href="#!">OK</a>
+    </div>
+  </div>
+</template>
+
+<template name="discountModal">
+  <div class="modal" id="discount_modal">
+    <div class="modal-content">
+      <h5>Apply Discount</h5>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="discount" type="number">
+          <label for="discount">
+            Discount
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <p>
+          <input checked="checked" class="with-gap" id="price" name="group2" type="radio"/>
+          <label class="right-indent" for="price">PRICE</label>
+          <input class="with-gap" id="percentage" name="group2" type="radio"/>
+          <label class="left-indent" for="percentage">PERCENTAGE</label>
+        </p>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a class="modal-close modal-action waves-effect waves-green btn-flat " href="#!">OK</a>
+    </div>
+  </div>
+</template>
+
+<template name="cashModal">
+  <div class="modal modal-fixed-footer" id="cash_modal">
+    <div class="modal-content">
+      <h5>Fill Information</h5>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="customer_name" placeholder="" type="text">
+          <label for="customer_name">Customer Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input class="validate" id="sales_pw" placeholder="Sales Person" type="password">
+          <label for="sales_pw">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="amount_paid" placeholder="" type="text">
+          <label for="amount_paid">
+            AMOUNT PAID
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s6">
+          <h6>
+            <b>CHANGE</b>
+          </h6>
+          <div class="row red-text">
+            <h5 class="no-margin">
+              <b>P0.00</b>
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a class="modal-close modal-action waves-effect waves-green btn-flat " href="#!">OK</a>
+    </div>
+  </div>
+</template>
+
+<template name="checkModal">
+  <div class="modal" id="check_modal">
+    <div class="modal-content">
+      <h5>Fill Information</h5>
+      <div class="row">
+        <div class="input-field col s5">
+          <input id="bank_name" type="text">
+          <label for="bank_name">Bank</label>
+        </div>
+        <div class="input-field col s7">
+          <input id="payee" type="text">
+          <label for="payee">Payee</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s5">
+          <label for="checkdate">Check Date</label>
+          <input class="datepicker" id="checkdate" type="date">
+        </div>
+        <div class="input-field col s7">
+          <input id="checknum" type="text">
+          <label for="checknum">Check No.</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s5">
+          <input id="checkamount" placeholder="P0.00" type="text">
+          <label for="checkamount">
+            <b>CHECK AMOUNT</b>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a class="modal-close modal-action waves-effect waves-green btn-flat " href="#!">OK</a>
+    </div>
+  </div>
+</template>
+
+<template name="cardModal">
+  <div class="modal" id="card_modal">
+    <div class="modal-content">
+      <h5>Fill Information</h5>
+      <div class="row">
+        <div class="input-field col s5">
+          <input id="bank_name" type="text">
+          <label for="bank_name">Bank</label>
+        </div>
+        <div class="input-field col s3">
+          <input id="card_num" placeholder="Last 4-digits" type="text">
+          <label for="card_num">Card No.</label>
+        </div>
+        <div class="input-field col s2">
+          <label for="exp_date_mm">Expiry Date</label>
+          <input id="exp_date_mm" placeholder="MM" type="text">
+        </div>
+        <div class="input-field col s2">
+          <input id="exp_date_yy" placeholder="YY" type="text">
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s5">
+          <input id="card_name" type="text">
+          <label for="card_name">Name on Card</label>
+        </div>
+        <div class="input-field col s3">
+          <select>
+            <option disabled selected value="">Card Type</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s5">
+          <input id="ref_num" type="text">
+          <label for="ref_num">Approval/Reference No.</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a class="modal-close modal-action waves-effect waves-green btn-flat " href="#!">SETTLE</a>
+    </div>
+  </div>
+</template>
+
+<template name="quantityModal">
 </template>

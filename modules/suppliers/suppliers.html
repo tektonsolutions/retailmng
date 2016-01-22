@@ -15,7 +15,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col offset-m1 m10 offset-l1 l10 s12">
+    <div class="col s12 m10 l10 offset-l1">
       {{> suppliersList}}
     </div>
   </div>
@@ -54,16 +54,18 @@
 </template>
 
 <template name="supplier">
-<li class="collection-item dismissable">
-  <div>{{name}}
-    <a class="secondary-content side-indent" href="" id="sup_delete">
-      <i class="material-icons">delete</i>
-    </a>
-    <a class="secondary-content side-indent" href="" id="sup_update">
-      <i class="material-icons">update</i>
-    </a>
-  </div>
-</li>
+    <li class="collection-item dismissable">
+      <p class="no-margin top-indent">
+        <b>{{name}}</b><br>
+        {{address}}<br>
+        {{contact_person}}<br>
+        {{contact_no}}
+      </p>
+      <div class="row no-margin">
+        <a class="secondary-content side-indent red-text text-lighten-2" href="" id="sup_delete"><b>DELETE</b></a>
+        <a class="secondary-content side-indent" href="" id="sup_update">UPDATE</a>
+      </div>
+    </li>
 </template>
 
 <template name="supplierModal">

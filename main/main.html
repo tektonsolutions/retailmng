@@ -9,10 +9,10 @@
 
 <template name="main">
   {{#if currentUser}}
-    {{> navbar}}
-    {{> sidebar}}
+  {{> sidebar}}
     <main>
       {{> yield}}
+      {{> navbar}}
     </main>
     {{else}}
     {{> yield}}
@@ -30,10 +30,17 @@
 
       $("select").material_select();
       $(".modal-trigger").leanModal();
-      $(".button-collapse").sideNav();
+
+      $(".button-collapse").sideNav({
+      menuWidth: 200, // Default is 240
+      edge: 'right', // Choose the horizontal origin
+      closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    });
+
       $("ul.tabs").tabs();
       $('.collapsible').collapsible({accordion: false});
       $(".dropdown-button").dropdown();
+      $('.scrollspy').scrollSpy();
     });
 
     //sidenav-fix
@@ -48,7 +55,7 @@
 </template>
 
 <template name="sidebar">
-  <ul id="slide-out" class="side-nav no-padding">
+  <ul id="slide-out" class="side-nav fixed hide-on-med-and-down no-padding">
     <li class="center white no-padding">
       <a class="waves-effect waves-teal">
         <i class="mdi-navigation-menu" href="#!"></i>
@@ -57,43 +64,43 @@
     <li class=" white no-padding">
       <ul class="collapsible collapsible-accordion">
         <li>
-          <a class="collapsible-header waves-effect waves-teal no-margin white"><b>Inventory</b></a>
+          <a class="collapsible-header no-margin white"><b>Inventory</b></a>
           <div class="collapsible-body">
             <ul>
-              <li class="no-padding">
-                <a class="waves-effect waves-teal" href="{{pathFor route='delivery-registry'}}">Delivery Register</a>
+              <li class="no-padding no-margin">
+                <a class="waves-effect waves-teal no-margin" href="{{pathFor route='delivery-registry'}}">Delivery Register</a>
               </li>
-              <li class="no-padding">
-                <a class="waves-effect waves-teal" href="{{pathFor route='inventory'}}">Inventory Register</a>
+              <li class="no-padding no-margin">
+                <a class="waves-effect waves-teal no-margin" href="{{pathFor route='inventory'}}">Inventory Register</a>
               </li>
-              <li class="no-padding">
-                <a class="waves-effect waves-teal" href="{{pathFor route='inventory-count'}}">Physical Inventory Count</a>
+              <li class="no-padding no-margin">
+                <a class="waves-effect waves-teal no-margin" href="{{pathFor route='inventory-count'}}">Physical Inventory Count</a>
               </li>
             </ul>
           </div>
         </li>
         <br>
         <li>
-          <a class="collapsible-header waves-effect waves-teal no-margin white"><b>Resources</b></a>
+          <a class="collapsible-header no-margin white"><b>Resources</b></a>
           <div class="collapsible-body">
             <ul>
               <li class="no-padding">
-                <a class="waves-effect waves-teal" href="{{pathFor route='employees'}}">Employees</a>
+                <a class="waves-effect waves-teal no-margin" href="{{pathFor route='employees'}}">Employees</a>
               </li>
               <li class="no-padding">
-                <a class="waves-effect waves-teal" href="{{pathFor route='suppliers'}}">Suppliers</a>
+                <a class="waves-effect waves-teal no-margin" href="{{pathFor route='suppliers'}}">Suppliers</a>
               </li>
               <li class="no-padding">
-                <a class="waves-effect waves-teal" href="{{pathFor route='categories'}}">Categories</a>
+                <a class="waves-effect waves-teal no-margin" href="{{pathFor route='categories'}}">Categories</a>
               </li>
               <li class="no-padding">
-                <a class="waves-effect waves-teal" href="{{pathFor route='presets'}}">Presets</a>
+                <a class="waves-effect waves-teal no-margin" href="{{pathFor route='presets'}}">Presets</a>
               </li>
               <li class="no-padding">
-                <a class="waves-effect waves-teal" href="{{pathFor route='units'}}">Units</a>
+                <a class="waves-effect waves-teal no-margin" href="{{pathFor route='units'}}">Units</a>
               </li>
               <li class="no-padding">
-                <a class="waves-effect waves-teal" href="{{pathFor route='delivery-areas'}}">Delivery Areas</a>
+                <a class="waves-effect waves-teal no-margin" href="{{pathFor route='delivery-areas'}}">Delivery Areas</a>
               </li>
             </ul>
           </div>
@@ -121,6 +128,18 @@
 </template>
 
 <template name="navbar">
+  <nav class="teal">
+    <div class="nav-wrapper">
+      <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">Javascript</a></li>
+        <li><a href="mobile.html">Mobile</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!--
   <nav>
     <div class="nav-wrapper teal">
       <div class="row">
@@ -140,7 +159,6 @@
             </div>
           </form>
         </div>
-        <!--
         <ul>
           <li class="right">
             <a class="dropdown-button" data-activates="dropdown1"><i class="material-icons center">more_vert</i></a>
@@ -152,8 +170,8 @@
           <li class="divider"></li>
           <li><a href="#!" class="red-text text-lighten-2">Logout</a></li>
         </ul>
-        -->
       </div>
     </div>
   </nav>
+-->
 </template>
