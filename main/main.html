@@ -9,10 +9,10 @@
 
 <template name="main">
   {{#if currentUser}}
+  {{> yield}}
   {{> sidebar}}
     <main>
-      {{> yield}}
-      {{> navbar}}
+      <!--{{> navbar}}-->
     </main>
     {{else}}
     {{> yield}}
@@ -31,12 +31,6 @@
       $("select").material_select();
       $(".modal-trigger").leanModal();
 
-      $(".button-collapse").sideNav({
-      menuWidth: 200, // Default is 240
-      edge: 'right', // Choose the horizontal origin
-      closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-    });
-
       $("ul.tabs").tabs();
       $('.collapsible').collapsible({accordion: false});
       $(".dropdown-button").dropdown();
@@ -44,87 +38,100 @@
     });
 
     //sidenav-fix
-    $('body').click(function(){
+      $('body').click(function(){
       $('div[id^=sidenav-overlay]').remove();
     });
 
     function onSelectChanged() {
       $(".selectErrorContainer").text("");
     }
+
+    $(".button-collapse").sideNav({
+    menuWidth: 200, // Default is 240
+    edge: 'left', // Choose the horizontal origin
+    closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    });
   </script>
 </template>
 
 <template name="sidebar">
-  <ul id="slide-out" class="side-nav fixed hide-on-med-and-down no-padding">
-    <li class="center white no-padding">
-      <a class="waves-effect waves-teal">
-        <i class="mdi-navigation-menu" href="#!"></i>
-      </a>
-    </li>
-    <li class=" white no-padding">
-      <ul class="collapsible collapsible-accordion">
-        <li>
-          <a class="collapsible-header no-margin white"><b>Inventory</b></a>
-          <div class="collapsible-body">
-            <ul>
-              <li class="no-padding no-margin">
-                <a class="waves-effect waves-teal no-margin" href="{{pathFor route='delivery-registry'}}">Delivery Register</a>
-              </li>
-              <li class="no-padding no-margin">
-                <a class="waves-effect waves-teal no-margin" href="{{pathFor route='inventory'}}">Inventory Register</a>
-              </li>
-              <li class="no-padding no-margin">
-                <a class="waves-effect waves-teal no-margin" href="{{pathFor route='inventory-count'}}">Physical Inventory Count</a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <br>
-        <li>
-          <a class="collapsible-header no-margin white"><b>Resources</b></a>
-          <div class="collapsible-body">
-            <ul>
-              <li class="no-padding">
-                <a class="waves-effect waves-teal no-margin" href="{{pathFor route='employees'}}">Employees</a>
-              </li>
-              <li class="no-padding">
-                <a class="waves-effect waves-teal no-margin" href="{{pathFor route='suppliers'}}">Suppliers</a>
-              </li>
-              <li class="no-padding">
-                <a class="waves-effect waves-teal no-margin" href="{{pathFor route='categories'}}">Categories</a>
-              </li>
-              <li class="no-padding">
-                <a class="waves-effect waves-teal no-margin" href="{{pathFor route='presets'}}">Presets</a>
-              </li>
-              <li class="no-padding">
-                <a class="waves-effect waves-teal no-margin" href="{{pathFor route='units'}}">Units</a>
-              </li>
-              <li class="no-padding">
-                <a class="waves-effect waves-teal no-margin" href="{{pathFor route='delivery-areas'}}">Delivery Areas</a>
-              </li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </li>
-    <li class="white no-padding">
-      <a class="waves-effect waves-teal" href="{{pathFor route='sales'}}">Sales</a>
-    </li>
-    <li class="white no-padding">
-      <a class="waves-effect waves-teal" href="{{pathFor route='reports'}}">Reports</a>
-    </li>
-    <li class="white no-padding">
-      <a class="waves-effect waves-teal">Security</a>
-    </li>
-    <li class="white no-padding">
-      <a class="waves-effect waves-teal">Settings</a>
-    </li>
-    <li class="divider"></li>
-    <li class="white no-padding center">
-      <a class="waves-effect waves-grey waves-lighten-5 red-text text-lighten-2"><b>LOGOUT</b></a>
-    </li>
-    <li class="divider"></li>
-  </ul>
+    <ul class="fixed-action-btn no-margin no-padding" style="bottom: 25px; left: 24px;">
+      <li>
+        <a href="#!" data-activates="slide-out" class="button-collapse btn-floating btn-large">
+          <i class="large mdi-navigation-menu"></i>
+        </a>
+      </li>
+    </ul>
+    <ul id="slide-out" class="side-nav">
+      <li class="center white no-padding">
+        <a class="waves-effect waves-teal">
+          <i class="mdi-navigation-menu" href="#!"></i>
+        </a>
+      </li>
+      <li class=" white no-padding">
+        <ul class="collapsible collapsible-accordion">
+          <li>
+            <a class="collapsible-header no-margin white"><b>Inventory</b></a>
+            <div class="collapsible-body">
+              <ul>
+                <li class="no-padding no-margin">
+                  <a class="waves-effect waves-teal no-margin" href="{{pathFor route='delivery-registry'}}">Delivery Register</a>
+                </li>
+                <li class="no-padding no-margin">
+                  <a class="waves-effect waves-teal no-margin" href="{{pathFor route='inventory'}}">Inventory Register</a>
+                </li>
+                <li class="no-padding no-margin">
+                  <a class="waves-effect waves-teal no-margin" href="{{pathFor route='inventory-count'}}">Physical Inventory Count</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <br>
+          <li>
+            <a class="collapsible-header no-margin white"><b>Resources</b></a>
+            <div class="collapsible-body">
+              <ul>
+                <li class="no-padding">
+                  <a class="waves-effect waves-teal no-margin" href="{{pathFor route='employees'}}">Employees</a>
+                </li>
+                <li class="no-padding">
+                  <a class="waves-effect waves-teal no-margin" href="{{pathFor route='suppliers'}}">Suppliers</a>
+                </li>
+                <li class="no-padding">
+                  <a class="waves-effect waves-teal no-margin" href="{{pathFor route='categories'}}">Categories</a>
+                </li>
+                <li class="no-padding">
+                  <a class="waves-effect waves-teal no-margin" href="{{pathFor route='presets'}}">Presets</a>
+                </li>
+                <li class="no-padding">
+                  <a class="waves-effect waves-teal no-margin" href="{{pathFor route='units'}}">Units</a>
+                </li>
+                <li class="no-padding">
+                  <a class="waves-effect waves-teal no-margin" href="{{pathFor route='delivery-areas'}}">Delivery Areas</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li class="white no-padding">
+        <a class="waves-effect waves-teal" href="{{pathFor route='sales'}}">Sales</a>
+      </li>
+      <li class="white no-padding">
+        <a class="waves-effect waves-teal" href="{{pathFor route='reports'}}">Reports</a>
+      </li>
+      <li class="white no-padding">
+        <a class="waves-effect waves-teal">Security</a>
+      </li>
+      <li class="white no-padding">
+        <a class="waves-effect waves-teal">Settings</a>
+      </li>
+      <li class="divider"></li>
+      <li class="white no-padding center">
+        <a class="waves-effect waves-grey waves-lighten-5 red-text text-lighten-2"><b>LOGOUT</b></a>
+      </li>
+      <li class="divider"></li>
+    </ul>
 </template>
 
 <template name="navbar">
@@ -159,17 +166,6 @@
             </div>
           </form>
         </div>
-        <ul>
-          <li class="right">
-            <a class="dropdown-button" data-activates="dropdown1"><i class="material-icons center">more_vert</i></a>
-          </li>
-        </ul>
-        <ul id="dropdown1" class="dropdown-content">
-          <li><a href="#!">Settings</a></li>
-          <li><a href="#!">Security</a></li>
-          <li class="divider"></li>
-          <li><a href="#!" class="red-text text-lighten-2">Logout</a></li>
-        </ul>
       </div>
     </div>
   </nav>

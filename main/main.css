@@ -4,7 +4,7 @@ label[data-error]:after {
 
 head, main, footer {
   padding-left: auto;
-  padding-top: 60px;
+  padding-top: auto;
 }
 
 nav {

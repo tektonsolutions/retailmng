@@ -1,171 +1,137 @@
 <template name="deliveryEntry">
   <div class="row">
-    <h5 class="lighten left-indent">
-      <b>DELIVERY REGISTER ENTRY</b>
-    </h5>
-    <div class="col s12 m8 l8 vertical-seperator">
-      <ul class="collapsible" data-collapsible="accordion">
-      <li>
-        <div class="collapsible-header active"><i class="material-icons right">info_outline</i>Delivery Info</div>
-        <div class="collapsible-body">
-          <div class="row">
-            <br>
-            <div class="input-field col s5 m5 l4">
-              <input class="validate" id="del_num" type="text">
-              <label for="del_num">Delivery No.</label>
-            </div>
-            <div class="input-field col s4">
-              <label for="del_date">Date Delivered</label>
-              <input class="datepicker" id="del_date" type="date">
-            </div>
-            <div class="input-field col s3 l4">
-              <label for="del_due">Due Date</label>
-              <input class="datepicker" id="del_due" type="date">
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s6 m5 l4">
-              <select>
-                <option disabled selected value="">Supplier</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
-              </select>
-              <label>Supplier</label>
-            </div>
-            <div class="input-field col s2 m2 l3">
-              <input class="validate" id="del_term" type="text" value="">
-              <label for="del_term">Term</label>
-            </div>
-            <div class="input-field col s5">
-              <input class="validate" id="del_receipt" type="text" value="">
-              <label for="del_receipt">D.R. No.</label>
-            </div>
-          </div>
+    <div class="col s12 m8 l8">
+      <br>
+      <div class="row col s12 m12 l12 no-margin no-padding">
+        <div class="input-field col s2 m2 l2">
+          <input class="validate center" id="inv_qty" placeholder="Quantity" type="text">
         </div>
-      </li>
-    </ul>
-    <br>
-      <h6 class="center-align">
-        <b>INVENTORY ENTRY</b>
-      </h6>
-      <div class="row">
-        <div class="input-field col s1">
-          <input class="validate" id="inv_qty" placeholder="Qty." type="text">
+        <div class="input-field col s7 m7 l7">
+          <input class="validate" id="inv_item" placeholder="Item Description / Item Code" type="text">
         </div>
-        <div class="input-field col s2">
-          <select>
-            <option disabled selected value="">Unit</option>
-            <option value="1">Thanks Obama</option>
-            <option value="2">Pabebe Duterte</option>
-            <option value="3">Marmar Roroxas</option>
-          </select>
+        <div class="input-field col s2 m2 l2">
+          <input class="validate center" id="inv_unitprice" placeholder="Unit Price" type="text">
         </div>
-        <div class="input-field col s5">
-          <input class="validate" id="inv_item" placeholder="Item" type="text">
-        </div>
-        <div class="input-field col s2">
-          <select>
-            <option disabled selected value="">Category</option>
-            <option value="1">Thanks Obama</option>
-            <option value="2">Pabebe Duterte</option>
-            <option value="3">Marmar Roroxas</option>
-          </select>
-        </div>
-        <div class="input-field col s2">
-          <input class="validate" id="inv_unitprice" placeholder="U/P" type="text">
-        </div>
+        <br>
+        <button class="col s1 m1 l1 right btn waves-effect waves-light"><i class="material-icons">arrow_downward</i></button>
       </div>
 
-      <div class="row no-margin">
+      <div class="row no-margin no-padding">
         <!-- {{> leaderboard}} -->
+        <br><br><br><br>
+        <table class="bordered centered">
+          <thead>
+            <tr></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="#editqty_modal" class="modal-trigger">20</a></td>
+              <td>Bag(s)</td>
+              <td>Cement</td>
+              <td>250.00</td>
+              <td>5000.00</td>
+              <td><a href="#!" class="red-text text-lighten-2"><i class="material-icons">delete</i></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Modal Structure -->
+      <div id="editqty_modal" class="modal col s3 m3 l3 offset-l4">
+        <div class="modal-content">
+          <button class="col s3 m3 l3 btn waves-effect waves-light">
+            <i class="material-icons">remove</i>
+          </button>
+          <input class="validate col s6 m6 l6 center" id="count_qty" placeholder="Qty." type="text">
+          <button class="col s3 m3 l3 btn waves-effect waves-light">
+            <i class="material-icons">add</i>
+          </button>
+        </div>
+        <br>
+        <div class="modal-footer">
+          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat red-text left">DELETE</a>
+          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+        </div>
       </div>
     </div>
 
     <div class="col s12 m4 l4">
-      <div class="row">
-        <div class="col s12 m10 l10 no-padding">
-          <div class="row">
-            <div class="input-field col s12">
-              <select>
-                <option disabled selected value="">Personnel</option>
-                <option value="1">Thanks Obama</option>
-                <option value="2">Pabebe Duterte</option>
-                <option value="3">Marmar Roroxas</option>
-              </select>
-              <label>Received By</label>
-            </div>
+      <br>
+      <div class="card-panel grey lighten-5 no-margin">
+        <h6 class="no-margin center"><b>DELIVERY REGISTER INFO</b></h6>
+        <div class="row">
+          <div class="input-field col s4 m4 l4">
+            <input class="validate" id="del_num" type="text">
+            <label for="del_num">Delivery No.</label>
           </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <select>
-                <option class="teal" disabled selected value="">Personnel</option>
-                <option value="1">Jessica Johnson</option>
-                <option value="2">Chuck Norris</option>
-                <option value="3">Adolf Poe Hitler</option>
-              </select>
-              <label>Encoded By</label>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col s10 no-padding">
-          <div class="row no-margin">
-            <div class="col s3 m5">
-              <b>VAT SALES</b>
-            </div>
-            <div class="col left-align teal-text s6">
-              ₱0.00
-            </div>
-          </div>
-          <div class="row no-margin">
-            <div class="col s3 m5">
-              <b>12% VAT</b>
-            </div>
-            <div class="col left-align teal-text s6">
-              ₱0.00
-            </div>
-            <br>
+          <div class="input-field col s8 m8 l8">
+            <input class="validate" id="del_receipt" type="text" value="">
+            <label for="del_receipt">D.R. No.</label>
           </div>
         </div>
         <div class="row">
-          <div class="col s10">
-            <div class="input-field no-padding col s7 m8">
-              <input class="validate" id="del_total" placeholder="Total" type="text">
+          <div class="input-field col s6 m6 l6">
+            <label for="del_date">Date Delivered</label>
+            <input class="datepicker" id="del_date" type="date">
+          </div>
+          <div class="input-field col s6 m6 l6">
+            <label for="del_due">Due Date</label>
+            <input class="datepicker" id="del_due" type="date">
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s8 m8 l8">
+            <select>
+              <option disabled selected value="">Supplier</option>
+              <option value="1">Option 1</option>
+              <option value="2">Option 2</option>
+              <option value="3">Option 3</option>
+            </select>
+            <label>Supplier</label>
+          </div>
+          <div class="input-field col s4 m4 l4">
+            <input class="validate" id="del_term" type="text" value="">
+            <label for="del_term">Term</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s10 no-padding">
+            <div class="row no-margin">
+              <div class="col s3 m5">
+                <b>VAT SALES</b>
+              </div>
+              <div class="col left-align teal-text s6">
+                ₱0.00
+              </div>
+            </div>
+            <div class="row no-margin">
+              <div class="col s3 m5">
+                <b>12% VAT</b>
+              </div>
+              <div class="col left-align teal-text s6">
+                ₱0.00
+              </div>
+              <br>
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="col hide-on-large-only s7 m7">
-        <ul class='dropdown-content' id='dropdown2'>
-          <li>
-            <a href="#!">Cancel</a>
-          </li>
-          <li>
-            <a href="#!">Delete</a>
-          </li>
-          <li>
-            <a href="#!">Print</a>
-          </li>
-          <li class="divider"></li>
-          <li>
-            <a href="#!">Save</a>
-          </li>
-        </ul>
-        <a class="btn-flat right waves-effect dropdown-option no-padding waves-light dropdown-button" data-activates='dropdown2' href='#'>
-          <i class="dropdown-option material-icons">arrow_drop_down_circle</i>
-        </a>
-      </div>
-    </div>
-  </div>
-  {{> ui_script}}
-
-  <footer class="page-footer transparent">
         <div class="row">
-          <div class="col s4 offset-s8 hide-on-med-and-down no-padding">
-            <div class="row col s12 right-align no-padding hide-on-med-and-down">
+          <div class="input-field col s5">
+            <input class="validate" id="del_discount" placeholder="Discount" type="text">
+          </div>
+          <div class="input-field no-padding col s7">
+            <input class="validate" id="del_total" placeholder="TOTAL" type="text">
+          </div>
+        </div>
+        <div class="row">
+          <button class="col s8 offset-s2 modal-trigger waves-effect waves-light btn-large btn-flat grey lighten-5" href="#verify_modal">Verify Receiver</button>
+        </div>
+        <div class="row">
+          <button class="col s8 offset-s2 modal-trigger waves-effect waves-light btn-large btn-flat grey lighten-5" href="#verify_modal">Verify Encoder</button>
+        </div>
+        <div class="row no-margin">
+          <div class="hide-on-med-and-down no-padding">
+            <div class="row no-padding">
               <button class="col s2 btn waves-effect side-indent waves-light">
                 <i class="material-icons">keyboard_return</i>
               </button>
@@ -179,5 +145,54 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!--verify modal-->
+    <div id="verify_modal" class="modal col s4 m4 l4 offset-l4">
+      <div class="modal-content">
+        <div class="center">
+          PERSONNEL VERIFICATION
+        </div>
+        <br>
+        <div class="row">
+          <div class="col s6">
+            <select>
+              <option disabled selected value="">Personnel</option>
+              <option value="1">Option 1</option>
+              <option value="2">Option 2</option>
+              <option value="3">Option 3</option>
+            </select>
+          </div>
+          <div class="col s6 input-field right no-margin">
+            <input id="pw" placeholder="Personnel Password" type="password">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">VERIFY</a>
+      </div>
+    </div>
+  </div>
+  {{> ui_script}}
+
+  <footer class="page-footer transparent">
+    <!--
+    <div class="row">
+      <div class="col s4 offset-s8 hide-on-med-and-down no-padding">
+        <div class="row col s12 right-align no-padding hide-on-med-and-down">
+          <button class="col s2 btn waves-effect side-indent waves-light">
+            <i class="material-icons">keyboard_return</i>
+          </button>
+          <button class="col s2 btn waves-effect side-indent waves-light">
+            <i class="material-icons">delete</i>
+          </button>
+          <button class="col s2 btn waves-effect side-indent waves-light">
+            <i class="material-icons">print</i>
+          </button>
+          <button class="col s5 btn side-indent waves-effect blue waves-light right">Save</button>
+        </div>
+      </div>
+    </div> -->
   </footer>
 </template>

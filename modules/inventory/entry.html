@@ -1,11 +1,9 @@
 <template name="inventoryEntry">
   <div class="row">
-    <h5 class="lighten">
-      <b>INVENTORY ENTRY</b>
-    </h5>
-    <div class="col s12 m6 l6 vertical-seperator">
+    <div class="col s12 m4 l4">
+      <br>
       <div class="row">
-        <div class="input-field col s4">
+        <div class="input-field col s6">
           <input class="validate" id="inv_code" type="text">
           <label for="item_prefix">Item Code</label>
         </div>
@@ -26,6 +24,8 @@
           </select>
           <label for="inv_unit">Unit of Measure</label>
         </div>
+      </div>
+      <div class="row">
         <div class="input-field col s6">
           <select>
             <option disabled selected value="">Category</option>
@@ -36,67 +36,79 @@
           <label>Item Category</label>
         </div>
       </div>
+    </div>
+    <br>
+    <div class="col s12 m4 l4">
       <div class="row">
-        <div class="input-field col s3">
+        <div class="input-field col s6">
           <input class="validate" id="inv_avecost" type="text">
           <label for="inv_avecost">Average Cost</label>
         </div>
-        <div class="input-field col s3">
+        <div class="input-field col s6">
           <input class="validate" id="inv_lastcost" type="text">
           <label for="inv_lastcost">Current Cost</label>
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s5">
+        <div class="input-field col s8">
           <input class="validate" id="inv_sellingprice" type="text">
           <label for="inv_sellingprice">Selling Price</label>
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s5">
+        <div class="input-field col s8">
           <input class="validate" id="inv_qty" type="text">
           <label for="inv_qty">Qty. on Hand</label>
         </div>
       </div>
-
-    </div>
-    <div class="col s12 m6 l6">
       <div class="row">
-        <div class="input-field col s12 m6 l4">
+        <div class="input-field col s6 m6 l6">
           <input class="validate" id="inv_reorderqty" type="text">
           <label for="inv_reorderqty">Reorder Qty.</label>
         </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12 m6 l4">
+        <div class="input-field col s6 m6 l6">
           <input class="validate" id="inv_reorderpt" type="text">
           <label for="inv_reorderpt">Reorder Pt.</label>
         </div>
       </div>
-      <hr class="dashed top-indent">
-      <b>CONVERT TO RETAIL</b>
-      <div class="row top-indent">
-        <div class="input-field col s3">
-          <select>
-            <option disabled selected value="">Unit</option>
-            <option value="1">grams</option>
-            <option value="2">kilo</option>
-            <option value="3">ounce</option>
-          </select>
-          <label>Presets</label>
+    </div>
+    <br>
+    <div class="col s12 m4 l4">
+      <div class="card-panel grey lighten-5 no-margin">
+        <h6 class="center"><b>CONVERT TO RETAIL</b></h6>
+        <div class="row top-indent">
+          <div class="input-field col s12">
+            <select>
+              <option disabled selected value="">Unit</option>
+              <option value="1">grams</option>
+              <option value="2">kilo</option>
+              <option value="3">ounce</option>
+            </select>
+            <label>Presets</label>
+          </div>
         </div>
+        <button class="btn right waves-effect waves-light side-indent">GO TO RETAIL PRESETS</button>
+        <br><br>
       </div>
     </div>
   </div>
   {{> ui_script}}
 
-  <footer class="page-footer transparent">
+  <footer class="col s4 offset-s8 page-footer transparent">
         <div class="row">
-          <div class="row right top-indent">
-            <button class="btn right left-indent waves-effect blue waves-light side-indent">Save</button>
-            <button class="btn waves-effect side-indent right waves-light">Print</button>
-            <button class="btn waves-effect side-indent right waves-light">Delete</button>
-            <button class="btn waves-effect side-indent right waves-light">Cancel</button>
+          <div class="col s4 offset-s8 no-padding">
+            <div class="row col s12 right-align no-padding">
+              <button class="col s2 btn waves-effect side-indent waves-light">
+                <i class="material-icons">keyboard_return</i>
+              </button>
+              <button class="col s2 btn waves-effect side-indent waves-light">
+                <i class="material-icons">delete</i>
+              </button>
+              <button class="col s2 btn waves-effect side-indent waves-light">
+                <i class="material-icons">print</i>
+              </button>
+              <button class="col s5 btn side-indent waves-effect blue waves-light right">Save</button>
+            </div>
           </div>
         </div>
   </footer>

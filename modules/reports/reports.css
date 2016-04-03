@@ -1,4 +1,9 @@
-.tabfont {
+.tabs {
   font-size: 13px;
   font-weight: bold;
+}
+
+td {
+  padding: 3px;
+  font-size: 13px;
 }

@@ -1,52 +1,247 @@
 <template name="reports">
   <br>
   <div class="row">
-    <div class="col s9 m9 l9">
-          <ul class="tabs tabfont">
-            <li class="tab col s1 m2 l2"><a class="active" href="#dsr">Sales Report</a></li>
-            <li class="tab col s1 m2 l2"><a href="#im">Inv. Masterlist</a></li>
-            <li class="tab col s1 m2 l2"><a href="#ss">Stock Status</a></li>
-            <li class="tab col s1 m2 l2"><a href="#dr">Delivery Register</a></li>
-            <li class="tab col s1 m2 l2"><a href="#sir">Invoice Register</a></li>
-          </ul>
+    <div class="col s9 m9 l9 no-padding">
+      <ul class="tabs tabfont">
+        <li class="tab col s1 m2 l2"><a class="active" href="#dsr">Daily Sales Report</a></li>
+        <li class="tab col s1 m2 l2"><a href="#im">Inventory Masterlist</a></li>
+        <li class="tab col s1 m2 l2"><a href="#ss">Stock Status</a></li>
+        <li class="tab col s1 m2 l2"><a href="#dr">Delivery Register</a></li>
+        <li class="tab col s1 m2 l2"><a href="#sir">Invoice Register</a></li>
+      </ul>
 
       <!--Daily Sales Report-->
-        <div id="dsr" class="col s12">
-          <br>
-          <ul class="collection">
-            <li class="collection-item">Alvin</li>
-            <li class="collection-item">Alvin</li>
-            <li class="collection-item">Alvin</li>
-            <li class="collection-item">Alvin</li>
-          </ul>
+      <div id="dsr" class="col s12">
+        <br>
+        <div class="col s9">
+          <table class="bordered centered">
+            <thead>
+              <tr>
+                <th data-field="date">Date</th>
+                <th data-field="gross">Gross Sales</th>
+                <th data-field="returns">Returns</th>
+                <th data-field="discounts">Discounts</th>
+                <th data-field="net">Net Sales</th>
+                <th data-field="vat">VAT</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>02/02/2015</td>
+                <td>20000.00</td>
+                <td>100.00</td>
+                <td>80.00</td>
+                <td>19820.00</td>
+                <td>2378.40</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+        <div class="col s3">
+          <div class="card-panel grey lighten-5">
+            <div class="row center">
+              <b>TOTAL</b>
+            </div>
+            <div class="row">
+              <b>Gross Sales: </b> xxxx.xx
+            </div>
+            <div class="row">
+              <b>Returns: </b> xxxx.xx
+            </div>
+            <div class="row">
+              <b>Discounts: </b> xxxx.xx
+            </div>
+            <div class="row">
+              <b>Net Sales: </b> xxxx.xx
+            </div>
+            <div class="row">
+              <b>VAT:</b> xxxx.xx
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!--Inventory Masterlist-->
-      <div id="im" class="col s10">Test 2</div>
+      <div id="im" class="col s12">
+        <br>
+        <div class="col s9">
+          <table class="bordered centered">
+            <thead>
+              <tr>
+                <th data-field="code">Item Code</th>
+                <th data-field="desc">Description</th>
+                <th data-field="price">Unit Price</th>
+                <th data-field="qty">Qty</th>
+                <th data-field="unit">Unit</th>
+                <th data-field="avg">Avg Cost</th>
+                <th data-field="total">Total Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>C0001</td>
+                <td>Angle Bar</td>
+                <td>270.00</td>
+                <td>7.0</td>
+                <td>L</td>
+                <td>260.00</td>
+                <td>1820.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col s3">
+          <div class="card-panel grey lighten-5">
+            <div class="row center">
+              <b>TOTAL INVENTORY COST</b>
+            </div>
+            <div class="row center no-margin">
+              xxxx.xx
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!--Low Stock Inventory-->
-      <div id="ss" class="col s10">Test 3</div>
+      <div id="ss" class="col s12">
+        <br>
+        <table class="bordered centered">
+          <thead>
+            <tr>
+              <th data-field="code">Item Code</th>
+              <th data-field="desc">Description</th>
+              <th data-field="qty">Qty</th>
+              <th data-field="unit">Unit</th>
+              <th data-field="orderpt">Reorder Pt</th>
+              <th data-field="orderqty">Reorder Qty</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>C0001</td>
+              <td>Angle Bar</td>
+              <td>7.0</td>
+              <td>L</td>
+              <td>10.0</td>
+              <td>50.0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <!--Delivery Register-->
-      <div id="dr" class="col s10">Test 4</div>
+      <div id="dr" class="col s12">
+        <br>
+        <div class="col s9">
+          <table class="bordered centered">
+            <thead>
+              <tr>
+                <th data-field="date">Date</th>
+                <th data-field="delnum">Delivery No.</th>
+                <th data-field="drnum">DR No.</th>
+                <th data-field="supplier">Supplier</th>
+                <th data-field="amount">Amount</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>02/28/2015</td>
+                <td>715</td>
+                <td>78462</td>
+                <td>Wescon Marketing</td>
+                <td>134100.00</td>
+                <td><a href="#"><i class="material-icons">print</i></a></td>
+                <td><a href="#"><i class="material-icons">publish</i></a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col s3">
+          <div class="card-panel grey lighten-5">
+            <div class="row center">
+              <b>TOTAL</b>
+            </div>
+            <div class="row center no-margin">
+              xxxx.xx
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!--Sales Invoice Register-->
-      <div id="sir" class="col s10">Test 5</div>
-      </div>
-      <div class="col s3 m3 l3 offset-s10">
+      <div id="sir" class="col s12">
+        <br>
+        <div class="col s9">
+          <table class="bordered centered">
+            <thead>
+              <tr>
+                <th data-field="date">Date</th>
+                <th data-field="transnum">Trans. No.</th>
+                <th data-field="invnum">Invoice No.</th>
+                <th data-field="customer">Customer</th>
+                <th data-field="personnel">Personnel</th>
+                <th data-field="gtotal">Grand Total</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>12/28/2015</td>
+                <td>00001</td>
+                <td>00-00001</td>
+                <td>WALK-IN</td>
+                <td>Rody</td>
+                <td>100000.00</td>
+                <td><a href="#"><i class="material-icons">print</i></a></td>
+                <td><a href="#"><i class="material-icons">publish</i></a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col s3">
           <div class="card-panel grey lighten-5">
-            <h6 class="center">SEARCH FILTER</h6>
-            <div class="row">
-              <p>
-                <input class="with-gap side-indent" name="search_group" type="radio" id="item"  />
-                <label for="item">Product</label><br>
-                <input class="with-gap side-indent" name="search_group" type="radio" id="supplier"  />
-                <label for="supplier">Supplier</label><br>
-                <input class="with-gap side-indent" name="search_group" type="radio" id="category"  />
-                <label for="category">Category</label>
-              </p>
+            <div class="row center">
+              <b>TOTAL</b>
             </div>
-            <h6 class="center">DATE RANGE</h6>
+            <div class="row center no-margin">
+              xxxx.xx
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+      <div class="col s3 m3 l3 offset-s10">
+          <div class="card-panel grey lighten-5 top-indent">
+            <h6 class="center"><b>SEARCH FILTER</b></h6>
+            <div class="row no-margin">
+              <div class="input-field">
+                <input class="validate" id="" type="text" placeholder="Search Product">
+              </div>
+            </div>
+            <div class="row no-margin">
+              <div class="input-field col s12 no-padding">
+                <select>
+                  <option value="" disabled selected>Suppliers</option>
+                  <option value="1">All Suppliers</option>
+                  <option value="2">Option 2</option>
+                  <option value="3">Option 3</option>
+                </select>
+              </div>
+            </div>
+            <div class="row no-margin">
+              <div class="input-field col s12 no-padding">
+                <select>
+                  <option value="" disabled selected>Categories</option>
+                  <option value="1">All Categories</option>
+                  <option value="2">Option 2</option>
+                  <option value="3">Option 3</option>
+                </select>
+              </div>
+            </div>
+            <br>
+            <h6 class="center"><b>DATE RANGE</b></h6>
             <div class="row">
               <div class="input-field">
                 <label for="date_from">From</label>
@@ -59,29 +254,30 @@
                 <input class="datepicker" id="date_to" type="date">
               </div>
             </div>
-            <br>
-            <h6 class="center">REPORT OPTION</h6>
-            <div class="row">
-              <p>
-                <input class="with-gap" name="report_group" type="radio" id="summary"  />
-                <label for="summary">Summary</label><br>
-                <input class="with-gap" name="report_group" type="radio" id="detailed"  />
-                <label for="detailed">Detailed</label>
-              </p>
+
+            <div class="row no-margin">
+              <a class='top-indent btn-large blue center col s12 side-indent modal-trigger' href='#print_modal'>Export</a>
             </div>
-            <div class="row">
-              <a class='top-indent dropdown-button btn blue center col s12 side-indent' href='#' data-activates='export_types'>Export/Print</a>
+
+            <!-- Modal Structure -->
+            <div id="print_modal" class="modal col s2 offset-s5">
+              <div class="modal-content">
+                <div class="center">
+                  <b>EXPORT OPTIONS</b><br><br>
+                  <div class="row">
+                    <a href="#!" class="col s12 modal-action modal-close waves-effect red btn-large">PDF</a><br><br>
+                  </div>
+                  <div class="row">
+                    <a href="#!" class="col s12 modal-action modal-close waves-effect blue btn-large">WORD</a><br><br>
+                  </div>
+                  <div class="row">
+                    <a href="#!" class="col s12 modal-action modal-close waves-effect green btn-large">EXCEL</a><br><br>
+                  </div>
+                </div>
+              </div>
             </div>
-            <ul id='export_types' class='dropdown-content'>
-              <li><a href="#!">PDF</a></li>
-              <li><a href="#!">Excel</a></li>
-              <li><a href="#!">Word</a></li>
-              <li class="divider"></li>
-              <li><a href="#" class="red-text text-lighten-2">Print</a></li>
-            </ul>
           </div>
       </div>
   </div>
-
   {{> ui_script}}
 </template>

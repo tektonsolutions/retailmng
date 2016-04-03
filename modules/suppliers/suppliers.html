@@ -54,18 +54,14 @@
 </template>
 
 <template name="supplier">
-    <li class="collection-item dismissable">
-      <p class="no-margin top-indent">
-        <b>{{name}}</b><br>
-        {{address}}<br>
-        {{contact_person}}<br>
-        {{contact_no}}
-      </p>
-      <div class="row no-margin">
-        <a class="secondary-content side-indent red-text text-lighten-2" href="" id="sup_delete"><b>DELETE</b></a>
-        <a class="secondary-content side-indent" href="" id="sup_update">UPDATE</a>
-      </div>
-    </li>
+  <li class="collection-item dismissable">
+    <div>{{name}}
+      <a class="secondary-content side-indent" href="" id="sup_delete">
+        <i class="material-icons red-text text-lighten-2">delete</i>
+      </a>
+      <a class="secondary-content side-indent" href="" id="sup_update"><i class="material-icons">mode_edit</i></a>
+    </div>
+  </li>
 </template>
 
 <template name="supplierModal">
