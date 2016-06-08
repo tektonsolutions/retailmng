@@ -58,5 +58,9 @@ Router.route("/employees", {
 //Reports Route
 Router.route("/reports");
 
+Router.route("/security");
+
+Router.route("/settings");
+
 //retailmng html
 Router.route("/retailmng");

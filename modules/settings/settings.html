@@ -1,0 +1,81 @@
+<template name="settings">
+  <div class="row center no-margin">
+    <h5><b>Settings</b></h5>
+  </div>
+  <div class="row">
+    <div class="col s3 m3 l3">
+      <div class="row center">
+        <h6>General Information</h6>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+         <input id="storename" type="text" class="validate">
+         <label for="storename">Store Name</label>
+        </div>
+      </div>
+      <div class="row no-margin">
+        <div class="input-field col s12">
+          <textarea id="storeaddress" class="materialize-textarea"></textarea>
+          <label for="storeaddress">Store Address</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+         <input id="owner" type="text" class="validate">
+         <label for="owner">Store Owner</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+         <input id="tel" type="tel" class="validate">
+         <label for="tel">Contact No.</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+         <input id="email" type="email" class="validate">
+         <label data-error="Incorrect Format" for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+         <input id="website" type="text" class="validate">
+         <label for="email">Website</label>
+        </div>
+      </div>
+    </div>
+    <div class="col s3 m3 l3">
+      <div class="row center">
+        <h6>Tax Setup</h6>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+         <input id="salestax" type="number" class="validate">
+         <label for="salestax">Sales Tax (%)</label>
+        </div>
+      </div>
+      <div class="row center">
+        <h6>Sequencing Setup</h6>
+      </div>
+      <div class="row no-margin">
+        <div class="input-field col s12">
+         <input id="trans" type="number" class="validate">
+         <label for="trans">Transaction No. Starts</label>
+        </div>
+      </div>
+      <div class="row col offset-s7 no-margin">
+        <input type="checkbox" class="filled-in" id="resetbox" checked="checked"/>
+        <label for="resetbox">Reset Daily</label>
+      </div>
+      <br><br>
+    </div>
+    <div class="col s3 m3 l3">
+      <div class="row center">
+        <h6>Receipt Setup</h6>
+      </div>
+      <div class="row">
+        
+      </div>
+    </div>
+  </div>
+</template>

@@ -1,4 +1,7 @@
 <template name="inventoryEntry">
+  <div class="row center no-margin">
+    <h5><b>Inventory Entry</b></h5>
+  </div>
   <div class="row">
     <div class="col s12 m4 l4">
       <br>
@@ -15,7 +18,11 @@
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s4">
+          <input class="validate" id="inv_qty" type="text">
+          <label for="inv_qty">Qty. on Hand</label>
+        </div>
+        <div class="input-field col s8">
           <select>
             <option disabled selected value="">Unit</option>
             <option value="1">grams</option>
@@ -56,12 +63,6 @@
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s8">
-          <input class="validate" id="inv_qty" type="text">
-          <label for="inv_qty">Qty. on Hand</label>
-        </div>
-      </div>
-      <div class="row">
         <div class="input-field col s6 m6 l6">
           <input class="validate" id="inv_reorderqty" type="text">
           <label for="inv_reorderqty">Reorder Qty.</label>
@@ -87,29 +88,20 @@
             <label>Presets</label>
           </div>
         </div>
-        <button class="btn right waves-effect waves-light side-indent">GO TO RETAIL PRESETS</button>
-        <br><br>
+        <div class="row center">
+          <a class="btn-flat waves-effect waves-light side-indent grey lighten-5" href="{{pathFor route="presets"}}">GO TO RETAIL PRESETS</a>
+        </div>
+        <div class="row hide-on-med-and-down no-margin no-padding">
+          <a class="col s2 btn-large waves-effect side-indent waves-light">
+            <i class="material-icons">keyboard_backspace</i>
+          </a>
+          <a class="col s2 btn-large waves-effect side-indent waves-light">
+            <i class="material-icons">delete</i>
+          </a>
+          <a class="col s5 btn-large side-indent waves-effect blue waves-light right">Save</a>
+        </div>
       </div>
     </div>
   </div>
   {{> ui_script}}
-
-  <footer class="col s4 offset-s8 page-footer transparent">
-        <div class="row">
-          <div class="col s4 offset-s8 no-padding">
-            <div class="row col s12 right-align no-padding">
-              <button class="col s2 btn waves-effect side-indent waves-light">
-                <i class="material-icons">keyboard_return</i>
-              </button>
-              <button class="col s2 btn waves-effect side-indent waves-light">
-                <i class="material-icons">delete</i>
-              </button>
-              <button class="col s2 btn waves-effect side-indent waves-light">
-                <i class="material-icons">print</i>
-              </button>
-              <button class="col s5 btn side-indent waves-effect blue waves-light right">Save</button>
-            </div>
-          </div>
-        </div>
-  </footer>
 </template>

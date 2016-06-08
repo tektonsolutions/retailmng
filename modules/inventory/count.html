@@ -1,34 +1,49 @@
 <template name="inventoryCount">
+  <div class="row no-margin center">
+    <h5><b>Physical Inventory Count</b></h5>
+  </div>
   <div class="row">
     <div class="col offset-m1 m10 offset-l1 l10 s12">
-      <h5 class="lighten">
-        <b>PHYSICAL INVENTORY COUNT</b>
-      </h5>
-      <div class="input-field col s8 m6 l6">
+      <div class="input-field col s12 m5 l5 no-margin no-padding">
         <input class="search-table validate" id="icon_prefix" type="text">
         <label for="icon_prefix">Search</label>
         <i class="material-icons top-indent prefix" id="search_icon">search</i>
       </div>
-      <div class="col s4 m6 l6 top-indent no-padding">
-        <a class="btn right left-indent waves-effect blue waves-light modal-trigger" href="{{pathFor route="inventory-perform"}}">Create</a>
+      <div class="col s12 m4 l4 right">
+        <a class="btn-large right left-indent waves-effect blue waves-light" href="{{pathFor route="inventory-perform"}}">Create</a>
       </div>
-
     </div>
   </div>
   <div class="row">
     <div class="col offset-m1 m10 offset-l1 l10 s12">
       <!-- {{> leaderboard}} -->
+      <table class="bordered centered">
+        <thead>
+          <tr>
+            <th data-field="title">Inventory Count Title</th>
+            <th data-field="date">Date</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Construction Count</td>
+            <td>4/5/2016</td>
+            <td><a href="#"><i class="material-icons">edit</i></a></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
 
 <template name="inventoryPerform">
+  <div class="row center no-margin">
+    <h5><b>Perform Inventory Count</b></h5>
+  </div>
   <div class="row">
-    <h5 class="lighten left-indent">
-      <b>PERFORM INVENTORY COUNT</b>
-    </h5>
     <br>
-    <div class="col s12 m8 l8 vertical-seperator">
+    <div class="col s12 m8 l8">
       <div class="row">
         <div class="input-field col s8">
           <input class="validate" id="count_title" type="text">
@@ -62,19 +77,42 @@
     </div>
 
     <div class="col s12 m4 l4">
-      <div class="row">
-        <div class="input-field col s7 no-padding no-margin">
-          <p class="no-margin">
-            <input checked="checked" class="with-gap" id="full" name="group3" type="radio"/>
-            <label class="top-indent" for="full">FULL COUNT</label>
-            <input class="with-gap" id="partial" name="group3" type="radio"/>
-            <label for="partial">PARTIAL COUNT</label>
-          </p>
+      <div class="card-panel grey lighten-5">
+        <div class="row">
+          <div class="input-field col s7 no-padding no-margin">
+            <p class="no-margin">
+              <input checked="checked" class="with-gap" id="full" name="group3" type="radio"/>
+              <label class="top-indent" for="full">FULL COUNT</label>
+              <input class="with-gap" id="partial" name="group3" type="radio"/>
+              <label for="partial">PARTIAL COUNT</label>
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="row col s11 offset-s1">
-        <div class="input-field">
-          <input class="validate" id="search" placeholder="Supplier or Category" type="text" value="">
+        <div class="row">
+          <div class="input-field col s6">
+            <select>
+              <option selected value="1">All Suppliers</option>
+            </select>
+          </div>
+          <div class="input-field col s6">
+            <select>
+              <option selected value="1">All Categories</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="row hide-on-med-and-down no-margin no-padding">
+            <a class="col s2 btn-large waves-effect side-indent waves-light">
+              <i class="material-icons">keyboard_backspace</i>
+            </a>
+            <a class="col s2 btn-large waves-effect side-indent waves-light">
+              <i class="material-icons">print</i>
+            </a>
+            <a class="col s2 btn-large waves-effect side-indent waves-light">
+              <i class="material-icons">delete</i>
+            </a>
+            <a class="col s5 btn-large side-indent waves-effect blue waves-light right">Save</a>
+          </div>
         </div>
       </div>
 
@@ -103,19 +141,6 @@
   {{> ui_script}}
 
   <footer class="page-footer transparent">
-        <div class="row">
-            <div class="row col s4 offset-s8 right-align no-padding hide-on-med-and-down">
-              <button class="col s2 btn waves-effect side-indent waves-light">
-                <i class="material-icons">keyboard_return</i>
-              </button>
-              <button class="col s2 btn waves-effect side-indent waves-light">
-                <i class="material-icons">delete</i>
-              </button>
-              <button class="col s2 btn waves-effect side-indent waves-light">
-                <i class="material-icons">print</i>
-              </button>
-              <button class="col s5 btn side-indent waves-effect blue waves-light right">UPDATE INVENTORY</button>
-            </div>
-        </div>
+
   </footer>
 </template>

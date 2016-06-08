@@ -1,18 +1,19 @@
 <template name="inventory">
+  <div class="row no-margin center">
+    <h5><b>Inventory Register</b></h5>
+  </div>
   <div class="row">
-    <div class="col offset-m1 m10 offset-l1 l10 s12">
-      <h5>
-        <b>INVENTORY</b>
-      </h5>
-      <div class="input-field col s10 m10 l5">
-        <input class="search-table validate" id="search_prefix" type="text">
-        <label for="search_prefix">Search</label>
+    <div class="col s12 m10 l10 offset-m1 offset-l1">
+      <div class="input-field col s12 m5 l5 no-margin no-padding">
+        <input class="search-table validate" id="icon_prefix" type="text">
+        <label for="icon_prefix">Search</label>
         <i class="material-icons top-indent prefix" id="search_icon">search</i>
       </div>
-      <div class="col hide-on-med-and-down s12 top-indent no-padding offset-m1 offset-l1 m11 l6">
-        <a class="btn right left-indent waves-effect blue waves-light" href="{{pathFor route="inventory-entry"}}">Create</a>
-        <a class="btn waves-effect side-indent right waves-light">View Report</a>
+      <div class="col s12 m4 l4 right">
+        <a class="btn-large right left-indent waves-effect blue waves-light" href="{{pathFor route="inventory-entry"}}">Create</a>
+        <a class="btn-large right waves-effect waves-light" href="">View Report</a>
       </div>
+
       <div class="col hide-on-large-only s2 m2 no-padding">
         <ul class='dropdown-content' id='dropdown3'>
           <li>
@@ -30,8 +31,32 @@
     </div>
   </div>
   <div class="row">
-    <div class="col offset-m1 m10 offset-l1 l10 s12">
+    <div class="col s12 m10 l10 offset-m1 offset-l1">
       <!-- {{> leaderboard}} -->
+      <table class="bordered centered">
+        <thead>
+          <tr>
+            <th data-field="code">Item Code</th>
+            <th data-field="desc">Description</th>
+            <th data-field="price">Unit Price</th>
+            <th data-field="qty">Qty</th>
+            <th data-field="unit">Unit</th>
+            <th data-field="cat">Category</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>C0001</td>
+            <td>Angle Bar</td>
+            <td>270.00</td>
+            <td>7.0</td>
+            <td>L</td>
+            <td>Construction</td>
+            <td><a href="#"><i class="material-icons">edit</i></a></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 

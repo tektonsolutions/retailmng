@@ -4,13 +4,13 @@
       <br>
       <div class="row col s12 m12 l12 no-margin no-padding">
         <div class="input-field col s2 m2 l2">
-          <input class="validate center" id="inv_qty" placeholder="Quantity" type="text">
+          <input class="validate center" id="inv_qty" placeholder="Quantity" type="number" value="1" style="font-size: 20px;">
         </div>
         <div class="input-field col s7 m7 l7">
-          <input class="validate" id="inv_item" placeholder="Item Description / Item Code" type="text">
+          <input class="validate" id="inv_item" placeholder="Item Description/Code" type="text" style="font-size: 20px;">
         </div>
         <div class="input-field col s2 m2 l2">
-          <input class="validate center" id="inv_unitprice" placeholder="Unit Price" type="text">
+          <input class="validate center" id="inv_unitprice" placeholder="Unit Price" type="number" style="font-size: 20px;">
         </div>
         <br>
         <button class="col s1 m1 l1 right btn waves-effect waves-light"><i class="material-icons">arrow_downward</i></button>
@@ -90,8 +90,8 @@
             <label>Supplier</label>
           </div>
           <div class="input-field col s4 m4 l4">
-            <input class="validate" id="del_term" type="text" value="">
-            <label for="del_term">Term</label>
+            <input class="validate" id="del_term" type="number" value="">
+            <label for="del_term">Term (Days)</label>
           </div>
         </div>
         <div class="row">
@@ -129,21 +129,17 @@
         <div class="row">
           <button class="col s8 offset-s2 modal-trigger waves-effect waves-light btn-large btn-flat grey lighten-5" href="#verify_modal">Verify Encoder</button>
         </div>
-        <div class="row no-margin">
-          <div class="hide-on-med-and-down no-padding">
-            <div class="row no-padding">
-              <button class="col s2 btn waves-effect side-indent waves-light">
-                <i class="material-icons">keyboard_return</i>
-              </button>
-              <button class="col s2 btn waves-effect side-indent waves-light">
-                <i class="material-icons">delete</i>
-              </button>
-              <button class="col s2 btn waves-effect side-indent waves-light">
-                <i class="material-icons">print</i>
-              </button>
-              <button class="col s5 btn side-indent waves-effect blue waves-light right">Save</button>
-            </div>
-          </div>
+        <div class="row hide-on-med-and-down no-margin no-padding">
+            <button class="col s2 btn-large waves-effect side-indent waves-light">
+              <i class="material-icons">keyboard_backspace</i>
+            </button>
+            <button class="col s2 btn-large waves-effect side-indent waves-light">
+              <i class="material-icons">delete</i>
+            </button>
+            <button class="col s2 btn-large waves-effect side-indent waves-light">
+              <i class="material-icons">print</i>
+            </button>
+            <button class="col s5 btn-large side-indent waves-effect blue waves-light right">Save</button>
         </div>
       </div>
     </div>
